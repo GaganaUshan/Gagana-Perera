@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { CheckCircle2 } from "lucide-react";
 import styles from "./Contact.module.css";
 
 export function Contact() {
@@ -41,7 +42,7 @@ export function Contact() {
               onClick={handleEmailClick}
               className={styles.primaryBtn}
             >
-              {copied ? "Email Copied!" : "Drop an Email"}
+              Drop an Email
             </a>
             <a href="/CV.pdf" download="Gagana_Perera_CV.pdf" className={styles.secondaryBtn}>
               Download CV
@@ -49,6 +50,21 @@ export function Contact() {
           </div>
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {copied && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 500, damping: 30 }}
+            className="toast-notification"
+          >
+            <CheckCircle2 size={18} />
+            <span>Email copied to clipboard!</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

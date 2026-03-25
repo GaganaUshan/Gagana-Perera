@@ -1,8 +1,13 @@
 "use client";
 
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { CheckCircle2 } from "lucide-react";
 import styles from "./Footer.module.css";
 
 export function Footer() {
+  const [copied, setCopied] = useState(false);
+
   const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent
@@ -10,7 +15,8 @@ export function Footer() {
     if (!isMobile) {
       e.preventDefault();
       navigator.clipboard.writeText("gaganaushan16@gmail.com");
-      alert("Email address copied to clipboard!");
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     }
   };
 
@@ -37,6 +43,20 @@ export function Footer() {
       <div className={styles.copyright}>
         <p>&copy; {new Date().getFullYear()} Gagana Yushan Perera. All rights reserved.</p>
       </div>
+      <AnimatePresence>
+        {copied && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 500, damping: 30 }}
+            className="toast-notification"
+          >
+            <CheckCircle2 size={18} />
+            <span>Email copied to clipboard!</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </footer>
   );
 }
