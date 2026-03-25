@@ -6,7 +6,7 @@ import styles from "./Experience.module.css";
 const experiences = [
   {
     role: "Project Management Intern",
-    company: "1BT",
+    company: "1BillionTech",
     year: "Recent",
     description: "Driving project timelines, managing resources, and ensuring smooth delivery of technical solutions."
   },
