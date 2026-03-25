@@ -1,6 +1,19 @@
+"use client";
+
 import styles from "./Footer.module.css";
 
 export function Footer() {
+  const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
+    if (!isMobile) {
+      e.preventDefault();
+      navigator.clipboard.writeText("gaganaushan16@gmail.com");
+      alert("Email address copied to clipboard!");
+    }
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.footerContainer}`}>
@@ -10,7 +23,7 @@ export function Footer() {
         </div>
         
         <div className={styles.socials}>
-          <a href="mailto:gaganaushan16@gmail.com" target="_blank" rel="noreferrer" aria-label="Email">
+          <a href="mailto:gaganaushan16@gmail.com" onClick={handleEmailClick} target="_blank" rel="noreferrer" aria-label="Email">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
           </a>
           <a href="https://github.com/GaganaUshan" target="_blank" rel="noreferrer" aria-label="GitHub">
