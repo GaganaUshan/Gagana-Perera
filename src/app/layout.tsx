@@ -45,6 +45,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://gagana-perera.vercel.app/',
   },
+  verification: {
+    google: 'qiFGO3btglzISkYbypHbqTzDlQ__qZsa6Sr_TImoYrE',
+  },
 };
 
 export default function RootLayout({
