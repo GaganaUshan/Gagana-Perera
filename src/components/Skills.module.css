@@ -1,0 +1,61 @@
+.skills {
+  padding: 8rem 0;
+  background: var(--background);
+}
+
+.header {
+  margin-bottom: 4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.divider {
+  height: 4px;
+  width: 60px;
+  background: var(--foreground);
+  border-radius: 2px;
+}
+
+.skillsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.skillPill {
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--foreground);
+  cursor: default;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.skillPill:hover {
+  background: var(--foreground);
+  color: var(--background);
+  border-color: var(--foreground);
+}
+
+@media (max-width: 768px) {
+  .skillPill {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
