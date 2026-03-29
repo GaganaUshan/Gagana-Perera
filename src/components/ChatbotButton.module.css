@@ -1,0 +1,24 @@
+.chatWrapper {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+}
+
+.chatBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--foreground);
+  color: var(--background);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+}

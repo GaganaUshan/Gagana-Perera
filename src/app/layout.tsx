@@ -50,6 +50,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { ChatbotButton } from '@/components/ChatbotButton';
+
 export default function RootLayout({
   children,
 }: {
@@ -62,6 +64,7 @@ export default function RootLayout({
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <ChatbotButton />
         </ThemeProvider>
       </body>
     </html>
