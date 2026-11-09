@@ -1,0 +1,468 @@
+.page {
+  min-height: 100vh;
+}
+
+.sectionHeaderRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+@media (max-width: 768px) {
+  .sectionHeaderRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+.headerSubtitle {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--foreground-muted);
+}
+
+.headerQuote {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--foreground-muted);
+  max-width: 440px;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .headerQuote {
+    text-align: left;
+  }
+}
+
+/* Professional Work List */
+.workList {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.workCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 3rem;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .workCard {
+    padding: 1.75rem;
+  }
+}
+
+.workCardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 1.75rem;
+}
+
+@media (max-width: 768px) {
+  .workCardHeader {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+}
+
+.workPeriod {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--foreground-subtle);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.workRole {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.workCompany {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--foreground-muted);
+  margin-top: 0.4rem;
+}
+
+.companyLoc {
+  color: var(--foreground-subtle);
+  font-weight: 400;
+}
+
+.toolsCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 320px;
+}
+
+.toolTag {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.65rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: #d1d1d1;
+}
+
+.workOverview {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #b8b8b8;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.respSection {
+  margin-bottom: 2.25rem;
+}
+
+.respHeading {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--foreground-muted);
+  margin-bottom: 1.25rem;
+}
+
+.respList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.respList li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #cccccc;
+}
+
+.respList li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--foreground-subtle);
+}
+
+.keyProjectBox {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.kpHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.kpTag {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+
+.kpTitle {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.kpDesc {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #b5b5b5;
+  margin-bottom: 1rem;
+}
+
+.kpStack {
+  font-size: 0.85rem;
+  color: var(--foreground-muted);
+  font-family: var(--font-body);
+}
+
+.kpStack strong {
+  color: #ffffff;
+}
+
+/* AIESEC Section */
+.aiesecIntroCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 2.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.aiesecIntroCard p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #c4c4c4;
+  font-weight: 300;
+}
+
+.aiesecRolesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+@media (max-width: 900px) {
+  .aiesecRolesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.aiesecRoleCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+}
+
+.aiesecRoleCard:hover {
+  border-color: var(--border);
+  background: var(--card-hover);
+}
+
+.rolePeriod {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--foreground-subtle);
+  margin-bottom: 0.6rem;
+}
+
+.roleTitle {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
+}
+
+.rolePortfolio {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--foreground-muted);
+  margin-bottom: 1.5rem;
+}
+
+.aiesecBulletList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.aiesecBulletList li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #b0b0b0;
+}
+
+.aiesecBulletList li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #ffffff;
+}
+
+/* Event Contributions */
+.eventsBlock {
+  margin-bottom: 3.5rem;
+}
+
+.eventsHeading {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.eventsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .eventsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eventCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  padding: 1.75rem;
+}
+
+.eventRole {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--foreground-subtle);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.eventName {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.eventDesc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #a8a8a8;
+}
+
+/* Achievements */
+.achieveBlock {
+  margin-bottom: 2rem;
+}
+
+.achieveGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .achieveGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.achieveCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.achieveIcon {
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+}
+
+.achieveTitle {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+}
+
+.achieveOrg {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--foreground-muted);
+  margin-bottom: 1rem;
+}
+
+.achieveNote {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #b0b0b0;
+}
+
+/* Next Page Banner */
+.nextPageBanner {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .nextPageBanner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.nextTitle {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.nextDesc {
+  font-size: 0.95rem;
+  color: var(--foreground-muted);
+  max-width: 580px;
+}

@@ -1,0 +1,317 @@
+.page {
+  min-height: 100vh;
+}
+
+.filterBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  margin-bottom: 3.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.filterGroup {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filterBtn {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.15rem;
+  border: 1px solid var(--border-subtle);
+  background: var(--card-bg);
+  color: var(--foreground-muted);
+  transition: all 0.2s ease;
+}
+
+.filterBtn:hover {
+  color: #ffffff;
+  border-color: var(--border);
+}
+
+.filterActive {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.resultCount {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--foreground-subtle);
+}
+
+/* Project Cards */
+.projectList {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.projectCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 3.5rem;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .projectCard {
+    padding: 1.75rem;
+  }
+}
+
+.projectCard:hover {
+  border-color: var(--border-strong);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+  margin-bottom: 2.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+@media (max-width: 600px) {
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+.numberBox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.projNum {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+}
+
+.projTag {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--foreground-muted);
+}
+
+.categoryLine {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--foreground-subtle);
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.titleBlock {
+  margin-bottom: 1.75rem;
+}
+
+.projTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+
+.projSubtitle {
+  font-size: 1.05rem;
+  color: var(--foreground-muted);
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.roleBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--foreground-subtle);
+}
+
+.roleBadge strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.projOverview {
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: #bbbbbb;
+  margin-bottom: 2.25rem;
+  font-weight: 300;
+}
+
+.contributionsBlock {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--border-subtle);
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.contribHeader {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--foreground-muted);
+  margin-bottom: 1.25rem;
+}
+
+.contribList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contribList li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #d1d1d1;
+}
+
+.contribList li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--foreground-subtle);
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+@media (max-width: 768px) {
+  .cardFooter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.stackWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.stackLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--foreground-subtle);
+}
+
+.stackPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.techPill {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: #e5e5e5;
+}
+
+.linksRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .linksRow {
+    width: 100%;
+    flex-direction: column;
+  }
+  .linksRow a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Next Banner */
+.nextBanner {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .nextBanner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.nextHeading {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.nextText {
+  font-size: 0.95rem;
+  color: var(--foreground-muted);
+  max-width: 580px;
+}

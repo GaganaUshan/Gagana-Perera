@@ -1,0 +1,339 @@
+.page {
+  min-height: 100vh;
+}
+
+.sectionHeaderRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+@media (max-width: 768px) {
+  .sectionHeaderRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+.headerSubtitle {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--foreground-muted);
+}
+
+/* Service Pillars List */
+.pillarsList {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.pillarCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 3rem;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .pillarCard {
+    padding: 1.75rem;
+  }
+}
+
+.pillarCard:hover {
+  border-color: var(--border-strong);
+}
+
+.pillarHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.pillarNumBox {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--foreground-subtle);
+}
+
+.pillarTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.pillarSub {
+  font-size: 0.95rem;
+  color: var(--foreground-muted);
+  font-weight: 400;
+  margin-top: 0.25rem;
+}
+
+.pillarDesc {
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: #bbbbbb;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.deliverablesBox {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--border-subtle);
+  padding: 2rem;
+}
+
+.delivHeading {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--foreground-muted);
+  margin-bottom: 1.25rem;
+}
+
+.delivGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem 2rem;
+}
+
+@media (max-width: 768px) {
+  .delivGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.delivItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+  color: #d1d1d1;
+}
+
+.checkIcon {
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+/* Skills Matrix */
+.matrixGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .matrixGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.matrixCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  .matrixCard {
+    padding: 1.75rem;
+  }
+}
+
+.matrixCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.matrixIcon {
+  color: #ffffff;
+}
+
+.matrixTitle {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.matrixPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.matrixPill {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.85rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: #e0e0e0;
+  transition: all 0.2s ease;
+}
+
+.matrixPill:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+/* Certifications */
+.certsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .certsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.certCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+}
+
+.certCard:hover {
+  border-color: var(--border);
+  background: var(--card-hover);
+  transform: translateY(-2px);
+}
+
+.certTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.awardIcon {
+  color: #ffffff;
+}
+
+.certIssuer {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--foreground-subtle);
+}
+
+.certTitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 0.85rem;
+}
+
+.certDescription {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #a8a8a8;
+  margin-bottom: 1.75rem;
+  font-weight: 300;
+}
+
+.skillsGainedBox {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.gainedLabel {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--foreground-subtle);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.gainedTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.gainedTag {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #c4c4c4;
+}
+
+/* Next Banner */
+.nextBanner {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .nextBanner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.nextHeading {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.nextText {
+  font-size: 0.95rem;
+  color: var(--foreground-muted);
+  max-width: 580px;
+}

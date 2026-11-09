@@ -1,12 +1,13 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: 'https://gagana-perera.vercel.app',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-  ];
+  const baseUrl = 'https://gagana-perera.vercel.app';
+  const routes = ['', '/about', '/experience', '/works', '/services', '/contact'];
+
+  return routes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: route === '' ? 1.0 : 0.8,
+  }));
 }

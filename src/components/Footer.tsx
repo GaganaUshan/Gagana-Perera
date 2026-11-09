@@ -1,62 +1,74 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import { ArrowUp, Mail, Phone, MapPin } from "lucide-react";
 import styles from "./Footer.module.css";
 
-export function Footer() {
-  const [copied, setCopied] = useState(false);
+const footerLinks = [
+  { href: "/about", label: "ABOUT" },
+  { href: "/experience", label: "EXPERIENCE" },
+  { href: "/works", label: "WORKS" },
+  { href: "/services", label: "SERVICES" },
+  { href: "/contact", label: "CONTACT" },
+];
 
-  const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    );
-    if (!isMobile) {
-      e.preventDefault();
-      navigator.clipboard.writeText("gaganaushan16@gmail.com");
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
+export function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.footerContainer}`}>
-        <div className={styles.info}>
-          <h3>Gagana Yushan Perera</h3>
-          <p>Creative tech enthusiast.</p>
-        </div>
-        
-        <div className={styles.socials}>
-          <a href="mailto:gaganaushan16@gmail.com" onClick={handleEmailClick} target="_blank" rel="noreferrer" aria-label="Email">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-          </a>
-          <a href="https://github.com/GaganaUshan" target="_blank" rel="noreferrer" aria-label="GitHub">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-          </a>
-          <a href="https://www.linkedin.com/in/gagana-yushan-9025982aa/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-          </a>
-        </div>
-      </div>
-      <div className={styles.copyright}>
-        <p>&copy; {new Date().getFullYear()} Gagana Yushan Perera. All rights reserved.</p>
-      </div>
-      <AnimatePresence>
-        {copied && (
-          <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 500, damping: 30 }}
-            className="toast-notification"
+        <div className={styles.brandRow}>
+          <Link href="/" className={styles.brandName}>
+            GAGANA YUSHAN PERERA
+          </Link>
+          <button
+            onClick={scrollToTop}
+            className={styles.scrollTopBtn}
+            aria-label="Back to top"
+            title="Scroll to top"
           >
-            <CheckCircle2 size={18} />
-            <span>Email copied to clipboard!</span>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            <span>TOP</span>
+            <ArrowUp size={14} />
+          </button>
+        </div>
+
+        <div className={styles.navRow}>
+          <div className={styles.linksList}>
+            {footerLinks.map((link) => (
+              <Link key={link.href} href={link.href} className={styles.navLink}>
+                {link.label}
+              </Link>
+            ))}
+            <a
+              href="/CV.pdf"
+              download="Gagana_Perera_CV.pdf"
+              className={styles.navLink}
+            >
+              CV (PDF)
+            </a>
+          </div>
+
+          <div className={styles.contactSnippets}>
+            <span className={styles.snippet}>gaganaushan16@gmail.com</span>
+            <span className={styles.dot}>•</span>
+            <span className={styles.snippet}>+94 77 365 0313</span>
+            <span className={styles.dot}>•</span>
+            <span className={styles.snippet}>Sri Lanka</span>
+          </div>
+        </div>
+
+        <div className={styles.copyrightRow}>
+          <p className={styles.copyrightText}>
+            &copy; {new Date().getFullYear()} GAGANA YUSHAN PERERA. ALL RIGHTS RESERVED.
+          </p>
+          <div className={styles.credits}>
+            <span>PROJECT MANAGEMENT • BUSINESS ANALYSIS • CREATIVE TECH</span>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 }

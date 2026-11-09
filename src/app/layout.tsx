@@ -1,22 +1,28 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { ThemeProvider } from '@/components/ThemeProvider';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { ChatbotButton } from '@/components/ChatbotButton';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://gagana-perera.vercel.app'),
-  title: 'Gagana Yushan Perera | Portfolio',
-  description: 'A creative tech enthusiast blending design, AI, and product thinking.',
+  title: {
+    default: 'Gagana Yushan Perera | Project Management, Business Analysis & Creative Tech',
+    template: '%s | Gagana Yushan Perera'
+  },
+  description: 'Gagana Yushan Perera - IT undergraduate at SLIIT bridging technology, business, and creativity to build meaningful digital solutions. Specializing in Project Management, Business Analysis, and UI/UX Design.',
   keywords: [
     'Gagana Yushan', 
     'Gagana Perera', 
     'Gagana Yushan Perera', 
-    'Portfolio', 
-    'Software Engineer', 
-    'AI Enthusiast', 
-    'Tech', 
-    'Sri Lanka'
+    'Project Management',
+    'Business Analysis',
+    'Creative Design',
+    'UI/UX Design',
+    'SLIIT',
+    'AIESEC in SLIIT',
+    'MillionSpaces',
+    'Sri Lanka Tech'
   ],
   authors: [{ name: 'Gagana Yushan Perera' }],
   creator: 'Gagana Yushan Perera',
@@ -24,23 +30,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://gagana-perera.vercel.app/',
-    title: 'Gagana Yushan Perera | Portfolio',
-    description: 'A creative tech enthusiast blending design, AI, and product thinking.',
+    title: 'Gagana Yushan Perera | Project Management, Business Analysis & Creative Tech',
+    description: 'Bridging technology, business, and creativity to build meaningful digital solutions.',
     siteName: 'Gagana Yushan Perera Portfolio',
     images: [
       {
-        url: '/og-image.jpg', // You can later add a specific image for open graph in public folder
+        url: '/gagana-hero.png',
         width: 1200,
         height: 630,
-        alt: 'Gagana Yushan Perera Portfolio',
+        alt: 'Gagana Yushan Perera',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Gagana Yushan Perera | Portfolio',
-    description: 'A creative tech enthusiast blending design, AI, and product thinking.',
-    creator: '@gaganaperera', // Change this to your actual twitter handle if you have one
+    description: 'Bridging technology, business, and creativity to build meaningful digital solutions.',
   },
   alternates: {
     canonical: 'https://gagana-perera.vercel.app/',
@@ -50,22 +55,18 @@ export const metadata: Metadata = {
   },
 };
 
-import { ChatbotButton } from '@/components/ChatbotButton';
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body>
-        <ThemeProvider>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <ChatbotButton />
-        </ThemeProvider>
+        <Navbar />
+        {children}
+        <Footer />
+        <ChatbotButton />
       </body>
     </html>
   );
