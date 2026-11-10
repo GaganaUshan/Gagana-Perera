@@ -81,11 +81,12 @@ export function Hero() {
           >
             <div className={styles.portraitCard}>
               <div className={styles.portraitImageWrap}>
+                <div className={styles.ambientGlow} />
                 <Image
-                  src="/gagana-formal-hero.jpg"
+                  src="/gagana-hero-cutout.png"
                   alt="Gagana Yushan Perera - Project Manager & Business Analyst"
-                  width={680}
-                  height={820}
+                  width={800}
+                  height={800}
                   priority
                   className={styles.heroPortraitImg}
                 />
