@@ -1,9 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, ArrowUp } from "lucide-react";
+import { ArrowUp, Mail, Phone } from "lucide-react";
 import { LinkedInIcon, GitHubIcon } from "./SocialIcons";
 import styles from "./Footer.module.css";
+
+const footerLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/works", label: "Works" },
+  { href: "/experience", label: "Experience" },
+  { href: "/contact", label: "Contact" },
+];
 
 export function Footer() {
   const scrollToTop = () => {
@@ -11,91 +20,83 @@ export function Footer() {
   };
 
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footerWrapper}>
       <div className={`container ${styles.footerContainer}`}>
-        {/* Main Footer Columns */}
-        <div className={styles.mainGrid}>
-          {/* Brand Col */}
+        {/* Top Footer Row */}
+        <div className={styles.topRow}>
           <div className={styles.brandCol}>
+            <Link href="/" className={styles.logoLink}>
+              <span className={styles.logoText}>Gagana<span className={styles.logoDot}>.</span></span>
+            </Link>
             <p className={styles.brandTagline}>
-              Bridging technology, business, and creativity to build meaningful digital solutions. Information Technology undergraduate at SLIIT.
+              Bridging technology, business, and creativity to build meaningful digital solutions.
             </p>
-            <div className={styles.socialsRow}>
+          </div>
+
+          <div className={styles.navCol}>
+            <span className={styles.colTitle}>Navigation</span>
+            <ul className={styles.linksList}>
+              {footerLinks.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className={styles.footerLink}>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className={styles.contactCol}>
+            <span className={styles.colTitle}>Connect</span>
+            <div className={styles.socialIconsRow}>
               <a
-                href="https://www.linkedin.com/in/gagana-yushan-9025982aa/"
+                href="https://www.linkedin.com/in/gagana-yushan"
                 target="_blank"
-                rel="noreferrer"
-                className={styles.socialLink}
-                title="LinkedIn"
+                rel="noopener noreferrer"
+                className={styles.socialBtn}
+                aria-label="LinkedIn Profile"
               >
-                <LinkedInIcon size={16} />
+                <LinkedInIcon size={18} />
               </a>
               <a
                 href="https://github.com/GaganaUshan"
                 target="_blank"
-                rel="noreferrer"
-                className={styles.socialLink}
-                title="GitHub"
+                rel="noopener noreferrer"
+                className={styles.socialBtn}
+                aria-label="GitHub Profile"
               >
-                <GitHubIcon size={16} />
+                <GitHubIcon size={18} />
               </a>
               <a
                 href="mailto:gaganaushan16@gmail.com"
-                className={styles.socialLink}
-                title="Email"
+                className={styles.socialBtn}
+                aria-label="Email Gagana"
               >
-                <Mail size={16} />
+                <Mail size={18} />
+              </a>
+              <a
+                href="tel:+94773650313"
+                className={styles.socialBtn}
+                aria-label="Call Gagana"
+              >
+                <Phone size={18} />
               </a>
             </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className={styles.linksCol}>
-            <h4 className={styles.colHeading}>Navigation</h4>
-            <div className={styles.linksList}>
-              <Link href="/">Home</Link>
-              <Link href="/about">About Me</Link>
-              <Link href="/services">Services</Link>
-              <Link href="/works">Featured Work</Link>
-              <Link href="/experience">Experience &amp; AIESEC</Link>
-              <Link href="/contact">Contact</Link>
-            </div>
-          </div>
-
-          {/* Capabilities */}
-          <div className={styles.linksCol}>
-            <h4 className={styles.colHeading}>Expertise</h4>
-            <div className={styles.linksList}>
-              <Link href="/services">Project Management</Link>
-              <Link href="/services">Business Analysis</Link>
-              <Link href="/services">Agile &amp; Scrum Delivery</Link>
-              <Link href="/services">UI/UX &amp; Creative Tech</Link>
-            </div>
-          </div>
-
-          {/* Resources */}
-          <div className={styles.linksCol}>
-            <h4 className={styles.colHeading}>Resources</h4>
-            <div className={styles.linksList}>
-              <a href="/CV.pdf" download="Gagana_Perera_CV.pdf">Download CV (PDF)</a>
-              <Link href="/works">Case Studies</Link>
-              <Link href="/experience">AIESEC Journey</Link>
-              <Link href="/about">Cambridge Qualifications</Link>
-            </div>
+            <p className={styles.emailDirect}>gaganaushan16@gmail.com</p>
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom Bar with Back to Top (Ashley signature) */}
         <div className={styles.bottomBar}>
-          <p className={styles.copyright}>
-            &copy; {new Date().getFullYear()} Gagana Yushan Perera. All rights reserved.
+          <p className={styles.copyrightText}>
+            © {new Date().getFullYear()} Gagana Yushan Perera. All rights reserved.
           </p>
 
-          <button onClick={scrollToTop} className={styles.topBtn} aria-label="Back to top">
+          <button onClick={scrollToTop} className={styles.backToTopBtn} aria-label="Back to top">
             <span>Back to top</span>
-            <span className={styles.topBtnArrow}>
-              <ArrowUp size={12} />
-            </span>
+            <div className={styles.arrowIconWrap}>
+              <ArrowUp size={14} />
+            </div>
           </button>
         </div>
       </div>

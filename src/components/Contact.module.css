@@ -1,150 +1,250 @@
+.contactSection {
+  position: relative;
+  padding: 6.5rem 0;
+  background-color: var(--bg-main);
+}
+
+.contactContainer {
+  position: relative;
+}
+
+.headerBlock {
+  margin-bottom: 3.5rem;
+}
+
+.contactHeadline {
+  font-size: clamp(2.4rem, 4.8vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+  line-height: 1.15;
+  margin: 0.4rem 0 0.8rem;
+}
+
+.headerSub {
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: 1.65;
+}
+
+/* Contact Grid */
 .contactGrid {
   display: grid;
-  grid-template-columns: 1.35fr 0.85fr;
-  gap: 4.5rem;
+  grid-template-columns: 0.95fr 1.25fr;
+  gap: 3.5rem;
   align-items: flex-start;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 900px) {
   .contactGrid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
 }
 
-.leftCol {
-  display: flex;
-  flex-direction: column;
-}
-
-.formDesc {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  margin-bottom: 2.25rem;
-  max-width: 560px;
-}
-
-.form {
+/* Info Column */
+.infoCol {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+}
+
+.contactCard {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  padding: 1.35rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  transition: all 0.25s ease;
+}
+
+.contactCard:hover {
+  border-color: var(--border-medium);
+  transform: translateY(-2px);
+}
+
+.cardIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--accent-gold-soft);
+  color: var(--accent-gold);
+  flex-shrink: 0;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cardLabel {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.cardValue {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+  word-break: break-all;
+}
+
+.copyBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copyBtn:hover {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #000000;
+}
+
+/* Availability Box */
+.availabilityBox {
+  padding: 1.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  margin-top: 0.5rem;
+}
+
+.availStatusHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+.availDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 10px #10b981;
+}
+
+.availTitle {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.availDesc {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Form Column */
+.formCol {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 2.75rem 2.5rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 600px) {
+  .formCol {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .formRow {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .formRow {
     grid-template-columns: 1fr;
   }
 }
 
-.input,
-.textarea {
-  width: 100%;
-  padding: 0.95rem 1.25rem;
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-light);
-  border-radius: 14px;
-  font-family: inherit;
-  font-size: 0.9rem;
-  color: var(--text-main);
-  outline: none;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.input:focus,
-.textarea:focus {
-  border-color: var(--border-strong);
-  box-shadow: 0 0 0 3px var(--tag-border);
-}
-
-.textarea {
-  resize: vertical;
-  min-height: 130px;
-}
-
-/* Right Info List */
-.rightCol {
+.formGroup {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 }
 
-.infoCard {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-light);
-  border-radius: 20px;
-  padding: 2.25rem 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-}
-
-.infoItem {
-  display: flex;
-  align-items: center;
-  gap: 1.15rem;
-}
-
-.iconWrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: var(--tag-bg);
-  border: 1px solid var(--tag-border);
-  color: var(--text-main);
-  flex-shrink: 0;
-}
-
-.infoTexts {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.infoLabel {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.infoValue {
-  font-size: 0.92rem;
+.formLabel {
+  font-size: 0.8rem;
   font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  padding: 0.85rem 1.15rem;
+  border-radius: 12px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-medium);
   color: var(--text-main);
-  transition: color 0.2s ease;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+  outline: none;
 }
 
-.infoValue:hover {
-  text-decoration: underline;
+.formInput:focus,
+.formTextarea:focus {
+  border-color: var(--accent-gold);
+  background: var(--bg-main);
+  box-shadow: 0 0 0 3px var(--accent-gold-soft);
 }
 
-.copyBtn {
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--border-light);
-  border-radius: 50%;
-  background-color: var(--tag-bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  transition: all 0.2s ease;
-  cursor: pointer;
+.formTextarea {
+  resize: vertical;
 }
 
-.copyBtn:hover {
-  background-color: var(--pill-primary-bg);
-  color: var(--pill-primary-text);
-  border-color: var(--pill-primary-bg);
+.submitBtn {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 0.85rem 1.5rem;
+  border-radius: 9999px;
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid var(--accent-gold);
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  z-index: 100000;
 }

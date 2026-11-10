@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, MapPin, CheckCircle2, ArrowRight, Clock, Copy, Send } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUpRight, Copy, Check, Send } from "lucide-react";
 import styles from "./Contact.module.css";
 
 export function Contact() {
@@ -14,6 +14,7 @@ export function Contact() {
   });
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [copiedField, setCopiedField] = useState<string | null>(null);
 
   const showToast = (msg: string) => {
     setToastMessage(msg);
@@ -22,7 +23,9 @@ export function Contact() {
 
   const copyToClipboard = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
+    setCopiedField(label);
     showToast(`${label} copied to clipboard!`);
+    setTimeout(() => setCopiedField(null), 2000);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -41,158 +44,168 @@ export function Contact() {
     setTimeout(() => {
       window.location.href = `mailto:gaganaushan16@gmail.com?subject=${subject}&body=${body}`;
       setIsSubmitting(false);
-      showToast("Opening email client...");
+      showToast("Opening your email client...");
       setFormData({ name: "", email: "", subject: "", message: "" });
     }, 400);
   };
 
   return (
-    <section className="section" id="contact">
-      <div className="container">
-        {/* Pill Badge */}
-        <div className="pill-badge">
-          <Mail className="pill-badge-icon" />
-          <span>Get in Touch</span>
+    <section className={styles.contactSection} id="contact">
+      <div className={`container ${styles.contactContainer}`}>
+        {/* Top Header matching Mahen Jay */}
+        <div className={styles.headerBlock}>
+          <span className="mil-suptitle">04. Contact</span>
+          <h2 className={styles.contactHeadline}>
+            Let&apos;s <span className="mil-thin">Talk</span>
+          </h2>
+          <p className={styles.headerSub}>
+            Have an exciting opportunity, require Project Management / Business Analysis coordination, or want to discuss a new digital initiative? Reach out directly.
+          </p>
         </div>
 
         <div className={styles.contactGrid}>
-          {/* Left Column: Form */}
-          <div className={styles.leftCol}>
-            <h2 className="headline-section" style={{ marginBottom: "1rem" }}>
-              Let&apos;s build something great together.
-            </h2>
-            <p className={styles.formDesc}>
-              Have an open project management or business analysis opportunity, or want to discuss a product idea? I&apos;d love to connect.
-            </p>
+          {/* Left Column: Direct Info Cards */}
+          <div className={styles.infoCol}>
+            <div className={styles.contactCard}>
+              <div className={styles.cardIconWrap}>
+                <Mail size={20} />
+              </div>
+              <div className={styles.cardInfo}>
+                <span className={styles.cardLabel}>Direct Email</span>
+                <span className={styles.cardValue}>gaganaushan16@gmail.com</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => copyToClipboard("gaganaushan16@gmail.com", "Email")}
+                className={styles.copyBtn}
+                aria-label="Copy Email"
+              >
+                {copiedField === "Email" ? <Check size={16} /> : <Copy size={16} />}
+              </button>
+            </div>
 
-            <form onSubmit={handleSubmit} className={styles.form}>
+            <div className={styles.contactCard}>
+              <div className={styles.cardIconWrap}>
+                <Phone size={20} />
+              </div>
+              <div className={styles.cardInfo}>
+                <span className={styles.cardLabel}>Phone / WhatsApp</span>
+                <span className={styles.cardValue}>+94 77 365 0313</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => copyToClipboard("+94 77 365 0313", "Phone")}
+                className={styles.copyBtn}
+                aria-label="Copy Phone"
+              >
+                {copiedField === "Phone" ? <Check size={16} /> : <Copy size={16} />}
+              </button>
+            </div>
+
+            <div className={styles.contactCard}>
+              <div className={styles.cardIconWrap}>
+                <MapPin size={20} />
+              </div>
+              <div className={styles.cardInfo}>
+                <span className={styles.cardLabel}>Location</span>
+                <span className={styles.cardValue}>Sri Lanka (Open to Remote &amp; Onsite)</span>
+              </div>
+            </div>
+
+            {/* Availability Box */}
+            <div className={styles.availabilityBox}>
+              <div className={styles.availStatusHeader}>
+                <span className={styles.availDot} />
+                <span className={styles.availTitle}>Current Availability</span>
+              </div>
+              <p className={styles.availDesc}>
+                Currently serving as Project Management &amp; Business Analysis Intern at 1BillionTech. Open to select consulting, freelance initiatives, and future PM / BA opportunities.
+              </p>
+            </div>
+          </div>
+
+          {/* Right Column: Clean Form (Ashley style) */}
+          <div className={styles.formCol}>
+            <form onSubmit={handleSubmit} className={styles.contactForm}>
               <div className={styles.formRow}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="name" className={styles.formLabel}>Your Name</label>
+                  <input
+                    id="name"
+                    type="text"
+                    placeholder="e.g. John Doe"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className={styles.formInput}
+                    required
+                  />
+                </div>
+
+                <div className={styles.formGroup}>
+                  <label htmlFor="email" className={styles.formLabel}>Your Email</label>
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="e.g. john@example.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className={styles.formInput}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className={styles.formGroup}>
+                <label htmlFor="subject" className={styles.formLabel}>Subject</label>
                 <input
+                  id="subject"
                   type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="Your Name"
-                  className={styles.input}
-                />
-                <input
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="Your Email"
-                  className={styles.input}
+                  placeholder="e.g. Project Inquiry / Opportunity"
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  className={styles.formInput}
                 />
               </div>
 
-              <input
-                type="text"
-                value={formData.subject}
-                onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                placeholder="Subject (e.g. Project Inquiry)"
-                className={styles.input}
-              />
+              <div className={styles.formGroup}>
+                <label htmlFor="message" className={styles.formLabel}>Your Message</label>
+                <textarea
+                  id="message"
+                  rows={5}
+                  placeholder="Tell me about your project, timeline, or objectives..."
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className={styles.formTextarea}
+                  required
+                />
+              </div>
 
-              <textarea
-                required
-                rows={4}
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                placeholder="How can I help you?"
-                className={styles.textarea}
-              />
-
-              <button type="submit" disabled={isSubmitting} className="btn-pill-primary" style={{ width: "fit-content" }}>
-                <span>{isSubmitting ? "Preparing..." : "Send Message"}</span>
-                <span className="btn-pill-icon-cap">
-                  <Send size={14} />
-                </span>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`mil-button ${styles.submitBtn}`}
+              >
+                <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
+                <ArrowUpRight size={16} />
               </button>
             </form>
           </div>
-
-          {/* Right Column: Direct Info Cards */}
-          <div className={styles.rightCol}>
-            <div className={styles.infoCard}>
-              <div className={styles.infoItem}>
-                <div className={styles.iconWrap}>
-                  <Mail size={18} />
-                </div>
-                <div className={styles.infoTexts}>
-                  <span className={styles.infoLabel}>Email</span>
-                  <a href="mailto:gaganaushan16@gmail.com" className={styles.infoValue}>
-                    gaganaushan16@gmail.com
-                  </a>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => copyToClipboard("gaganaushan16@gmail.com", "Email")}
-                  className={styles.copyBtn}
-                  title="Copy Email"
-                >
-                  <Copy size={13} />
-                </button>
-              </div>
-
-              <div className={styles.infoItem}>
-                <div className={styles.iconWrap}>
-                  <Phone size={18} />
-                </div>
-                <div className={styles.infoTexts}>
-                  <span className={styles.infoLabel}>Phone</span>
-                  <a href="tel:+94773650313" className={styles.infoValue}>
-                    +94 77 365 0313
-                  </a>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => copyToClipboard("+94773650313", "Phone")}
-                  className={styles.copyBtn}
-                  title="Copy Phone"
-                >
-                  <Copy size={13} />
-                </button>
-              </div>
-
-              <div className={styles.infoItem}>
-                <div className={styles.iconWrap}>
-                  <MapPin size={18} />
-                </div>
-                <div className={styles.infoTexts}>
-                  <span className={styles.infoLabel}>Location</span>
-                  <span className={styles.infoValue}>Colombo, Sri Lanka (GMT+5:30)</span>
-                </div>
-              </div>
-
-              <div className={styles.infoItem}>
-                <div className={styles.iconWrap}>
-                  <Clock size={18} />
-                </div>
-                <div className={styles.infoTexts}>
-                  <span className={styles.infoLabel}>Availability</span>
-                  <span className={styles.infoValue}>Open for PM &amp; BA opportunities</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
 
-      {/* Toast Notification */}
-      <AnimatePresence>
-        {toastMessage && (
-          <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 500, damping: 30 }}
-            className="toast-notification"
-          >
-            <CheckCircle2 size={16} />
-            <span>{toastMessage}</span>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        {/* Floating Toast Notification */}
+        <AnimatePresence>
+          {toastMessage && (
+            <motion.div
+              className={styles.toast}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+            >
+              {toastMessage}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </section>
   );
 }

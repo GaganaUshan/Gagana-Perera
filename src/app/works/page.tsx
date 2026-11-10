@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { ArrowUpRight, GitBranch, Layers, CheckCircle2, Globe, Sparkles, FolderKanban } from "lucide-react";
@@ -15,6 +16,7 @@ const projectsList = [
     tag: "PROFESSIONAL",
     category: "Professional Project • Property Technology",
     role: "Project Coordinator & Business Analyst Intern",
+    image: "/carousel-pm.jpg",
     overview:
       "A commercial digital property platform connecting venue providers with businesses and individuals seeking short-to-medium-term workspace bookings. I contribute directly to project coordination, sprint management, stakeholder alignment, and delivery oversight.",
     contributions: [
@@ -37,6 +39,7 @@ const projectsList = [
     tag: "ACADEMIC",
     category: "Academic Project • Team Lead",
     role: "Team Lead & Full-Stack Developer",
+    image: "/carousel-ba.jpg",
     overview:
       "A web-based student migration management platform built to bridge prospective international students and global universities. The system streamlines application pipelines, documents, and includes a full Examination Management System.",
     contributions: [
@@ -59,6 +62,7 @@ const projectsList = [
     tag: "ACADEMIC",
     category: "Academic Project • AI Productivity",
     role: "Project Manager & Frontend Developer",
+    image: "/carousel-cloud.jpg",
     overview:
       "An intelligent email management platform created to eliminate inbox overload. The application leverages AI to automatically parse incoming messages, extract action items, generate concise summaries, and prioritize correspondence.",
     contributions: [
@@ -81,6 +85,7 @@ const projectsList = [
     tag: "PERSONAL",
     category: "Personal Project • AI & Career Technology",
     role: "Creator & Developer",
+    image: "/carousel-tech.jpg",
     overview:
       "An automated web application designed to evaluate user resumes against target industry expectations, pinpoint skill gaps, and provide actionable suggestions to maximize interview callback rates.",
     contributions: [
@@ -96,25 +101,27 @@ const projectsList = [
     }
   },
   {
-    id: "anime-recommendation",
+    id: "avantous-vector-art",
     number: "05",
-    title: "Anime Recommendation System",
-    subtitle: "Intelligent Watchlist & Media Recommendation Engine",
-    tag: "PERSONAL",
-    category: "Personal Project • Web Application",
-    role: "Creator & Developer",
+    title: "Avantous Creative & Anime Vector Art",
+    subtitle: "Custom Vector Illustration, Brand Campaigns & Motion Visuals",
+    tag: "CREATIVE",
+    category: "Creative Experience • Visual Identity",
+    role: "Creative Designer",
+    image: "/gagana-vector-art.jpg", // EXPLICIT REQUIREMENT
+    isVectorFeatured: true,
     overview:
-      "A dynamic media discovery platform that generates personalized anime recommendations tailored to user watchlists, genre weights, and real-time query parameters.",
+      "Bespoke anime and stylized vector artwork crafted during client brand campaigns at Avantous Global. Blends vivid dynamic illumination, detailed line art, and modern digital vector mastery.",
     contributions: [
-      "Integrated Google Custom Search Engine APIs for rich media retrieval.",
-      "Designed a sleek, reactive browsing interface in React and Vite.",
-      "Implemented client-side caching for fast, smooth browsing.",
-      "Successfully deployed the project live."
+      "Handcrafted detailed vector illustration assets using Adobe Illustrator and Photoshop.",
+      "Developed visual storytelling and moodboards for marketing campaigns.",
+      "Created motion animations for social engagement and client digital rollouts.",
+      "Maintained precise brand consistency and aesthetic hierarchy."
     ],
-    techStack: ["React", "Vite", "Python", "Google Custom Search Engine", "Cloud Hosting"],
+    techStack: ["Adobe Illustrator", "Photoshop", "After Effects", "Figma", "Digital Illustration"],
     links: {
       github: "https://github.com/GaganaUshan",
-      external: "https://github.com/GaganaUshan"
+      external: null
     }
   },
   {
@@ -125,6 +132,7 @@ const projectsList = [
     tag: "PERSONAL",
     category: "Personal Project • Full-Stack Web App",
     role: "Full-Stack Developer",
+    image: "/carousel-ux.jpg",
     overview:
       "A centralized property management web application engineered to simplify property portfolio records, tenant logs, lease tracking, and unit availability.",
     contributions: [
@@ -145,6 +153,7 @@ const filterTags = [
   { key: "ALL", label: "ALL PROJECTS" },
   { key: "PROFESSIONAL", label: "PROFESSIONAL" },
   { key: "ACADEMIC", label: "ACADEMIC & AI" },
+  { key: "CREATIVE", label: "CREATIVE & VECTOR" },
   { key: "PERSONAL", label: "PERSONAL APPS" },
 ];
 
@@ -181,14 +190,14 @@ export default function WorksPage() {
               ))}
             </div>
             <span className={styles.resultCount}>
-              SHOWING {filteredProjects.length} OF {projectsList.length} PROJECTS
+              SHOWING {filteredProjects.length} OF {projectsList.length} WORKS
             </span>
           </div>
 
           {/* Projects Editorial List */}
           <div className={styles.projectList}>
             {filteredProjects.map((project) => (
-              <article key={project.id} className={styles.projectCard}>
+              <article key={project.id} className={`${styles.projectCard} ${project.isVectorFeatured ? styles.vectorProjectCard : ""}`}>
                 <div className={styles.cardHeader}>
                   <div className={styles.numberBox}>
                     <span className={styles.projNum}>{project.number}</span>
@@ -197,52 +206,71 @@ export default function WorksPage() {
                   <span className={styles.categoryLine}>{project.category}</span>
                 </div>
 
-                <div className={styles.cardContent}>
-                  <div className={styles.titleBlock}>
-                    <h2 className={styles.projTitle}>{project.title}</h2>
-                    <h3 className={styles.projSubtitle}>{project.subtitle}</h3>
-                    <div className={styles.roleBadge}>
-                      <span>ROLE:</span> <strong>{project.role}</strong>
+                <div className={styles.cardInnerGrid}>
+                  {/* Image Column */}
+                  <div className={styles.projectImageCol}>
+                    <div className={styles.projectImageWrap}>
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        width={520}
+                        height={340}
+                        className={styles.projectThumbnail}
+                      />
+                      <div className={styles.projectImgOverlay} />
                     </div>
                   </div>
 
-                  <p className={styles.projOverview}>{project.overview}</p>
-
-                  <div className={styles.contributionsBlock}>
-                    <h4 className={styles.contribHeader}>KEY DELIVERABLES & CONTRIBUTIONS</h4>
-                    <ul className={styles.contribList}>
-                      {project.contributions.map((c, i) => (
-                        <li key={i}>{c}</li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className={styles.cardFooter}>
-                    <div className={styles.stackWrap}>
-                      <span className={styles.stackLabel}>
-                        <Layers size={13} /> TECH STACK:
-                      </span>
-                      <div className={styles.stackPills}>
-                        {project.techStack.map((tech) => (
-                          <span key={tech} className={styles.techPill}>
-                            {tech}
-                          </span>
-                        ))}
+                  {/* Content Column */}
+                  <div className={styles.cardContent}>
+                    <div className={styles.titleBlock}>
+                      <h2 className={styles.projTitle}>{project.title}</h2>
+                      <h3 className={styles.projSubtitle}>{project.subtitle}</h3>
+                      <div className={styles.roleBadge}>
+                        <span>ROLE:</span> <strong>{project.role}</strong>
                       </div>
                     </div>
 
-                    <div className={styles.linksRow}>
-                      <a
-                        href={project.links.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-outline"
-                      >
-                        VIEW CODE <GitBranch size={14} />
-                      </a>
-                      <Link href="/contact" className="btn-primary">
-                        DISCUSS PROJECT <ArrowUpRight size={14} />
-                      </Link>
+                    <p className={styles.projOverview}>{project.overview}</p>
+
+                    <div className={styles.contributionsBlock}>
+                      <h4 className={styles.contribHeader}>KEY DELIVERABLES & CONTRIBUTIONS</h4>
+                      <ul className={styles.contribList}>
+                        {project.contributions.map((c, i) => (
+                          <li key={i}>{c}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className={styles.cardFooter}>
+                      <div className={styles.stackWrap}>
+                        <span className={styles.stackLabel}>
+                          <Layers size={13} /> TECH STACK:
+                        </span>
+                        <div className={styles.stackPills}>
+                          {project.techStack.map((tech) => (
+                            <span key={tech} className={styles.techPill}>
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className={styles.linksRow}>
+                        <a
+                          href={project.links.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.codeBtn}
+                        >
+                          <span>VIEW CODE</span>
+                          <GitBranch size={14} />
+                        </a>
+                        <Link href="/contact" className="mil-button">
+                          <span>DISCUSS PROJECT</span>
+                          <ArrowUpRight size={14} />
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -258,13 +286,14 @@ export default function WorksPage() {
           <div className={styles.nextBanner}>
             <div>
               <span className="section-tag">NEXT DESTINATION</span>
-              <h3 className={styles.nextHeading}>SERVICES & SKILLS</h3>
+              <h3 className={styles.nextHeading}>SERVICES &amp; SKILLS</h3>
               <p className={styles.nextText}>
-                Learn more about my service offerings, tool stack, and verified Google & SAP certifications.
+                Learn more about my service offerings, tool stack, and verified Google &amp; SAP certifications.
               </p>
             </div>
-            <Link href="/services" className="btn-primary">
-              EXPLORE SERVICES & SKILLS <ArrowUpRight size={15} />
+            <Link href="/services" className="mil-button">
+              <span>EXPLORE SERVICES &amp; SKILLS</span>
+              <ArrowUpRight size={15} />
             </Link>
           </div>
         </div>
@@ -272,4 +301,3 @@ export default function WorksPage() {
     </div>
   );
 }
-

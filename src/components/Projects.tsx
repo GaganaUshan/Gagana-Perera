@@ -2,62 +2,79 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, FolderGit2, ExternalLink } from "lucide-react";
+import { ArrowUpRight, FolderGit2, Layers, Sparkles } from "lucide-react";
 import styles from "./Projects.module.css";
 
 const projectsData = [
   {
     id: "millionspaces",
     title: "MillionSpaces",
-    subtitle: "Enterprise Property Tech Platform",
+    subtitle: "Enterprise Digital Property Platform",
     category: "PROFESSIONAL",
     categoryLabel: "Property Tech • Enterprise",
     role: "Project Coordinator & BA Intern",
-    desc: "Digital commercial property platform where I coordinate sprint tasks, clarify stakeholder requirements, and support delivery.",
-    stack: ["Java Spring Boot", "React.js", "AWS", "Jira"],
+    desc: "A scalable commercial property booking platform where I contribute to project coordination, stakeholder requirement clarification, sprint task allocation, and AWS delivery management.",
+    stack: ["Java Spring Boot", "React.js", "AWS", "Jira", "Excel"],
+    image: "/carousel-pm.jpg",
     link: "/works"
   },
   {
     id: "study-bridge",
     title: "Study Bridge",
-    subtitle: "Student Migration & University Platform",
+    subtitle: "Student Migration & University Management",
     category: "ACADEMIC",
     categoryLabel: "Academic • Team Lead",
     role: "Team Lead & Full-Stack Developer",
-    desc: "Web platform connecting students with global universities, featuring an Examination Management System.",
-    stack: ["MongoDB", "Express.js", "React.js", "Node.js"],
+    desc: "A comprehensive web portal bridging global universities with aspiring students. Led the team with Kanban boards and engineered the Examination Management module end-to-end.",
+    stack: ["MongoDB", "Express.js", "React.js", "Node.js", "Kanban"],
+    image: "/carousel-ba.jpg",
     link: "/works"
   },
   {
     id: "mailmind",
     title: "MailMind",
-    subtitle: "AI Mail Management Platform",
+    subtitle: "AI-Powered Inbox Management Platform",
     category: "ACADEMIC",
     categoryLabel: "AI & Productivity",
     role: "Project Manager & Frontend Developer",
-    desc: "Intelligent email application engineered to summarize, categorize, and prioritize inbox correspondence using modern AI.",
-    stack: ["Next.js", "Tailwind CSS", "MongoDB", "Stripe"],
+    desc: "An intelligent email management tool utilizing natural language AI to summarize, categorize, and prioritize communications, accelerating inbox workflow by 40%.",
+    stack: ["Next.js", "Tailwind CSS", "MongoDB", "AI APIs", "Stripe"],
+    image: "/carousel-cloud.jpg",
     link: "/works"
   },
   {
     id: "smart-cv-analyzer",
     title: "Smart CV Analyzer",
-    subtitle: "AI Career Diagnostics Tool",
+    subtitle: "AI Career Diagnostics & Resume Assessment",
     category: "PERSONAL",
     categoryLabel: "AI & Career Tech",
     role: "Creator & Developer",
-    desc: "Web tool evaluating CVs against target industries, calculating match scores and pinpointing skill gaps.",
+    desc: "Engineered an NLP-powered evaluation engine that parses resumes, scores alignment against specific job roles, and generates actionable improvement roadmaps.",
     stack: ["React.js", "Python", "NLP / AI", "REST API"],
+    image: "/carousel-tech.jpg",
+    link: "/works"
+  },
+  {
+    id: "creative-showcase",
+    title: "Avantous Creative & Vector Art",
+    subtitle: "Visual Identity, Vector Art & Motion Graphics",
+    category: "CREATIVE",
+    categoryLabel: "Brand & Creative Design",
+    role: "Creative Designer",
+    desc: "Curated vector illustration campaigns, marketing assets, motion graphics, and brand styling for global client engagements at Avantous Global.",
+    stack: ["Adobe Illustrator", "Photoshop", "After Effects", "Figma"],
+    image: "/gagana-vector-art.jpg",
     link: "/works"
   }
 ];
 
 const filterTabs = [
-  { key: "ALL", label: "All Projects" },
+  { key: "ALL", label: "All Works" },
   { key: "PROFESSIONAL", label: "Professional" },
   { key: "ACADEMIC", label: "Academic & AI" },
-  { key: "PERSONAL", label: "Personal" },
+  { key: "CREATIVE", label: "Creative & Vector" },
 ];
 
 export function Projects() {
@@ -69,88 +86,91 @@ export function Projects() {
   });
 
   return (
-    <section className="section" id="work">
-      <div className="container">
-        {/* Pill Badge */}
-        <div className="pill-badge">
-          <FolderGit2 className="pill-badge-icon" />
-          <span>Selected Work</span>
-        </div>
-
-        {/* Top Header & Filter Pill Row */}
-        <div className={styles.topRow}>
-          <div>
-            <h2 className="headline-section">Featured digital solutions</h2>
-            <p className={styles.topDesc}>
-              A selection of enterprise, academic, and AI products I&apos;ve coordinated and built.
+    <section className={styles.projectsSection} id="work">
+      <div className={`container ${styles.projectsContainer}`}>
+        {/* Top Header Block */}
+        <div className={styles.headerBlock}>
+          <div className={styles.headerLeft}>
+            <span className="mil-suptitle">03. Featured Portfolio</span>
+            <h2 className={styles.projectsHeadline}>
+              Selected <span className="mil-thin">Works</span> &amp; Case Studies
+            </h2>
+            <p className={styles.headerSub}>
+              A showcase of enterprise coordination, full-stack systems, AI utilities, and creative direction.
             </p>
           </div>
 
-          <div className={styles.filterAndLink}>
-            <div className={styles.tabsPillGroup}>
-              {filterTabs.map((tab) => (
-                <button
-                  key={tab.key}
-                  onClick={() => setActiveTab(tab.key)}
-                  className={`${styles.tabPill} ${activeTab === tab.key ? styles.tabActive : ""}`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-
-            <Link href="/works" className="btn-pill-secondary">
-              <span>View All Projects</span>
-              <span className="btn-pill-secondary-icon">
-                <ArrowRight size={14} />
-              </span>
-            </Link>
+          {/* Filter Tabs */}
+          <div className={styles.filterPillsGroup}>
+            {filterTabs.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`${styles.filterPill} ${activeTab === tab.key ? styles.filterPillActive : ""}`}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* 4 Projects Grid */}
+        {/* Projects Grid */}
         <div className={styles.projectsGrid}>
-          {filtered.map((project, index) => (
+          {filtered.map((item, index) => (
             <motion.div
-              key={project.id}
+              key={item.id}
               className={styles.projectCard}
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0, y: 22 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.45, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className={styles.cardVisual}>
-                <div className={styles.mockupGraphic}>
-                  <span className={styles.graphicTag}>{project.categoryLabel}</span>
-                  <h4 className={styles.graphicTitle}>{project.title}</h4>
-                </div>
+              <div className={styles.imageFrame}>
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  width={560}
+                  height={320}
+                  className={styles.projectImg}
+                />
+                <div className={styles.imageOverlay} />
+                <span className={styles.categoryBadge}>{item.categoryLabel}</span>
               </div>
 
-              <div className={styles.cardInfo}>
-                <div className={styles.infoTop}>
-                  <h3 className={styles.cardTitle}>{project.title}</h3>
-                  <span className={styles.cardRole}>{project.role}</span>
+              <div className={styles.cardContent}>
+                <div className={styles.roleSubRow}>
+                  <span className={styles.roleText}>{item.role}</span>
                 </div>
 
-                <p className={styles.cardDesc}>{project.desc}</p>
+                <h3 className={styles.cardTitle}>{item.title}</h3>
+                <p className={styles.cardDesc}>{item.desc}</p>
 
-                <div className={styles.stackRow}>
-                  {project.stack.map((tech) => (
-                    <span key={tech} className={styles.stackTag}>
+                <div className={styles.stackPills}>
+                  {item.stack.map((tech, idx) => (
+                    <span key={idx} className={styles.stackPill}>
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                <Link href={project.link} className={styles.cardLink}>
-                  <span>Explore Project</span>
-                  <span className={styles.linkArrow}>
-                    <ArrowRight size={13} />
-                  </span>
-                </Link>
+                <div className={styles.cardActionRow}>
+                  <Link href={item.link} className={styles.detailsLink}>
+                    <span>View Case Study</span>
+                    <div className={styles.circleArrow}>
+                      <ArrowUpRight size={14} />
+                    </div>
+                  </Link>
+                </div>
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className={styles.footerRow}>
+          <Link href="/works" className="mil-button">
+            <span>Explore All Projects</span>
+            <ArrowUpRight size={15} />
+          </Link>
         </div>
       </div>
     </section>

@@ -481,3 +481,148 @@
   color: #999999;
   max-width: 580px;
 }
+
+/* Photo & Modern Ashley Layout Enhancements */
+.workCardInnerGrid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.35fr;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+  .workCardInnerGrid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+.cardImageCol {
+  position: relative;
+  width: 100%;
+}
+
+.imageFrameWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3.5;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-medium);
+  background: var(--bg-subtle);
+}
+
+.experiencePhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.5s ease;
+}
+
+.workCard:hover .experiencePhoto {
+  transform: scale(1.04);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.75) 100%);
+  pointer-events: none;
+}
+
+.photoCaptionBadge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(12, 12, 14, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-medium);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+}
+
+.vectorWorkCard {
+  border-color: rgba(255, 152, 0, 0.4);
+  box-shadow: 0 10px 35px rgba(255, 152, 0, 0.08);
+}
+
+/* AIESEC Hero Card */
+.aiesecHeroCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.aiesecHeroGrid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.35fr;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 2rem;
+}
+
+@media (max-width: 900px) {
+  .aiesecHeroGrid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+.aiesecPhotoWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3.2;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-medium);
+}
+
+.aiesecPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.aiesecTextWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.aiesecHeadline {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.85rem;
+}
+
+.aiesecTextWrap p {
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.aiesecBadgeRow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.aiesecBadge {
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: var(--accent-gold-soft);
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold);
+  font-size: 0.78rem;
+  font-weight: 700;
+}

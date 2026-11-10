@@ -326,3 +326,77 @@
   color: #999999;
   max-width: 580px;
 }
+
+/* Image preview & Modern Layout */
+.cardInnerGrid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.35fr;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+  .cardInnerGrid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+.projectImageCol {
+  position: relative;
+  width: 100%;
+}
+
+.projectImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-medium);
+  background: var(--bg-subtle);
+}
+
+.projectThumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.projectCard:hover .projectThumbnail {
+  transform: scale(1.05);
+}
+
+.projectImgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 65%, rgba(0, 0, 0, 0.75) 100%);
+  pointer-events: none;
+}
+
+.vectorProjectCard {
+  border-color: rgba(255, 152, 0, 0.35);
+  box-shadow: 0 10px 35px rgba(255, 152, 0, 0.08);
+}
+
+.codeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.45rem;
+  border-radius: 9999px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  color: var(--text-main);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+.codeBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--text-main);
+}

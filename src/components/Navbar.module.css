@@ -5,13 +5,13 @@
   left: 0;
   right: 0;
   z-index: 999;
-  padding: 1.5rem 0;
+  padding: 1.4rem 0;
   background-color: var(--bg-main);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .navbarScrolled {
-  padding: 1rem 0;
+  padding: 0.95rem 0;
   background-color: var(--bg-glass);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -24,11 +24,29 @@
   justify-content: center;
 }
 
-.navPillBar {
+.navBarInner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+}
+
+/* Ashley Brand Logo */
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logoText {
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+}
+
+.logoDot {
+  color: var(--accent-gold);
 }
 
 /* Desktop Nav Links */
@@ -45,11 +63,15 @@
 }
 
 .navLink {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 500;
   color: var(--text-secondary);
   transition: color 0.2s ease;
   position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.25rem 0;
 }
 
 .navLink:hover {
@@ -61,149 +83,174 @@
   font-weight: 600;
 }
 
+.activeDot {
+  position: absolute;
+  bottom: -4px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--accent-gold);
+}
+
 /* Right Group */
 .rightGroup {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.15rem;
 }
 
-.talkPillBtn {
+/* Ashley Let's Talk CTA */
+.letsTalkBtn {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  padding: 0.42rem 0.5rem 0.42rem 1.25rem;
-  background-color: var(--pill-primary-bg);
-  color: var(--pill-primary-text);
-  font-size: 0.84rem;
-  font-weight: 600;
+  padding: 0.55rem 1.25rem;
   border-radius: 9999px;
-  border: 1px solid var(--pill-primary-bg);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  color: var(--text-main);
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
-.talkPillBtn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+.letsTalkBtn:hover {
+  background-color: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #000000;
+  transform: translateY(-2px);
 }
 
-.arrowCap {
+.arrowIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background-color: var(--pill-primary-icon-bg);
-  color: var(--pill-primary-icon-color);
-  flex-shrink: 0;
-  transition: transform 0.2s ease;
+  transition: transform 0.25s ease;
 }
 
-.talkPillBtn:hover .arrowCap {
-  transform: translateX(2px);
+.letsTalkBtn:hover .arrowIcon {
+  transform: translate(2px, -2px);
 }
 
-@media (max-width: 600px) {
-  .talkPillBtn {
-    display: none;
-  }
-}
-
+/* Mobile Toggle */
 .mobileToggle {
   display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
   color: var(--text-main);
-  padding: 0.25rem;
+  cursor: pointer;
 }
 
 @media (max-width: 960px) {
   .mobileToggle {
     display: flex;
-    align-items: center;
-    justify-content: center;
+  }
+  .letsTalkBtn {
+    display: none;
   }
 }
 
 /* Mobile Drawer */
 .mobileDrawer {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background-color: var(--bg-main);
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
+  z-index: 10000;
+  transform: translateY(-100%);
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-15px);
-  transition: all 0.25s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  overflow-y: auto;
 }
 
 .mobileDrawerOpen {
+  transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(0);
 }
 
 .mobileContent {
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  max-width: 480px;
-  width: 100%;
-  margin: 0 auto;
+  min-height: 100vh;
 }
 
 .mobileTop {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border-light);
-}
-
-.mobileTitle {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text-main);
-  letter-spacing: -0.01em;
+  margin-bottom: 2.5rem;
 }
 
 .closeBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
   color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mobileNavLinks {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  margin: 2.5rem 0;
+  flex: 1;
 }
 
-.mobileNavLink {
+.mobileLink {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-size: 1.75rem;
+  font-weight: 700;
   color: var(--text-secondary);
-  transition: color 0.2s ease;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-light);
 }
 
-.mobileNavLink:hover,
-.mobileActive {
+.mobileLink:hover,
+.mobileLinkActive {
   color: var(--text-main);
 }
 
-.mobileActions {
-  margin-top: auto;
+.mobileLinkArrow {
+  opacity: 0.5;
+}
+
+.mobileBottom {
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border-light);
+  gap: 1rem;
+}
+
+.mobileTalkBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.85rem;
+  background-color: var(--accent-gold);
+  color: #000000;
+  font-weight: 700;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+}
+
+.mobileContactNote {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }

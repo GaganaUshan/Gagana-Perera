@@ -1,7 +1,8 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
-import { Briefcase, Award, Users, Calendar, ArrowRight, CheckCircle2, ChevronRight, Layers } from "lucide-react";
+import { Briefcase, Award, Users, Calendar, ArrowRight, ArrowUpRight, CheckCircle2, ChevronRight, Layers } from "lucide-react";
 import styles from "./experience.module.css";
 
 export const metadata: Metadata = {
@@ -15,6 +16,8 @@ const workExperiences = [
     company: "1BillionTech Pvt Ltd",
     period: "March 2026 – Present",
     location: "Colombo, Sri Lanka",
+    image: "/gagana-tie-adjust.jpg",
+    imageCaption: "Executive Project Coordination & Delivery",
     overview:
       "Driving cross-functional project coordination, stakeholder communication, requirement engineering, and delivery tracking for enterprise web applications.",
     responsibilities: [
@@ -34,10 +37,31 @@ const workExperiences = [
     tools: ["Jira", "Excel", "Google AI", "Spring Boot", "React.js", "AWS"]
   },
   {
+    role: "Creative Designer",
+    company: "Avantous Global",
+    period: "February 2025 – July 2025",
+    location: "Remote / Colombo",
+    image: "/gagana-vector-art.jpg", // EXPLICIT USER REQUIREMENT
+    imageCaption: "Featured Vector Flame Illustration Artwork",
+    isVectorHighlight: true,
+    overview:
+      "Collaborated with content strategists and marketing teams to conceptualize and craft visual identities, promotional animations, custom vector illustrations, and client digital assets.",
+    responsibilities: [
+      "Designed creative materials strictly aligned with client objectives and brand style guides.",
+      "Crafted bespoke vector illustrations, campaign visuals, and creative graphics.",
+      "Collaborated closely with copywriters, content strategists, and UI/UX design teams.",
+      "Created motion animations and short-form video assets for digital marketing and audience engagement.",
+      "Contributed to visual communication, social campaign rollouts, and creative asset delivery."
+    ],
+    tools: ["Adobe Illustrator", "Adobe Photoshop", "Figma", "Adobe After Effects", "Vector Art"]
+  },
+  {
     role: "Production Associate",
     company: "Innodata Lanka Pvt Ltd",
     period: "August 2025 – October 2025",
     location: "Colombo, Sri Lanka",
+    image: "/gagana-black-suit.jpg",
+    imageCaption: "Cloud Production & Structured Data QA",
     overview:
       "Executed critical production operations involving large-scale data organization, web scraping workflows, and cloud-based file management environments.",
     responsibilities: [
@@ -48,21 +72,6 @@ const workExperiences = [
       "Maintained zero-defect data accuracy and consistency across rapid production cycles."
     ],
     tools: ["AWS Virtual Machines", "Web Scraping", "Microsoft Excel", "Cloud Storage"]
-  },
-  {
-    role: "Creative Designer",
-    company: "Avantous Global",
-    period: "February 2025 – July 2025",
-    location: "Remote / Colombo",
-    overview:
-      "Collaborated with content strategists and marketing teams to conceptualize and craft visual identities, promotional animations, and client digital assets.",
-    responsibilities: [
-      "Designed creative materials strictly aligned with client objectives and brand style guides.",
-      "Collaborated closely with copywriters, content strategists, and UI/UX design teams.",
-      "Created motion animations and short-form video assets for digital marketing and audience engagement.",
-      "Contributed to visual communication, social campaign rollouts, and creative asset delivery."
-    ],
-    tools: ["Adobe Illustrator", "Adobe Photoshop", "Figma", "Adobe After Effects"]
   }
 ];
 
@@ -154,51 +163,71 @@ export default function ExperiencePage() {
               <h2 className="section-title">PROFESSIONAL EXPERIENCE</h2>
             </div>
             <span className={styles.headerSubtitle}>
-              PROJECT COORDINATION • BUSINESS ANALYSIS • DATA PRODUCTION
+              PROJECT COORDINATION • BUSINESS ANALYSIS • CREATIVE DESIGN • DATA PRODUCTION
             </span>
           </div>
 
           <div className={styles.workList}>
             {workExperiences.map((exp, idx) => (
-              <div key={idx} className={styles.workCard}>
-                <div className={styles.workCardHeader}>
-                  <div className={styles.roleBox}>
-                    <span className={styles.workPeriod}>{exp.period}</span>
-                    <h3 className={styles.workRole}>{exp.role}</h3>
-                    <h4 className={styles.workCompany}>
-                      {exp.company} <span className={styles.companyLoc}>• {exp.location}</span>
-                    </h4>
-                  </div>
-                  <div className={styles.toolsCloud}>
-                    {exp.tools.map((t, i) => (
-                      <span key={i} className={styles.toolTag}>{t}</span>
-                    ))}
-                  </div>
-                </div>
-
-                <p className={styles.workOverview}>{exp.overview}</p>
-
-                <div className={styles.respSection}>
-                  <h5 className={styles.respHeading}>Key Responsibilities & Contributions:</h5>
-                  <ul className={styles.respList}>
-                    {exp.responsibilities.map((r, i) => (
-                      <li key={i}>{r}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                {exp.keyProject && (
-                  <div className={styles.keyProjectBox}>
-                    <div className={styles.kpHeader}>
-                      <span className={styles.kpTag}>FEATURED PROJECT</span>
-                      <h4 className={styles.kpTitle}>{exp.keyProject.name}</h4>
-                    </div>
-                    <p className={styles.kpDesc}>{exp.keyProject.desc}</p>
-                    <div className={styles.kpStack}>
-                      <strong>Technologies & Tools:</strong> {exp.keyProject.stack}
+              <div key={idx} className={`${styles.workCard} ${exp.isVectorHighlight ? styles.vectorWorkCard : ""}`}>
+                <div className={styles.workCardInnerGrid}>
+                  {/* Photo Column */}
+                  <div className={styles.cardImageCol}>
+                    <div className={styles.imageFrameWrap}>
+                      <Image
+                        src={exp.image}
+                        alt={`${exp.role} - ${exp.company}`}
+                        width={450}
+                        height={380}
+                        className={styles.experiencePhoto}
+                      />
+                      <div className={styles.imageOverlay} />
+                      <span className={styles.photoCaptionBadge}>{exp.imageCaption}</span>
                     </div>
                   </div>
-                )}
+
+                  {/* Details Column */}
+                  <div className={styles.cardDetailsCol}>
+                    <div className={styles.workCardHeader}>
+                      <div className={styles.roleBox}>
+                        <span className={styles.workPeriod}>{exp.period}</span>
+                        <h3 className={styles.workRole}>{exp.role}</h3>
+                        <h4 className={styles.workCompany}>
+                          {exp.company} <span className={styles.companyLoc}>• {exp.location}</span>
+                        </h4>
+                      </div>
+                      <div className={styles.toolsCloud}>
+                        {exp.tools.map((t, i) => (
+                          <span key={i} className={styles.toolTag}>{t}</span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <p className={styles.workOverview}>{exp.overview}</p>
+
+                    <div className={styles.respSection}>
+                      <h5 className={styles.respHeading}>Key Responsibilities & Contributions:</h5>
+                      <ul className={styles.respList}>
+                        {exp.responsibilities.map((r, i) => (
+                          <li key={i}>{r}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {exp.keyProject && (
+                      <div className={styles.keyProjectBox}>
+                        <div className={styles.kpHeader}>
+                          <span className={styles.kpTag}>FEATURED PROJECT</span>
+                          <h4 className={styles.kpTitle}>{exp.keyProject.name}</h4>
+                        </div>
+                        <p className={styles.kpDesc}>{exp.keyProject.desc}</p>
+                        <div className={styles.kpStack}>
+                          <strong>Technologies & Tools:</strong> {exp.keyProject.stack}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -218,10 +247,31 @@ export default function ExperiencePage() {
             </p>
           </div>
 
-          <div className={styles.aiesecIntroCard}>
-            <p>
-              AIESEC has served as a foundational pillar of my professional and personal growth. Over four continuous years of involvement, I had the privilege of coordinating high-performing teams, leading brand transformations as Art Director, managing B2C operations, and negotiating corporate sponsorships that created lasting value for the student community.
-            </p>
+          <div className={styles.aiesecHeroCard}>
+            <div className={styles.aiesecHeroGrid}>
+              <div className={styles.aiesecPhotoWrap}>
+                <Image
+                  src="/gagana-sunset-side.jpg"
+                  alt="Gagana Yushan Perera - AIESEC Leader"
+                  width={420}
+                  height={380}
+                  className={styles.aiesecPhoto}
+                />
+                <span className={styles.photoCaptionBadge}>AIESEC in SLIIT Leadership • 2023 – 2026</span>
+              </div>
+              <div className={styles.aiesecTextWrap}>
+                <h3 className={styles.aiesecHeadline}>Four Years of Leadership, Creativity &amp; Impact</h3>
+                <p>
+                  AIESEC has served as a foundational pillar of my professional and personal growth. Over four continuous years of involvement, I had the privilege of coordinating high-performing teams, leading brand transformations as Art Director, managing B2C operations, and negotiating corporate sponsorships that created lasting value for the student community.
+                </p>
+                <div className={styles.aiesecBadgeRow}>
+                  <span className={styles.aiesecBadge}>Art Director</span>
+                  <span className={styles.aiesecBadge}>B2C Team Lead</span>
+                  <span className={styles.aiesecBadge}>OCVP Marketing &amp; Logistics</span>
+                  <span className={styles.aiesecBadge}>Best Showcaser Award</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Sub-Roles Grid */}
@@ -282,8 +332,9 @@ export default function ExperiencePage() {
                 Discover the digital systems, AI platforms, and web applications I&apos;ve engineered and coordinated.
               </p>
             </div>
-            <Link href="/works" className="btn-primary">
-              VIEW PROJECTS & WORKS <ArrowRight size={16} />
+            <Link href="/works" className="mil-button">
+              <span>VIEW PROJECTS &amp; WORKS</span>
+              <ArrowUpRight size={16} />
             </Link>
           </div>
         </div>
@@ -291,4 +342,3 @@ export default function ExperiencePage() {
     </div>
   );
 }
-

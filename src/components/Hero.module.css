@@ -1,251 +1,323 @@
-.heroSection {
-  min-height: calc(100vh - 100px);
+.heroBanner {
   position: relative;
+  min-height: calc(100vh - 90px);
   display: flex;
   align-items: center;
-  padding: 4.5rem 0 3.5rem;
+  padding: 3rem 0 5rem;
   overflow: hidden;
 }
 
-@media (max-width: 960px) {
-  .heroSection {
-    padding: 3rem 0 2.5rem;
-    min-height: auto;
-  }
-}
-
 .heroContainer {
+  position: relative;
+  z-index: 2;
   width: 100%;
 }
 
 .heroGrid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.15fr 0.95fr;
   align-items: center;
-  gap: 4.5rem;
+  gap: 3.5rem;
+  margin-bottom: 4.5rem;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 992px) {
   .heroGrid {
     grid-template-columns: 1fr;
-    gap: 3.5rem;
+    gap: 3rem;
   }
 }
 
+/* Left Column */
 .leftCol {
   display: flex;
   flex-direction: column;
 }
 
-.bioText {
-  font-size: 1.05rem;
-  line-height: 1.75;
-  color: var(--text-secondary);
-  max-width: 520px;
-  margin-bottom: 2.25rem;
+.suptitleWrap {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
 }
 
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.statusDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+/* Hero Title with Ashley thin/bold */
+.heroTitle {
+  font-size: clamp(2.7rem, 5.2vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: var(--text-main);
+  margin-bottom: 1.6rem;
+}
+
+.heroSubText {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 580px;
+  margin-bottom: 2.25rem;
+  font-weight: 400;
+}
+
+/* Action Buttons */
 .actionsRow {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   gap: 1.15rem;
+  flex-wrap: wrap;
   margin-bottom: 2.5rem;
 }
 
-/* Core Focus Areas Section (Integrated cleanly into Left Column) */
-.focusChipsSection {
+.cvDownloadLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: 9999px;
+  background: transparent;
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+.cvDownloadLink:hover {
+  color: var(--text-main);
+  border-color: var(--border-medium);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Tag Chips */
+.tagsContainer {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
-  padding-top: 1.75rem;
-  border-top: 1px solid var(--border-light);
-  max-width: 520px;
-}
-
-.focusHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
   gap: 0.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-light);
 }
 
-.focusTitle {
+.focusLabel {
   font-size: 0.76rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12em;
   color: var(--text-muted);
 }
 
-.statusBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--text-main);
-  background-color: var(--tag-bg);
-  border: 1px solid var(--tag-border);
-  padding: 0.2rem 0.6rem;
-  border-radius: 9999px;
-}
-
-.statusPulse {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--text-main);
-  box-shadow: 0 0 6px var(--text-main);
-}
-
-.chipsRow {
+.tagChips {
   display: flex;
+  align-items: center;
+  gap: 0.65rem;
   flex-wrap: wrap;
-  gap: 0.45rem;
 }
 
-.chipPill {
-  font-size: 0.74rem;
-  font-weight: 500;
-  padding: 0.32rem 0.75rem;
-  background-color: var(--tag-bg);
-  border: 1px solid var(--tag-border);
-  color: var(--text-secondary);
+.tagChip {
+  padding: 0.35rem 0.85rem;
   border-radius: 9999px;
-  transition: all 0.2s ease;
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
 }
 
-.chipPill:hover {
-  background-color: var(--bg-card-hover);
-  border-color: var(--border-medium);
-  color: var(--text-main);
-}
-
-/* Right Column: Hero Portrait (Unobstructed & Spacious) */
+/* Right Column: Portrait Card */
 .rightCol {
+  position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
-  position: relative;
 }
 
-.portraitWrapper {
+.portraitCard {
   position: relative;
   width: 100%;
   max-width: 480px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.radialGlow {
+.portraitImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border-medium);
+  background: var(--bg-card);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+.heroPortraitImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portraitCard:hover .heroPortraitImg {
+  transform: scale(1.03);
+}
+
+.imageOverlay {
   position: absolute;
-  top: 15%;
-  left: 15%;
-  width: 360px;
-  height: 360px;
-  background: var(--hero-glow);
-  filter: blur(55px);
-  z-index: 1;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.75) 100%);
   pointer-events: none;
 }
 
-.imageBox {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 440px;
-  aspect-ratio: 1 / 1;
+/* Floating Role Badge */
+.floatingRoleBadge {
+  position: absolute;
+  bottom: 24px;
+  left: -20px;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: 14px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 5;
 }
 
-@media (max-width: 768px) {
-  .imageBox {
-    max-width: 320px;
+@media (max-width: 576px) {
+  .floatingRoleBadge {
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
   }
 }
 
-.cutoutImage {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  object-position: bottom center;
-  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.12));
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.portraitWrapper:hover .cutoutImage {
-  transform: scale(1.02);
-}
-
-/* Bottom 3-Card Feature Strip (Generous Spacing) */
-.bottomFeatureStrip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 5rem;
-  padding-top: 3rem;
-  border-top: 1px solid var(--border-light);
-}
-
-@media (max-width: 860px) {
-  .bottomFeatureStrip {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    margin-top: 3.5rem;
-    padding-top: 2rem;
-  }
-}
-
-.featureCard {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.15rem;
-  padding: 1.35rem 1.5rem;
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-light);
-  border-radius: 18px;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.featureCard:hover {
-  background-color: var(--bg-card-hover);
-  border-color: var(--border-medium);
-  transform: translateY(-2px);
-}
-
-.featureIconWrap {
+.badgeIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background-color: var(--tag-bg);
-  border: 1px solid var(--tag-border);
-  color: var(--text-main);
-  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--accent-gold-soft);
+  color: var(--accent-gold);
 }
 
-.featureTexts {
+.badgeTitle {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.badgeSub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Rotating Scroll Badge Anchor */
+.scrollBadgeAnchor {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  z-index: 6;
+}
+
+@media (max-width: 768px) {
+  .scrollBadgeAnchor {
+    top: -15px;
+    right: -10px;
+    transform: scale(0.85);
+  }
+}
+
+/* Bottom Metric Strip */
+.metricStrip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.25rem 2.5rem;
+  border-radius: 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 860px) {
+  .metricStrip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding: 1.75rem;
+  }
+  .metricDivider {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .metricStrip {
+    grid-template-columns: 1fr;
+  }
+}
+
+.metricItem {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+}
+
+.metricNumber {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--accent-gold);
+  line-height: 1;
+}
+
+.metricMeta {
   display: flex;
   flex-direction: column;
 }
 
-.featureTitle {
-  font-size: 0.95rem;
+.metricTitle {
+  font-size: 0.92rem;
   font-weight: 700;
   color: var(--text-main);
-  margin-bottom: 0.25rem;
-  letter-spacing: -0.01em;
+  margin-bottom: 2px;
 }
 
-.featureDesc {
-  font-size: 0.82rem;
-  line-height: 1.55;
+.metricDesc {
+  font-size: 0.78rem;
   color: var(--text-muted);
+}
+
+.metricDivider {
+  width: 1px;
+  height: 40px;
+  background-color: var(--border-light);
 }

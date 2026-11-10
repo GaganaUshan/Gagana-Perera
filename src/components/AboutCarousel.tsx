@@ -1,16 +1,32 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Compass, ArrowRight, ChevronLeft, ChevronRight, Award, Briefcase, Users, GitBranch } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, CheckCircle2, ExternalLink } from "lucide-react";
+import { LinkedInIcon } from "./SocialIcons";
 import styles from "./AboutCarousel.module.css";
 
-const carouselCards = [
+const partnerLogos = [
+  "1BillionTech",
+  "MillionSpaces",
+  "Innodata Lanka",
+  "Avantous Global",
+  "SLIIT Malabe",
+  "AIESEC in SLIIT",
+  "AWS Cloud",
+  "Spring Boot",
+  "React.js",
+  "Jira Software",
+  "Figma",
+  "Google AI"
+];
+
+const domainCards = [
   {
     id: "pm",
-    tag: "Agile & Scrum",
+    tag: "Agile Coordination",
     title: "Sprint Planning & Backlog Management",
     sub: "1BillionTech • MillionSpaces Delivery",
     image: "/carousel-pm.jpg",
@@ -18,49 +34,41 @@ const carouselCards = [
   {
     id: "ba",
     tag: "Business Analysis",
-    title: "Requirement Elicitation & Workflows",
-    sub: "BRD • User Stories & Process Mapping",
+    title: "Requirement Elicitation & Process Mapping",
+    sub: "Stakeholder Needs • BRDs & User Stories",
     image: "/carousel-ba.jpg",
   },
   {
     id: "tech",
     tag: "Software Engineering",
     title: "Full-Stack Development & Architecture",
-    sub: "Java Spring Boot • React.js • Node.js",
+    sub: "Java Spring Boot • React.js • REST APIs",
     image: "/carousel-tech.jpg",
   },
   {
     id: "cloud",
-    tag: "Cloud & AI Tech",
-    title: "AWS Cloud & Intelligent Automation",
-    sub: "Innodata VM Pipelines • MailMind AI",
+    tag: "Cloud Operations",
+    title: "AWS Infrastructure & Data Pipelines",
+    sub: "Innodata VM Environments • Web Scraping",
     image: "/carousel-cloud.jpg",
   },
   {
     id: "ux",
-    tag: "UI/UX Design",
-    title: "Human-Centered Digital Interfaces",
-    sub: "Figma Prototypes • Design Systems",
+    tag: "Creative Direction",
+    title: "UI/UX & Visual Asset Production",
+    sub: "Avantous Global • Figma & Adobe Suite",
     image: "/carousel-ux.jpg",
   },
   {
     id: "team",
-    tag: "Team Leadership",
-    title: "Cross-Functional Collaboration",
-    sub: "AIESEC in SLIIT • 4-Year Journey",
+    tag: "Leadership Journey",
+    title: "Cross-Functional Team Leadership",
+    sub: "AIESEC in SLIIT • 4-Year Experience",
     image: "/carousel-team.jpg",
   },
 ];
 
-const stats = [
-  { number: "4+", label: "Years of Leadership", sub: "AIESEC in SLIIT Journey" },
-  { number: "6+", label: "Key Projects", sub: "Enterprise, Academic & AI" },
-  { number: "3+", label: "Professional Certs", sub: "Google PM, SAP BA & Google AI" },
-  { number: "1:1", label: "Stakeholder Alignment", sub: "Requirements to Delivery" },
-];
-
 export function AboutCarousel() {
-  const [isPaused, setIsPaused] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
@@ -74,115 +82,166 @@ export function AboutCarousel() {
   };
 
   return (
-    <section className="section" id="about">
-      {/* Curved Arch / Dial Decorative Line (Inspired by Havenly) */}
-      <div className={styles.arcContainer}>
-        <div className={styles.arcDialLine} />
+    <section className={styles.aboutSection} id="about">
+      {/* Infinite Partner / Ecosystem Marquee (Ashley .mil-infinite-show) */}
+      <div className={styles.partnerMarqueeWrap}>
+        <div className={styles.partnerMarqueeTrack}>
+          {partnerLogos.concat(partnerLogos).map((item, idx) => (
+            <div key={idx} className={styles.partnerPill}>
+              <span className={styles.partnerDot} />
+              <span className={styles.partnerName}>{item}</span>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Infinite Animated Carousel of Technology / PM / BA Cards */}
-      <div
-        className={styles.carouselWrapper}
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-      >
-        <div className={styles.controlsRow}>
-          <span className={styles.carouselHint}>
-            Technology • Project Management • Business Analysis Focus
-          </span>
-          <div className={styles.navButtons}>
+      {/* Ashley Explore My Journey Split Section */}
+      <div className={`container ${styles.aboutContainer}`}>
+        <div className={styles.aboutSplitGrid}>
+          {/* Left Column: Story & Philosophy */}
+          <motion.div
+            className={styles.aboutStoryCol}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className="mil-suptitle">01. About Me</span>
+
+            <h2 className={styles.aboutTitle}>
+              Explore <br />
+              My <span className="mil-thin">Journey</span>
+            </h2>
+
+            <h3 className={styles.aboutSubtitle}>
+              Ideas imagined. Solutions coordinated.
+            </h3>
+
+            <p className={styles.aboutBodyText}>
+              I&apos;m Gagana Yushan Perera, an Information Technology undergraduate at the Sri Lanka Institute of Information Technology (SLIIT), bridging Project Management, Business Analysis, technology, and creative problem-solving.
+            </p>
+
+            <p className={styles.aboutBodyText}>
+              My journey combines technical knowledge, sprint coordination, business-oriented thinking, and visual design. Through professional opportunities at 1BillionTech, Innodata Lanka, and Avantous Global, alongside four years of leadership in AIESEC, I&apos;ve developed the ability to work with diverse teams, understand stakeholder requirements, coordinate delivery, and transform ideas into practical solutions.
+            </p>
+
+            {/* Ashley-style Quote Block with Avatar */}
+            <div className={styles.quoteCard}>
+              <div className={styles.quoteAvatarWrap}>
+                <Image
+                  src="/gagana-silhouette.jpg"
+                  alt="Gagana Yushan Perera"
+                  width={65}
+                  height={65}
+                  className={styles.quoteAvatarImg}
+                />
+              </div>
+              <div className={styles.quoteContent}>
+                <h4 className={styles.quoteRole}>
+                  PM &amp; BA Intern | 1BillionTech Pvt Ltd
+                </h4>
+                <p className={styles.quoteText}>
+                  &ldquo;Continuously exploring how technology, business strategy, and creativity work together to deliver real impact.&rdquo;
+                </p>
+                <a
+                  href="https://www.linkedin.com/in/gagana-yushan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.quoteLinkedInLink}
+                >
+                  <LinkedInIcon size={14} />
+                  <span>linkedin.com/in/gagana-yushan</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.storyActions}>
+              <Link href="/about" className="mil-button">
+                <span>Read Full Story</span>
+                <ArrowUpRight size={15} />
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Large Framed Silhouette Photo (Ashley style) */}
+          <motion.div
+            className={styles.aboutPhotoCol}
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className={styles.framedPhotoContainer}>
+              <div className={styles.photoFrame}>
+                <Image
+                  src="/gagana-silhouette.jpg"
+                  alt="Gagana Yushan Perera - Sunset Silhouette"
+                  width={600}
+                  height={750}
+                  className={styles.silhouetteImg}
+                />
+                <div className={styles.photoFrameOverlay} />
+              </div>
+
+              {/* Minimalist Caption Tag */}
+              <div className={styles.photoCaptionBadge}>
+                <span className={styles.captionLocation}>📍 Sri Lanka</span>
+                <span className={styles.captionDetail}>SLIIT IT Undergraduate • AIESEC Leader</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Competency Domain Carousel Header */}
+        <div className={styles.carouselHeaderRow}>
+          <div>
+            <span className="mil-suptitle">Domains of Expertise</span>
+            <h3 className={styles.carouselSectionTitle}>
+              Hands-on <span className="mil-thin">Disciplines</span> &amp; Focus
+            </h3>
+          </div>
+
+          <div className={styles.carouselNavBtns}>
             <button
               onClick={() => scroll("left")}
-              className={styles.navArrowBtn}
-              aria-label="Scroll left"
+              className={styles.carouselArrowBtn}
+              aria-label="Previous domain slide"
             >
-              <ChevronLeft size={16} />
+              <ChevronLeft size={18} />
             </button>
             <button
               onClick={() => scroll("right")}
-              className={styles.navArrowBtn}
-              aria-label="Scroll right"
+              className={styles.carouselArrowBtn}
+              aria-label="Next domain slide"
             >
-              <ChevronRight size={16} />
+              <ChevronRight size={18} />
             </button>
           </div>
         </div>
 
-        <div
-          ref={scrollRef}
-          className={`${styles.carouselTrack} ${isPaused ? styles.paused : ""}`}
-        >
-          {/* Render cards twice for smooth continuous marquee flow */}
-          {[...carouselCards, ...carouselCards].map((card, index) => (
-            <div key={`${card.id}-${index}`} className={styles.cardItem}>
-              <div className={styles.cardVisualBox}>
+        {/* Horizontal Domain Scrollable Cards */}
+        <div className={styles.domainCardsTrack} ref={scrollRef}>
+          {domainCards.map((card) => (
+            <div key={card.id} className={styles.domainCard}>
+              <div className={styles.domainImageWrap}>
                 <Image
                   src={card.image}
                   alt={card.title}
-                  fill
-                  sizes="320px"
-                  className={styles.cardImage}
+                  width={400}
+                  height={240}
+                  className={styles.domainCardImg}
                 />
-                <div className={styles.cardOverlay} />
-                <span className={styles.cardTag}>{card.tag}</span>
+                <div className={styles.domainTag}>{card.tag}</div>
               </div>
-              <div className={styles.cardInfo}>
-                <h4 className={styles.cardTitle}>{card.title}</h4>
-                <p className={styles.cardSub}>{card.sub}</p>
+              <div className={styles.domainInfo}>
+                <h4 className={styles.domainTitle}>{card.title}</h4>
+                <p className={styles.domainSub}>{card.sub}</p>
               </div>
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Center Havenly-Style About Content */}
-      <div className={`container ${styles.centerContentContainer}`}>
-        <motion.div
-          className={styles.centerBlock}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <div className="pill-badge">
-            <Compass className="pill-badge-icon" />
-            <span>About Gagana</span>
-          </div>
-
-          <h2 className="headline-section">
-            Helping teams find clarity, structure, and momentum
-          </h2>
-
-          <p className={styles.centerDescription}>
-            I believe meaningful digital solutions start with listening carefully, breaking down complex business requirements, and aligning developers, designers, and stakeholders toward shared goals.
-          </p>
-
-          <Link href="/about" className="btn-pill-primary">
-            <span>Learn More About Me</span>
-            <span className="btn-pill-icon-cap">
-              <ArrowRight size={14} />
-            </span>
-          </Link>
-        </motion.div>
-
-        {/* Havenly-Style 4-Stat Metrics Row */}
-        <motion.div
-          className={styles.metricsRow}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-        >
-          {stats.map((stat, idx) => (
-            <div key={idx} className={styles.metricItem}>
-              <span className={styles.metricNumber}>{stat.number}</span>
-              <span className={styles.metricLabel}>{stat.label}</span>
-              <span className={styles.metricSub}>{stat.sub}</span>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );
 }
-

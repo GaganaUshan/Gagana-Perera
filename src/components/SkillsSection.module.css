@@ -1,124 +1,141 @@
+.skillsSection {
+  position: relative;
+  padding: 6.5rem 0;
+  background-color: var(--bg-main);
+}
+
+.skillsContainer {
+  position: relative;
+}
+
+.headerBlock {
+  margin-bottom: 3.5rem;
+}
+
+.skillsHeadline {
+  font-size: clamp(2.3rem, 4.5vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+  line-height: 1.15;
+  margin: 0.4rem 0 0.8rem;
+}
+
+.headerSub {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 580px;
+  line-height: 1.6;
+}
+
+/* Skill Bars Grid */
 .skillBarsGrid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
   margin-bottom: 3.5rem;
 }
 
-@media (max-width: 1024px) {
-  .skillBarsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 540px) {
-  .skillBarsGrid {
-    grid-template-columns: 1fr;
-  }
-}
-
 .skillItem {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-  padding: 1.25rem 1rem;
-  background-color: var(--bg-card);
+  background: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: 16px;
+  border-radius: 14px;
+  padding: 1.25rem 1.75rem;
+  transition: all 0.25s ease;
+}
+
+.skillItem:hover {
+  border-color: var(--border-medium);
+  transform: translateY(-2px);
 }
 
 .skillHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 0.85rem;
 }
 
 .skillName {
-  font-size: 0.78rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
   color: var(--text-main);
-  letter-spacing: -0.01em;
 }
 
 .skillPercent {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--accent-gold);
 }
 
 .barTrack {
   width: 100%;
-  height: 4px;
-  background-color: var(--bg-subtle);
-  position: relative;
-  overflow: hidden;
+  height: 6px;
+  background: var(--bg-subtle);
   border-radius: 9999px;
+  overflow: hidden;
 }
 
 .barFill {
   height: 100%;
-  background-color: var(--text-main);
-  position: absolute;
-  top: 0;
-  left: 0;
+  background: linear-gradient(90deg, var(--accent-gold), #ffb74d);
   border-radius: 9999px;
 }
 
 /* Tools Container */
 .toolsContainer {
-  background-color: var(--bg-card);
+  background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  padding: 2.25rem;
 }
 
 .toolsHeader {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.8rem;
+  gap: 0.65rem;
+  font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
   margin-bottom: 1.5rem;
+}
+
+.terminalIcon {
+  color: var(--accent-gold);
 }
 
 .toolsGrid {
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  gap: 0.85rem;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 992px) {
   .toolsGrid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .toolsGrid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 .toolItem {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 0.65rem;
-  background-color: var(--tag-bg);
-  border: 1px solid var(--tag-border);
+  padding: 0.85rem 1rem;
   border-radius: 12px;
-  text-align: center;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  transition: all 0.25s ease;
 }
 
 .toolItem:hover {
-  background-color: var(--bg-card-hover);
-  border-color: var(--border-medium);
+  border-color: var(--accent-gold);
   transform: translateY(-2px);
 }
 
@@ -126,14 +143,10 @@
   font-size: 0.92rem;
   font-weight: 700;
   color: var(--text-main);
-  margin-bottom: 0.2rem;
-  letter-spacing: -0.01em;
+  margin-bottom: 2px;
 }
 
 .toolCategory {
-  font-size: 0.68rem;
-  font-weight: 600;
+  font-size: 0.72rem;
   color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
 }

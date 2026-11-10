@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight, FileDown } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Navbar.module.css";
 
@@ -11,7 +11,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/works", label: "Work" },
+  { href: "/works", label: "Works" },
   { href: "/experience", label: "Experience" },
   { href: "/contact", label: "Contact" },
 ];
@@ -19,13 +19,19 @@ const navLinks = [
 export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalScroll > 0) {
+        const currentProgress = (window.scrollY / totalScroll) * 100;
+        setScrollProgress(currentProgress);
+      }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -35,9 +41,22 @@ export function Navbar() {
 
   return (
     <>
+      {/* Ashley Top Scroll Progress Track */}
+      <div className="mil-progress-track" aria-hidden="true">
+        <div
+          className="mil-progress"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+
       <header className={`${styles.navbarWrapper} ${scrolled ? styles.navbarScrolled : ""}`}>
         <div className={`container ${styles.navContainer}`}>
-          <div className={styles.navPillBar}>
+          <div className={styles.navBarInner}>
+            {/* Ashley Frame Logo */}
+            <Link href="/" className={styles.logoLink} aria-label="Gagana Yushan Perera">
+              <span className={styles.logoText}>Gagana<span className={styles.logoDot}>.</span></span>
+            </Link>
+
             {/* Desktop Navigation Links */}
             <nav className={styles.desktopNav} aria-label="Main Navigation">
               {navLinks.map((link) => {
@@ -48,7 +67,8 @@ export function Navbar() {
                     href={link.href}
                     className={`${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}
                   >
-                    {link.label}
+                    <span>{link.label}</span>
+                    {isActive && <span className={styles.activeDot} />}
                   </Link>
                 );
               })}
@@ -58,10 +78,10 @@ export function Navbar() {
             <div className={styles.rightGroup}>
               <ThemeToggle />
 
-              <Link href="/contact" className={styles.talkPillBtn}>
-                <span>Get in Touch</span>
-                <span className={styles.arrowCap}>
-                  <ArrowRight size={13} />
+              <Link href="/contact" className={styles.letsTalkBtn}>
+                <span>Let&apos;s Talk</span>
+                <span className={styles.arrowIcon}>
+                  <ArrowUpRight size={15} />
                 </span>
               </Link>
 
@@ -82,7 +102,9 @@ export function Navbar() {
       <div className={`${styles.mobileDrawer} ${mobileMenuOpen ? styles.mobileDrawerOpen : ""}`}>
         <div className={styles.mobileContent}>
           <div className={styles.mobileTop}>
-            <span className={styles.mobileTitle}>Navigation</span>
+            <Link href="/" className={styles.logoLink} onClick={() => setMobileMenuOpen(false)}>
+              <span className={styles.logoText}>Gagana<span className={styles.logoDot}>.</span></span>
+            </Link>
             <button
               className={styles.closeBtn}
               onClick={() => setMobileMenuOpen(false)}
@@ -99,29 +121,23 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`${styles.mobileNavLink} ${isActive ? styles.mobileActive : ""}`}
-                  onClick={() => setMobileMenuOpen(false)}
+                  className={`${styles.mobileLink} ${isActive ? styles.mobileLinkActive : ""}`}
                 >
                   <span>{link.label}</span>
-                  <ArrowRight size={15} />
+                  <ArrowUpRight size={16} className={styles.mobileLinkArrow} />
                 </Link>
               );
             })}
           </div>
 
-          <div className={styles.mobileActions}>
-            <ThemeToggle />
-            <a
-              href="/CV.pdf"
-              download="Gagana_Perera_CV.pdf"
-              className="btn-pill-primary"
-              style={{ width: "100%", justifyContent: "center" }}
-            >
-              <span>Download CV</span>
-              <span className="btn-pill-icon-cap">
-                <FileDown size={14} />
-              </span>
-            </a>
+          <div className={styles.mobileBottom}>
+            <Link href="/contact" className={styles.mobileTalkBtn}>
+              <span>Let&apos;s Talk</span>
+              <ArrowUpRight size={16} />
+            </Link>
+            <p className={styles.mobileContactNote}>
+              gaganaushan16@gmail.com • Sri Lanka
+            </p>
           </div>
         </div>
       </div>
