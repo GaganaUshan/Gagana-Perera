@@ -1,0 +1,210 @@
+.splashOverlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #070709;
+  color: #ffffff;
+  z-index: 99999999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem 4rem;
+  overflow: hidden;
+  font-family: var(--font-display), 'Outfit', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .splashOverlay {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.ambientBacklight {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 152, 0, 0.09) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+/* Top Bar */
+.splashTopBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.topLogo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.goldDot {
+  color: var(--accent-gold, #ff9800);
+}
+
+.topLabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Center Stage */
+.centerStage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  margin: auto 0;
+}
+
+.wordsRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .wordsRow {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .wordDot {
+    display: none;
+  }
+}
+
+.splashWord {
+  font-size: clamp(2.2rem, 5.5vw, 4.4rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.wordThin {
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.wordHighlight {
+  font-weight: 800;
+  color: var(--accent-gold, #ff9800);
+  text-shadow: 0 0 35px rgba(255, 152, 0, 0.35);
+}
+
+.wordDot {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.25);
+  margin-left: 1.25rem;
+  vertical-align: middle;
+}
+
+.wordHidden {
+  opacity: 0.15;
+  transform: translateY(6px);
+}
+
+.wordVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Brand Reveal Box */
+.brandRevealBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brandMainTitle {
+  font-size: clamp(2.4rem, 5.8vw, 4.8rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.thinTitle {
+  font-weight: 200;
+  opacity: 0.8;
+}
+
+.brandSubTitle {
+  font-size: clamp(0.85rem, 1.8vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Bottom Bar */
+.splashBottomBar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.bottomMeta {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.loadingStatusText {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.progressPercent {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--accent-gold, #ff9800);
+  line-height: 1;
+}
+
+.percentSymbol {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 2px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.progressLineTrack {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progressLineFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-gold, #ff9800), #ffb74d);
+  border-radius: 9999px;
+  transition: width 0.08s linear;
+}

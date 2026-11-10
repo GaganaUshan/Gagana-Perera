@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { SplashScreen } from '@/components/SplashScreen';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ChatbotButton } from '@/components/ChatbotButton';
@@ -66,6 +67,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ThemeProvider>
+          <SplashScreen />
           <CustomCursor />
           <Navbar />
           {children}
