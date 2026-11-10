@@ -15,6 +15,7 @@ const projectsData = [
     category: "PROFESSIONAL",
     categoryLabel: "Property Tech • Enterprise",
     role: "Project Coordinator & BA Intern",
+    logo: "/logos/millionspaces.jpg",
     desc: "A scalable commercial property booking platform where I contribute to project coordination, stakeholder requirement clarification, sprint task allocation, and AWS delivery management.",
     stack: ["Java Spring Boot", "React.js", "AWS", "Jira", "Excel"],
     image: "/carousel-pm.jpg",
@@ -27,6 +28,7 @@ const projectsData = [
     category: "ACADEMIC",
     categoryLabel: "Academic • Team Lead",
     role: "Team Lead & Full-Stack Developer",
+    logo: null,
     desc: "A comprehensive web portal bridging global universities with aspiring students. Led the team with Kanban boards and engineered the Examination Management module end-to-end.",
     stack: ["MongoDB", "Express.js", "React.js", "Node.js", "Kanban"],
     image: "/carousel-ba.jpg",
@@ -39,6 +41,7 @@ const projectsData = [
     category: "ACADEMIC",
     categoryLabel: "AI & Productivity",
     role: "Project Manager & Frontend Developer",
+    logo: null,
     desc: "An intelligent email management tool utilizing natural language AI to summarize, categorize, and prioritize communications, accelerating inbox workflow by 40%.",
     stack: ["Next.js", "Tailwind CSS", "MongoDB", "AI APIs", "Stripe"],
     image: "/carousel-cloud.jpg",
@@ -51,6 +54,7 @@ const projectsData = [
     category: "PERSONAL",
     categoryLabel: "AI & Career Tech",
     role: "Creator & Developer",
+    logo: null,
     desc: "Engineered an NLP-powered evaluation engine that parses resumes, scores alignment against specific job roles, and generates actionable improvement roadmaps.",
     stack: ["React.js", "Python", "NLP / AI", "REST API"],
     image: "/carousel-tech.jpg",
@@ -63,6 +67,7 @@ const projectsData = [
     category: "CREATIVE",
     categoryLabel: "Brand & Creative Design",
     role: "Creative Designer",
+    logo: "/logos/avantous.png",
     desc: "Curated vector illustration campaigns, marketing assets, motion graphics, and brand styling for global client engagements at Avantous Global.",
     stack: ["Adobe Illustrator", "Photoshop", "After Effects", "Figma"],
     image: "/gagana-vector-art.jpg",
@@ -139,6 +144,17 @@ export function Projects() {
 
               <div className={styles.cardContent}>
                 <div className={styles.roleSubRow}>
+                  {item.logo && (
+                    <div className={styles.cardLogoCapsule}>
+                      <Image
+                        src={item.logo}
+                        alt={item.title}
+                        width={75}
+                        height={24}
+                        className={styles.cardLogoImg}
+                      />
+                    </div>
+                  )}
                   <span className={styles.roleText}>{item.role}</span>
                 </div>
 

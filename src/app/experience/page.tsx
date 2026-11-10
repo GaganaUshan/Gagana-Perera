@@ -14,6 +14,7 @@ const workExperiences = [
   {
     role: "Project Management & Business Analysis Intern",
     company: "1BillionTech Pvt Ltd",
+    logo: "/logos/1billiontech.png",
     period: "March 2026 – Present",
     location: "Colombo, Sri Lanka",
     image: "/gagana-tie-adjust.jpg",
@@ -31,6 +32,7 @@ const workExperiences = [
     ],
     keyProject: {
       name: "MillionSpaces",
+      logo: "/logos/millionspaces.jpg",
       desc: "A digital property platform where I contribute to project coordination and delivery management, bridging business stakeholders and development teams.",
       stack: "Java Spring Boot, React.js, AWS, Jira, Microsoft Excel, Google Workspace, Google AI."
     },
@@ -39,6 +41,7 @@ const workExperiences = [
   {
     role: "Creative Designer",
     company: "Avantous Global",
+    logo: "/logos/avantous.png",
     period: "February 2025 – July 2025",
     location: "Remote / Colombo",
     image: "/gagana-vector-art.jpg", // EXPLICIT USER REQUIREMENT
@@ -58,6 +61,7 @@ const workExperiences = [
   {
     role: "Production Associate",
     company: "Innodata Lanka Pvt Ltd",
+    logo: "/logos/innodata.png",
     period: "August 2025 – October 2025",
     location: "Colombo, Sri Lanka",
     image: "/gagana-black-suit.jpg",
@@ -190,7 +194,18 @@ export default function ExperiencePage() {
                   <div className={styles.cardDetailsCol}>
                     <div className={styles.workCardHeader}>
                       <div className={styles.roleBox}>
-                        <span className={styles.workPeriod}>{exp.period}</span>
+                        <div className={styles.companyLogoBadgeRow}>
+                          <div className={styles.companyLogoCapsule}>
+                            <Image
+                              src={exp.logo}
+                              alt={exp.company}
+                              width={110}
+                              height={32}
+                              className={styles.companyLogoImg}
+                            />
+                          </div>
+                          <span className={styles.workPeriod}>{exp.period}</span>
+                        </div>
                         <h3 className={styles.workRole}>{exp.role}</h3>
                         <h4 className={styles.workCompany}>
                           {exp.company} <span className={styles.companyLoc}>• {exp.location}</span>
@@ -217,7 +232,18 @@ export default function ExperiencePage() {
                     {exp.keyProject && (
                       <div className={styles.keyProjectBox}>
                         <div className={styles.kpHeader}>
-                          <span className={styles.kpTag}>FEATURED PROJECT</span>
+                          {exp.keyProject.logo && (
+                            <div className={styles.kpLogoCapsule}>
+                              <Image
+                                src={exp.keyProject.logo}
+                                alt={exp.keyProject.name}
+                                width={85}
+                                height={26}
+                                className={styles.kpLogoImg}
+                              />
+                            </div>
+                          )}
+                          <span className={styles.kpTag}>FEATURED PRODUCT</span>
                           <h4 className={styles.kpTitle}>{exp.keyProject.name}</h4>
                         </div>
                         <p className={styles.kpDesc}>{exp.keyProject.desc}</p>
@@ -260,6 +286,17 @@ export default function ExperiencePage() {
                 <span className={styles.photoCaptionBadge}>AIESEC in SLIIT Leadership • 2023 – 2026</span>
               </div>
               <div className={styles.aiesecTextWrap}>
+                <div className={styles.aiesecLogoRow}>
+                  <div className={styles.aiesecLogoCapsule}>
+                    <Image
+                      src="/logos/aiesec.png"
+                      alt="AIESEC in SLIIT"
+                      width={130}
+                      height={32}
+                      className={styles.aiesecLogoImg}
+                    />
+                  </div>
+                </div>
                 <h3 className={styles.aiesecHeadline}>Four Years of Leadership, Creativity &amp; Impact</h3>
                 <p>
                   AIESEC has served as a foundational pillar of my professional and personal growth. Over four continuous years of involvement, I had the privilege of coordinating high-performing teams, leading brand transformations as Art Director, managing B2C operations, and negotiating corporate sponsorships that created lasting value for the student community.

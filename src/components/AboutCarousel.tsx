@@ -9,18 +9,18 @@ import { LinkedInIcon } from "./SocialIcons";
 import styles from "./AboutCarousel.module.css";
 
 const partnerLogos = [
-  "1BillionTech",
-  "MillionSpaces",
-  "Innodata Lanka",
-  "Avantous Global",
-  "SLIIT Malabe",
-  "AIESEC in SLIIT",
-  "AWS Cloud",
-  "Spring Boot",
-  "React.js",
-  "Jira Software",
-  "Figma",
-  "Google AI"
+  { name: "1BillionTech", logo: "/logos/1billiontech.png" },
+  { name: "MillionSpaces", logo: "/logos/millionspaces.jpg" },
+  { name: "Innodata Lanka", logo: "/logos/innodata.png" },
+  { name: "Avantous Global", logo: "/logos/avantous.png" },
+  { name: "AIESEC in SLIIT", logo: "/logos/aiesec.png" },
+  { name: "SLIIT Malabe", logo: null },
+  { name: "AWS Cloud", logo: null },
+  { name: "Java Spring Boot", logo: null },
+  { name: "React.js", logo: null },
+  { name: "Jira Software", logo: null },
+  { name: "Figma", logo: null },
+  { name: "Google AI", logo: null }
 ];
 
 const domainCards = [
@@ -88,8 +88,20 @@ export function AboutCarousel() {
         <div className={styles.partnerMarqueeTrack}>
           {partnerLogos.concat(partnerLogos).map((item, idx) => (
             <div key={idx} className={styles.partnerPill}>
-              <span className={styles.partnerDot} />
-              <span className={styles.partnerName}>{item}</span>
+              {item.logo ? (
+                <div className={styles.marqueeLogoFrame}>
+                  <Image
+                    src={item.logo}
+                    alt={item.name}
+                    width={70}
+                    height={24}
+                    className={styles.marqueeLogoImg}
+                  />
+                </div>
+              ) : (
+                <span className={styles.partnerDot} />
+              )}
+              <span className={styles.partnerName}>{item.name}</span>
             </div>
           ))}
         </div>

@@ -145,8 +145,70 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-bottom: 0.85rem;
+  gap: 1rem;
+  margin-bottom: 1.15rem;
+}
+
+.companyBadgeGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.companyLogoCapsule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  background: #ffffff;
+  padding: 3px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+}
+
+.companyLogoImg {
+  height: 100%;
+  width: auto;
+  max-width: 90px;
+  object-fit: contain;
+}
+
+.productBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-light);
+}
+
+.productLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.productLogoCapsule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  background: #ffffff;
+  padding: 1px 6px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.productLogoImg {
+  height: 100%;
+  width: auto;
+  max-width: 65px;
+  object-fit: contain;
 }
 
 .companyPill {

@@ -216,6 +216,26 @@
   }
 }
 
+.badgeLogoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 3px;
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.badgeLogoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .badgeIcon {
   display: flex;
   align-items: center;

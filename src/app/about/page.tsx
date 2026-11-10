@@ -89,7 +89,7 @@ export default function AboutPage() {
               </div>
               <div className={styles.portraitMeta}>
                 <h3>GAGANA YUSHAN PERERA</h3>
-                <p>📍 Sri Lanka • Available for Project Management & BA Roles</p>
+                <p>📍 Sri Lanka • Project Management &amp; Business Analysis</p>
               </div>
             </div>
 

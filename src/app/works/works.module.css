@@ -141,6 +141,33 @@
   margin-bottom: 1.5rem;
 }
 
+.titleRowWithLogo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.35rem;
+}
+
+.worksLogoCapsule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  background: #ffffff;
+  padding: 3px 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.worksLogoImg {
+  height: 100%;
+  width: auto;
+  max-width: 75px;
+  object-fit: contain;
+}
+
 .projTitle {
   font-family: var(--font-display);
   font-size: clamp(2rem, 3.8vw, 2.75rem);

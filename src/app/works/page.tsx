@@ -17,6 +17,7 @@ const projectsList = [
     category: "Professional Project • Property Technology",
     role: "Project Coordinator & Business Analyst Intern",
     image: "/carousel-pm.jpg",
+    logo: "/logos/millionspaces.jpg",
     overview:
       "A commercial digital property platform connecting venue providers with businesses and individuals seeking short-to-medium-term workspace bookings. I contribute directly to project coordination, sprint management, stakeholder alignment, and delivery oversight.",
     contributions: [
@@ -109,6 +110,7 @@ const projectsList = [
     category: "Creative Experience • Visual Identity",
     role: "Creative Designer",
     image: "/gagana-vector-art.jpg", // EXPLICIT REQUIREMENT
+    logo: "/logos/avantous.png",
     isVectorFeatured: true,
     overview:
       "Bespoke anime and stylized vector artwork crafted during client brand campaigns at Avantous Global. Blends vivid dynamic illumination, detailed line art, and modern digital vector mastery.",
@@ -224,7 +226,20 @@ export default function WorksPage() {
                   {/* Content Column */}
                   <div className={styles.cardContent}>
                     <div className={styles.titleBlock}>
-                      <h2 className={styles.projTitle}>{project.title}</h2>
+                      <div className={styles.titleRowWithLogo}>
+                        <h2 className={styles.projTitle}>{project.title}</h2>
+                        {project.logo && (
+                          <div className={styles.worksLogoCapsule}>
+                            <Image
+                              src={project.logo}
+                              alt={project.title}
+                              width={80}
+                              height={24}
+                              className={styles.worksLogoImg}
+                            />
+                          </div>
+                        )}
+                      </div>
                       <h3 className={styles.projSubtitle}>{project.subtitle}</h3>
                       <div className={styles.roleBadge}>
                         <span>ROLE:</span> <strong>{project.role}</strong>

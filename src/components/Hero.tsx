@@ -24,10 +24,6 @@ export function Hero() {
             {/* Suptitle */}
             <div className={styles.suptitleWrap}>
               <span className="mil-suptitle">Gagana Yushan Perera</span>
-              <span className={styles.statusPill}>
-                <span className={styles.statusDot} />
-                Open for PM &amp; BA Roles
-              </span>
             </div>
 
             {/* Split Thin/Bold Typography (Inspired by Mahen Jay / Ashley) */}
@@ -96,10 +92,16 @@ export function Hero() {
                 <div className={styles.imageOverlay} />
               </div>
 
-              {/* Floating Role Badge */}
+              {/* Floating Role Badge with 1BillionTech Logo */}
               <div className={styles.floatingRoleBadge}>
-                <div className={styles.badgeIcon}>
-                  <Briefcase size={16} />
+                <div className={styles.badgeLogoWrap}>
+                  <Image
+                    src="/logos/1billiontech.png"
+                    alt="1BillionTech"
+                    width={36}
+                    height={36}
+                    className={styles.badgeLogoImg}
+                  />
                 </div>
                 <div>
                   <h4 className={styles.badgeTitle}>1BillionTech Pvt Ltd</h4>

@@ -12,6 +12,9 @@ const experiences = [
     period: "March 2026 – Present",
     role: "Project Management & Business Analysis Intern",
     tag: "Property Tech • Enterprise Delivery",
+    logo: "/logos/1billiontech.png",
+    productLogo: "/logos/millionspaces.jpg",
+    productName: "MillionSpaces",
     desc: "Gathering and managing project requirements by working directly with stakeholders. Translating complex business needs into actionable sprint tasks and monitoring delivery timelines on MillionSpaces commercial platform.",
     highlights: [
       "Translating business needs into actionable tasks for engineering teams",
@@ -28,6 +31,7 @@ const experiences = [
     period: "February 2025 – July 2025",
     role: "Creative Designer",
     tag: "Visual Design & Brand Identity",
+    logo: "/logos/avantous.png",
     desc: "Collaborated with content strategists and design teams to craft bespoke digital assets, vector illustrations, and high-impact motion animations tailored to client brand guides.",
     highlights: [
       "Crafted custom vector illustrations, marketing visuals, and brand guidelines",
@@ -45,6 +49,7 @@ const experiences = [
     period: "August 2025 – October 2025",
     role: "Production Associate",
     tag: "Production Ops & Cloud Systems",
+    logo: "/logos/innodata.png",
     desc: "Executed high-volume data production operations, managing web scraping workflows and uploading structured files through AWS virtual machine environments with zero-defect QA.",
     highlights: [
       "Structured and validated complex datasets with advanced Excel modeling",
@@ -61,6 +66,7 @@ const experiences = [
     period: "2023 – 2026 (4-Year Journey)",
     role: "Art Director & B2C Team Lead",
     tag: "Leadership & Organizational Impact",
+    logo: "/logos/aiesec.png",
     desc: "Spearheaded creative direction, coordinated B2C customer funnels, and executed milestone event partnerships including a Silver Partnership with Superloop valued at LKR 75,000.",
     highlights: [
       "Art Director: Led brand consistency and marketing campaign visual identities",
@@ -127,7 +133,33 @@ export function Experience() {
                 {/* Content Details Column */}
                 <div className={styles.detailsCol}>
                   <div className={styles.cardTopMeta}>
-                    <span className={styles.companyPill}>{exp.company}</span>
+                    <div className={styles.companyBadgeGroup}>
+                      <div className={styles.companyLogoCapsule}>
+                        <Image
+                          src={exp.logo}
+                          alt={exp.company}
+                          width={110}
+                          height={30}
+                          className={styles.companyLogoImg}
+                        />
+                      </div>
+                      <span className={styles.companyPill}>{exp.company}</span>
+                      {exp.productLogo && (
+                        <div className={styles.productBadge}>
+                          <span className={styles.productLabel}>Product:</span>
+                          <div className={styles.productLogoCapsule}>
+                            <Image
+                              src={exp.productLogo}
+                              alt={exp.productName || "Product"}
+                              width={70}
+                              height={22}
+                              className={styles.productLogoImg}
+                            />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
                     <span className={styles.periodText}>
                       <Calendar size={13} />
                       {exp.period}

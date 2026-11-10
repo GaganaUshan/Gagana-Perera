@@ -626,3 +626,74 @@
   font-size: 0.78rem;
   font-weight: 700;
 }
+
+/* Company Logo Badges on Experience Page */
+.companyLogoBadgeRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.companyLogoCapsule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  background: #ffffff;
+  padding: 3px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+}
+
+.companyLogoImg {
+  height: 100%;
+  width: auto;
+  max-width: 95px;
+  object-fit: contain;
+}
+
+.kpLogoCapsule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  background: #ffffff;
+  padding: 2px 7px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-right: 0.5rem;
+}
+
+.kpLogoImg {
+  height: 100%;
+  width: auto;
+  max-width: 70px;
+  object-fit: contain;
+}
+
+.aiesecLogoRow {
+  margin-bottom: 1rem;
+}
+
+.aiesecLogoCapsule {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  background: #ffffff;
+  padding: 4px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.aiesecLogoImg {
+  height: 100%;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+}
