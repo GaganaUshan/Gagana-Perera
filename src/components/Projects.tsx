@@ -3,124 +3,142 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowUpRight, GitBranch, Layers, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Layers, GitBranch } from "lucide-react";
 import styles from "./Projects.module.css";
 
-const featuredProjects = [
+const projectsData = [
   {
     id: "millionspaces",
-    number: "01",
     title: "MillionSpaces",
-    subtitle: "Enterprise Digital Property Platform",
-    category: "Professional • Property Tech",
+    subtitle: "Enterprise Property Tech Platform",
+    category: "PROFESSIONAL",
+    categoryLabel: "Property Technology",
     role: "Project Coordinator & BA Intern",
-    description:
-      "A commercial digital property platform where I contribute to project coordination, stakeholder alignment, task breakdown, and sprint delivery management.",
-    stack: ["Java Spring Boot", "React.js", "AWS", "Jira", "Excel"],
-    highlight: "Enterprise Production Platform"
+    desc: "Digital property booking platform where I contribute to requirement clarification, sprint tasks, and stakeholder delivery.",
+    stack: ["Java Spring Boot", "React.js", "AWS", "Jira"],
+    link: "/works"
   },
   {
     id: "study-bridge",
-    number: "02",
     title: "Study Bridge",
-    subtitle: "Student Migration & University Platform",
-    category: "Academic • Team Lead",
+    subtitle: "Student Migration & University System",
+    category: "ACADEMIC",
+    categoryLabel: "Academic Project • Team Lead",
     role: "Team Lead & Full-Stack Developer",
-    description:
-      "A student migration platform connecting prospective international students with universities, complete with an Examination Management System.",
-    stack: ["MongoDB", "Express.js", "React.js", "Node.js", "Kanban"],
-    highlight: "Team Leadership & System Architecture"
+    desc: "Student migration management platform connecting students with global universities, featuring an Examination Management System.",
+    stack: ["MongoDB", "Express.js", "React.js", "Node.js"],
+    link: "/works"
   },
   {
     id: "mailmind",
-    number: "03",
     title: "MailMind",
-    subtitle: "AI-Powered Email Management System",
-    category: "Academic • AI Productivity",
+    subtitle: "AI Mail Management Platform",
+    category: "ACADEMIC",
+    categoryLabel: "AI & Productivity",
     role: "Project Manager & Frontend Developer",
-    description:
-      "An intelligent email management application engineered to enhance communication efficiency through AI categorization, automated summarization, and task extraction.",
-    stack: ["Next.js", "ShadCN UI", "Tailwind CSS", "MongoDB", "Stripe"],
-    highlight: "AI-Powered Productivity"
+    desc: "Intelligent email application engineered to categorize, summarize, and prioritize inbox correspondence using modern AI.",
+    stack: ["Next.js", "ShadCN UI", "MongoDB", "Stripe"],
+    link: "/works"
   },
   {
     id: "smart-cv-analyzer",
-    number: "04",
     title: "Smart CV Analyzer",
-    subtitle: "AI Resume & Career Diagnostics",
-    category: "Personal • Career Tech",
+    subtitle: "AI Career Diagnostics Tool",
+    category: "PERSONAL",
+    categoryLabel: "AI & Career Technology",
     role: "Creator & Developer",
-    description:
-      "An AI-driven career application that evaluates resumes against target industry standards, computing match scores and providing tailored skill gap recommendations.",
+    desc: "Automated career application evaluating CVs against industry requirements, calculating match scores and pinpointing skill gaps.",
     stack: ["React", "Python", "NLP / AI", "REST API"],
-    highlight: "Intelligent Resume Analytics"
+    link: "/works"
   }
 ];
 
+const filterTabs = [
+  { key: "ALL", label: "ALL" },
+  { key: "PROFESSIONAL", label: "PROFESSIONAL" },
+  { key: "ACADEMIC", label: "ACADEMIC & AI" },
+  { key: "PERSONAL", label: "PERSONAL" },
+];
+
 export function Projects() {
+  const [activeTab, setActiveTab] = useState("ALL");
+
+  const filtered = projectsData.filter((item) => {
+    if (activeTab === "ALL") return true;
+    return item.category === activeTab;
+  });
+
   return (
-    <section className="section-wrapper" id="projects" style={{ backgroundColor: "var(--bg-primary)" }}>
+    <section className="section-dark" id="work">
       <div className="container">
-        {/* Section Title */}
-        <div className="section-title-wrap">
-          <span className="badge-pill" style={{ marginBottom: "1rem" }}>
-            Portfolio &amp; Case Studies
-          </span>
-          <h2 className="section-heading">
-            Featured <span className="highlight">Projects</span>
-          </h2>
-          <p className="section-subtitle">
-            A selection of software products, team-led systems, and technical initiatives demonstrating end-to-end delivery.
-          </p>
+        {/* Section Meta */}
+        <div className="section-meta-top">
+          <span className="section-num">05</span>
+          <span className="section-category">SELECTED WORK</span>
         </div>
 
-        {/* Projects Cards Grid */}
+        {/* Header & Filter Row */}
+        <div className={styles.topRow}>
+          <h2 className="section-headline">Featured Projects</h2>
+
+          <div className={styles.filterAndLink}>
+            <div className={styles.tabsRow}>
+              {filterTabs.map((tab) => (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveTab(tab.key)}
+                  className={`${styles.tabBtn} ${activeTab === tab.key ? styles.tabActive : ""}`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+
+            <Link href="/works" className={styles.viewAllBtn}>
+              <span>VIEW ALL PROJECTS</span>
+              <ArrowRight size={14} />
+            </Link>
+          </div>
+        </div>
+
+        {/* 4 Projects Grid */}
         <div className={styles.projectsGrid}>
-          {featuredProjects.map((project, index) => (
+          {filtered.map((project, index) => (
             <motion.div
               key={project.id}
               className={styles.projectCard}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className={styles.cardTopRow}>
-                <span className={styles.categoryBadge}>{project.category}</span>
-                <span className={styles.numberBadge}>{project.number}</span>
+              <div className={styles.cardVisual}>
+                <div className={styles.mockupGraphic}>
+                  <span className={styles.graphicTag}>{project.categoryLabel}</span>
+                  <h4 className={styles.graphicTitle}>{project.title}</h4>
+                </div>
               </div>
 
-              <div className={styles.cardMain}>
-                <h3 className={styles.projectTitle}>{project.title}</h3>
-                <span className={styles.projectRole}>Role: {project.role}</span>
-                <p className={styles.projectDesc}>{project.description}</p>
+              <div className={styles.cardInfo}>
+                <div>
+                  <h3 className={styles.cardTitle}>{project.title}</h3>
+                  <span className={styles.cardCategory}>{project.categoryLabel}</span>
+                </div>
+
+                <Link href={project.link} className={styles.cardArrow} aria-label={`View ${project.title}`}>
+                  <ArrowRight size={16} />
+                </Link>
               </div>
 
-              <div className={styles.stackWrap}>
+              <div className={styles.stackRow}>
                 {project.stack.map((tech) => (
-                  <span key={tech} className={styles.stackPill}>
+                  <span key={tech} className={styles.stackTag}>
                     {tech}
                   </span>
                 ))}
               </div>
-
-              <div className={styles.cardFooter}>
-                <Link href="/works" className={styles.detailsBtn}>
-                  <span>Explore Case Study</span>
-                  <div className={styles.arrowCircle}>
-                    <ArrowUpRight size={16} />
-                  </div>
-                </Link>
-              </div>
             </motion.div>
           ))}
-        </div>
-
-        {/* Bottom CTA to Works Page */}
-        <div className={styles.bottomCtaRow}>
-          <Link href="/works" className="btn-orange">
-            View All 6 Projects &amp; Code Repositories <ArrowUpRight size={16} />
-          </Link>
         </div>
       </div>
     </section>

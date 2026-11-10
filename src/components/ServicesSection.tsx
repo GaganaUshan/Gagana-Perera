@@ -2,132 +2,80 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowUpRight, CheckCircle2, Layers, Kanban, Compass, Cpu } from "lucide-react";
+import { ArrowRight, Kanban, Code2, BarChart3, LayoutGrid } from "lucide-react";
 import styles from "./ServicesSection.module.css";
 
 const services = [
   {
-    id: "pm",
-    title: "Project Management",
-    subtitle: "Sprint Planning & Agile Delivery",
-    isFeatured: false,
     icon: Kanban,
-    deliverables: [
-      "Jira & Kanban Sprint Workflows",
-      "Milestone & Timeline Tracking",
-      "Cross-Functional Team Coordination",
-      "Risk Mitigation & Blocker Clearance"
-    ],
+    title: "Project Management",
+    desc: "Sprint coordination, Jira backlog management, milestone tracking, and cross-functional team delivery.",
     link: "/services"
   },
   {
-    id: "ba",
+    icon: Code2,
     title: "Business Analysis",
-    subtitle: "Requirements & System Logic",
-    isFeatured: true, // The iconic orange card from the UI inspiration
-    icon: Compass,
-    deliverables: [
-      "Stakeholder Requirements Elicitation",
-      "Functional & Technical Specifications",
-      "Business Process Flow Mapping",
-      "User Stories & Acceptance Criteria"
-    ],
+    desc: "Stakeholder requirements elicitation, functional specifications, workflow mapping, and user stories.",
     link: "/services"
   },
   {
-    id: "design",
+    icon: BarChart3,
+    title: "Product Strategy",
+    desc: "Data-informed product thinking, dependency tracking, blocker mitigation, and digital transformation.",
+    link: "/services"
+  },
+  {
+    icon: LayoutGrid,
     title: "UI/UX & Creative Tech",
-    subtitle: "Wireframes & Brand Experience",
-    isFeatured: false,
-    icon: Cpu,
-    deliverables: [
-      "Figma Prototypes & Design Systems",
-      "User Journey & Interface Architecture",
-      "Adobe Creative Suite Visual Assets",
-      "Modern Web Development (React / Next.js)"
-    ],
+    desc: "Interactive Figma wireframes, brand identities in Adobe Suite, and modern web application frontends.",
     link: "/services"
   }
 ];
 
 export function ServicesSection() {
   return (
-    <section className="section-wrapper" id="services">
+    <section className="section-dark" id="services">
       <div className="container">
-        {/* Dark Rounded Container matching the UI design */}
-        <div className={styles.darkBlock}>
-          {/* Header Row */}
-          <div className={styles.headerRow}>
-            <div className={styles.titleCol}>
-              <h2 className={styles.sectionTitle}>
-                My <span className={styles.orangeHighlight}>Services</span>
-              </h2>
-            </div>
-            <div className={styles.descCol}>
-              <p className={styles.sectionDesc}>
-                Transforming complex challenges into streamlined digital products through structured coordination, analytical problem-solving, and creative execution.
-              </p>
-            </div>
-          </div>
+        {/* Section Meta */}
+        <div className="section-meta-top">
+          <span className="section-num">03</span>
+          <span className="section-category">SERVICES</span>
+        </div>
 
-          {/* Cards Grid */}
-          <div className={styles.cardsGrid}>
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <motion.div
-                  key={service.id}
-                  className={`${styles.serviceCard} ${service.isFeatured ? styles.cardFeatured : styles.cardDark}`}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.6, delay: index * 0.15 }}
-                >
-                  <div className={styles.cardTop}>
-                    <div className={styles.iconBox}>
-                      <Icon size={22} />
-                    </div>
-                    <Link
-                      href={service.link}
-                      className={service.isFeatured ? "btn-circle-arrow-white" : "btn-circle-arrow"}
-                      aria-label={`View details for ${service.title}`}
-                    >
-                      <ArrowUpRight size={20} />
-                    </Link>
-                  </div>
+        <div className={styles.headerRow}>
+          <h2 className="section-headline">What I do</h2>
+          <Link href="/services" className={styles.viewAllLink}>
+            <span>VIEW ALL SERVICES</span>
+            <ArrowRight size={14} />
+          </Link>
+        </div>
 
-                  <div className={styles.cardHeader}>
-                    <h3 className={styles.cardTitle}>{service.title}</h3>
-                    <p className={styles.cardSubtitle}>{service.subtitle}</p>
-                  </div>
+        {/* 4-Column Service Grid */}
+        <div className={styles.servicesGrid}>
+          {services.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <motion.div
+                key={index}
+                className={styles.serviceCol}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <div className={styles.iconWrap}>
+                  <Icon size={28} className={styles.icon} />
+                </div>
 
-                  {/* Folder Tab / Preview graphic mock */}
-                  <div className={styles.folderMock}>
-                    <div className={styles.folderTab}>
-                      <span>Deliverables</span>
-                    </div>
-                    <div className={styles.folderContent}>
-                      <ul className={styles.delivList}>
-                        {service.deliverables.map((item, i) => (
-                          <li key={i}>
-                            <CheckCircle2 size={13} className={styles.checkIcon} />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+                <h3 className={styles.serviceTitle}>{item.title}</h3>
+                <p className={styles.serviceDesc}>{item.desc}</p>
 
-          {/* Bottom Action Row */}
-          <div className={styles.footerRow}>
-            <Link href="/services" className="btn-white-pill">
-              View All Services &amp; Certifications <ArrowUpRight size={16} />
-            </Link>
-          </div>
+                <Link href={item.link} className={styles.serviceArrow} aria-label={`Read more about ${item.title}`}>
+                  <ArrowRight size={18} />
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

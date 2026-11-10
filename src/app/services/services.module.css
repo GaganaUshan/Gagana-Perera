@@ -1,6 +1,8 @@
 .page {
   min-height: 100vh;
-  background-color: var(--bg-primary);
+  background-color: var(--section-light-bg);
+  color: var(--section-light-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .sectionHeaderRow {
@@ -9,7 +11,7 @@
   justify-content: space-between;
   margin-bottom: 2.75rem;
   padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--section-light-border);
 }
 
 @media (max-width: 768px) {
@@ -21,11 +23,12 @@
 }
 
 .headerSubtitle {
+  font-family: var(--font-display);
   font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent-orange);
+  color: var(--accent-red);
 }
 
 /* Service Pillars List */
@@ -36,11 +39,10 @@
 }
 
 .pillarCard {
-  background-color: var(--bg-white);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--border-light);
+  background-color: var(--section-light-card);
+  border-radius: 4px;
+  border: 1px solid var(--section-light-border);
   padding: 3rem;
-  box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
 }
 
@@ -51,8 +53,7 @@
 }
 
 .pillarCard:hover {
-  box-shadow: var(--shadow-md);
-  border-color: rgba(249, 83, 45, 0.25);
+  border-color: var(--accent-red);
 }
 
 .pillarHeader {
@@ -61,26 +62,29 @@
   gap: 1.25rem;
   margin-bottom: 1.25rem;
   padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--section-light-border);
 }
 
 .pillarNumBox {
+  font-family: var(--font-display);
   font-size: 1.6rem;
-  font-weight: 800;
-  color: var(--accent-orange);
+  font-weight: 700;
+  color: var(--accent-red);
 }
 
 .pillarTitle {
+  font-family: var(--font-display);
   font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.01em;
-  color: var(--text-primary);
+  text-transform: uppercase;
+  color: inherit;
   line-height: 1.2;
 }
 
 .pillarSub {
   font-size: 0.95rem;
-  color: var(--text-muted);
+  color: var(--section-light-muted);
   font-weight: 500;
   margin-top: 0.25rem;
 }
@@ -88,23 +92,24 @@
 .pillarDesc {
   font-size: 1rem;
   line-height: 1.75;
-  color: var(--text-secondary);
+  color: var(--section-light-muted);
   margin-bottom: 1.75rem;
 }
 
 .deliverablesBox {
-  background-color: var(--bg-primary);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-light);
+  background-color: var(--section-light-bg);
+  border-radius: 2px;
+  border: 1px solid var(--section-light-border);
   padding: 1.75rem;
 }
 
 .delivHeading {
+  font-family: var(--font-display);
   font-size: 0.82rem;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-primary);
+  letter-spacing: 0.1em;
+  color: inherit;
   margin-bottom: 1rem;
 }
 
@@ -125,11 +130,11 @@
   align-items: center;
   gap: 0.6rem;
   font-size: 0.92rem;
-  color: var(--text-secondary);
+  color: var(--section-light-muted);
 }
 
 .checkIcon {
-  color: var(--accent-orange);
+  color: var(--accent-red);
   flex-shrink: 0;
 }
 
@@ -147,11 +152,10 @@
 }
 
 .matrixCard {
-  background-color: var(--bg-white);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--border-light);
+  background-color: var(--section-light-card);
+  border-radius: 4px;
+  border: 1px solid var(--section-light-border);
   padding: 2.5rem;
-  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
 }
@@ -168,17 +172,20 @@
   gap: 0.75rem;
   padding-bottom: 1.25rem;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--section-light-border);
 }
 
 .matrixIcon {
-  color: var(--accent-orange);
+  color: var(--accent-red);
 }
 
 .matrixTitle {
+  font-family: var(--font-display);
   font-size: 1.15rem;
-  font-weight: 800;
-  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: inherit;
 }
 
 .matrixPills {
@@ -188,20 +195,23 @@
 }
 
 .matrixPill {
-  font-size: 0.82rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
   font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   padding: 0.4rem 0.85rem;
-  border-radius: var(--radius-pill);
-  background-color: var(--bg-primary);
-  border: 1px solid var(--border-light);
-  color: var(--text-primary);
+  border-radius: 2px;
+  background-color: var(--section-light-bg);
+  border: 1px solid var(--section-light-border);
+  color: inherit;
   transition: all 0.2s ease;
 }
 
 .matrixPill:hover {
-  background-color: var(--accent-orange-light);
-  border-color: var(--accent-orange);
-  color: var(--accent-orange);
+  background-color: var(--accent-red);
+  border-color: var(--accent-red);
+  color: #ffffff;
 }
 
 /* Certifications */
@@ -218,20 +228,18 @@
 }
 
 .certCard {
-  background-color: var(--bg-white);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-light);
+  background-color: var(--section-light-card);
+  border-radius: 4px;
+  border: 1px solid var(--section-light-border);
   padding: 2.25rem 2rem;
-  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   transition: all 0.25s ease;
 }
 
 .certCard:hover {
+  border-color: var(--accent-red);
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: rgba(249, 83, 45, 0.3);
 }
 
 .certTop {
@@ -242,22 +250,25 @@
 }
 
 .awardIcon {
-  color: var(--accent-orange);
+  color: var(--accent-red);
 }
 
 .certIssuer {
+  font-family: var(--font-display);
   font-size: 0.78rem;
   font-weight: 700;
-  color: var(--accent-orange);
-  background-color: var(--accent-orange-light);
-  padding: 0.2rem 0.65rem;
-  border-radius: var(--radius-pill);
+  color: var(--accent-red);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .certTitle {
+  font-family: var(--font-display);
   font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: inherit;
   line-height: 1.25;
   margin-bottom: 0.75rem;
 }
@@ -265,21 +276,23 @@
 .certDescription {
   font-size: 0.92rem;
   line-height: 1.65;
-  color: var(--text-secondary);
+  color: var(--section-light-muted);
   margin-bottom: 1.5rem;
 }
 
 .skillsGainedBox {
   margin-top: auto;
   padding-top: 1.25rem;
-  border-top: 1px solid var(--border-light);
+  border-top: 1px solid var(--section-light-border);
 }
 
 .gainedLabel {
+  font-family: var(--font-display);
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  color: var(--section-light-muted);
   display: block;
   margin-bottom: 0.5rem;
 }
@@ -291,26 +304,29 @@
 }
 
 .gainedTag {
+  font-family: var(--font-display);
   font-size: 0.72rem;
   font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   padding: 0.25rem 0.6rem;
-  border-radius: var(--radius-pill);
-  background-color: var(--bg-primary);
-  border: 1px solid var(--border-light);
-  color: var(--text-secondary);
+  border-radius: 2px;
+  background-color: var(--section-light-bg);
+  border: 1px solid var(--section-light-border);
+  color: var(--section-light-muted);
 }
 
 /* Next Banner */
 .nextBanner {
-  background-color: var(--bg-dark);
-  border-radius: var(--radius-xl);
+  background-color: #0c0c0c;
+  border-radius: 4px;
   padding: 3.5rem;
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-dark);
 }
 
 @media (max-width: 768px) {
@@ -322,14 +338,16 @@
 }
 
 .nextHeading {
+  font-family: var(--font-display);
   font-size: 1.6rem;
-  font-weight: 800;
+  font-weight: 700;
+  text-transform: uppercase;
   color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
 .nextText {
   font-size: 0.95rem;
-  color: var(--text-light-muted);
+  color: #999999;
   max-width: 580px;
 }

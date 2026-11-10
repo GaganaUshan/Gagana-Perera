@@ -9,22 +9,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 58px;
-  height: 58px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
-  background: var(--accent-orange);
+  background: var(--accent-red);
   color: #ffffff;
-  box-shadow: 0 10px 25px rgba(249, 83, 45, 0.35);
+  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.4);
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .chatBtn:hover {
-  background: var(--accent-orange-hover);
-  box-shadow: 0 14px 30px rgba(249, 83, 45, 0.45);
+  background: var(--accent-red-hover);
+  box-shadow: 0 14px 30px rgba(229, 9, 20, 0.55);
 }
 
 .icon {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
 }

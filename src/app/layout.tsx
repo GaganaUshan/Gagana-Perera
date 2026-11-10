@@ -1,5 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import { ThemeProvider } from '@/components/ThemeProvider';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ChatbotButton } from '@/components/ChatbotButton';
@@ -7,7 +8,7 @@ import { ChatbotButton } from '@/components/ChatbotButton';
 export const metadata: Metadata = {
   metadataBase: new URL('https://gagana-perera.vercel.app'),
   title: {
-    default: 'Gagana Yushan Perera | Project Management, Business Analysis & Creative Tech',
+    default: 'Gagana Yushan Perera | Project Management & Business Analysis',
     template: '%s | Gagana Yushan Perera'
   },
   description: 'Gagana Yushan Perera - IT undergraduate at SLIIT bridging technology, business, and creativity to build meaningful digital solutions. Specializing in Project Management, Business Analysis, and UI/UX Design.',
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     'SLIIT',
     'AIESEC in SLIIT',
     'MillionSpaces',
-    'Sri Lanka Tech'
+    'Sri Lanka'
   ],
   authors: [{ name: 'Gagana Yushan Perera' }],
   creator: 'Gagana Yushan Perera',
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://gagana-perera.vercel.app/',
-    title: 'Gagana Yushan Perera | Project Management, Business Analysis & Creative Tech',
+    title: 'Gagana Yushan Perera | Project Management & Business Analysis',
     description: 'Bridging technology, business, and creativity to build meaningful digital solutions.',
     siteName: 'Gagana Yushan Perera Portfolio',
     images: [
@@ -63,10 +64,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        {children}
-        <Footer />
-        <ChatbotButton />
+        <ThemeProvider>
+          <Navbar />
+          {children}
+          <Footer />
+          <ChatbotButton />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -2,14 +2,14 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, MapPin, CheckCircle2, Copy, Send, ArrowUpRight, FileDown } from "lucide-react";
+import { Mail, Phone, MapPin, CheckCircle2, ArrowRight, Clock, Copy } from "lucide-react";
 import styles from "./Contact.module.css";
 
 export function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
+    subject: "",
     message: ""
   });
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -33,192 +33,133 @@ export function Contact() {
     }
 
     setIsSubmitting(true);
-    const subject = encodeURIComponent(`Inquiry from ${formData.name}`);
+    const subject = encodeURIComponent(formData.subject || `Inquiry from ${formData.name}`);
     const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || "Not provided"}\n\nMessage:\n${formData.message}`
+      `Name: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`
     );
 
     setTimeout(() => {
       window.location.href = `mailto:gaganaushan16@gmail.com?subject=${subject}&body=${body}`;
       setIsSubmitting(false);
-      showToast("Opening your email client...");
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    }, 600);
+      showToast("Opening email client...");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    }, 500);
   };
 
   return (
-    <section className="section-wrapper" id="contact" style={{ backgroundColor: "var(--bg-white)" }}>
+    <section className="section-light" id="contact">
       <div className="container">
-        {/* Section Title */}
-        <div className="section-title-wrap">
-          <span className="badge-pill" style={{ marginBottom: "1rem" }}>
-            Let&apos;s Connect
-          </span>
-          <h2 className="section-heading">
-            Get In <span className="highlight">Touch</span>
-          </h2>
-          <p className="section-subtitle">
-            Whether you have an upcoming project, are seeking a PM/BA intern, or want to discuss creative technology, my inbox is open.
-          </p>
+        {/* Section Meta */}
+        <div className="section-meta-top">
+          <span className="section-num">08</span>
+          <span className="section-category">CONTACT</span>
         </div>
 
-        <div className={styles.contactCard}>
-          <div className={styles.contactGrid}>
-            {/* Left Column: Direct Channels & Socials */}
-            <div className={styles.channelsCol}>
-              <h3 className={styles.colTitle}>Direct Contact Channels</h3>
-              <p className={styles.colDesc}>
-                Feel free to reach out via email, phone, or LinkedIn. I typically reply within 24 hours.
-              </p>
+        <div className={styles.contactGrid}>
+          {/* Left Column: Headline & Form */}
+          <div className={styles.leftCol}>
+            <h2 className="section-headline" style={{ marginBottom: "2.5rem" }}>
+              Let&apos;s build something great together.
+            </h2>
 
-              <div className={styles.channelList}>
-                <div className={styles.channelItem}>
-                  <div className={styles.channelIcon}>
-                    <Mail size={18} />
-                  </div>
-                  <div className={styles.channelInfo}>
-                    <span className={styles.channelLabel}>Email Address</span>
-                    <a href="mailto:gaganaushan16@gmail.com" className={styles.channelVal}>
-                      gaganaushan16@gmail.com
-                    </a>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => copyToClipboard("gaganaushan16@gmail.com", "Email")}
-                    className={styles.copyBtn}
-                    title="Copy Email"
-                  >
-                    <Copy size={14} />
-                  </button>
-                </div>
-
-                <div className={styles.channelItem}>
-                  <div className={styles.channelIcon}>
-                    <Phone size={18} />
-                  </div>
-                  <div className={styles.channelInfo}>
-                    <span className={styles.channelLabel}>Phone &amp; WhatsApp</span>
-                    <a href="tel:+94773650313" className={styles.channelVal}>
-                      +94 77 365 0313
-                    </a>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => copyToClipboard("+94773650313", "Phone number")}
-                    className={styles.copyBtn}
-                    title="Copy Phone"
-                  >
-                    <Copy size={14} />
-                  </button>
-                </div>
-
-                <div className={styles.channelItem}>
-                  <div className={styles.channelIcon}>
-                    <MapPin size={18} />
-                  </div>
-                  <div className={styles.channelInfo}>
-                    <span className={styles.channelLabel}>Location</span>
-                    <span className={styles.channelVal}>Sri Lanka (GMT+5:30)</span>
-                  </div>
-                </div>
+            <form onSubmit={handleSubmit} className={styles.form}>
+              <div className={styles.formRow}>
+                <input
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  placeholder="Your Name"
+                  className={styles.input}
+                />
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  placeholder="Your Email"
+                  className={styles.input}
+                />
               </div>
 
-              <div className={styles.cvDownloadBox}>
-                <a
-                  href="/CV.pdf"
-                  download="Gagana_Perera_CV.pdf"
-                  className="btn-white-pill"
-                  style={{ width: "100%" }}
-                >
-                  Download Full CV (PDF) <FileDown size={16} />
-                </a>
-              </div>
+              <input
+                type="text"
+                value={formData.subject}
+                onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                placeholder="Subject"
+                className={styles.input}
+              />
 
-              <div className={styles.socialsRow}>
-                <a
-                  href="https://www.linkedin.com/in/gagana-yushan-9025982aa/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.socialLink}
-                >
-                  LinkedIn <ArrowUpRight size={14} />
-                </a>
-                <span className={styles.dot}>•</span>
-                <a
-                  href="https://github.com/GaganaUshan"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.socialLink}
-                >
-                  GitHub <ArrowUpRight size={14} />
-                </a>
-              </div>
-            </div>
+              <textarea
+                required
+                rows={4}
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                placeholder="Your Message"
+                className={styles.textarea}
+              />
 
-            {/* Right Column: Contact Form */}
-            <div className={styles.formCol}>
-              <h3 className={styles.colTitle}>Send a Message</h3>
-              <p className={styles.colDesc}>
-                Fill out the form below to kick off a conversation.
-              </p>
+              <button type="submit" disabled={isSubmitting} className="btn-black">
+                <span>{isSubmitting ? "PREPARING..." : "SEND MESSAGE"}</span>
+                <ArrowRight size={15} />
+              </button>
+            </form>
+          </div>
 
-              <form onSubmit={handleSubmit} className={styles.form}>
-                <div className={styles.formGroup}>
-                  <label className={styles.label}>Your Name</label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. John Doe"
-                    className={styles.input}
-                  />
+          {/* Right Column: Direct Info List */}
+          <div className={styles.rightCol}>
+            <div className={styles.infoCard}>
+              <div className={styles.infoItem}>
+                <Mail size={18} className={styles.infoIcon} />
+                <div className={styles.infoTexts}>
+                  <span className={styles.infoLabel}>EMAIL</span>
+                  <a href="mailto:gaganaushan16@gmail.com" className={styles.infoValue}>
+                    gaganaushan16@gmail.com
+                  </a>
                 </div>
-
-                <div className={styles.formGroup}>
-                  <label className={styles.label}>Your Email</label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="e.g. john@example.com"
-                    className={styles.input}
-                  />
-                </div>
-
-                <div className={styles.formGroup}>
-                  <label className={styles.label}>Your Phone (Optional)</label>
-                  <input
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="e.g. +94 77 000 0000"
-                    className={styles.input}
-                  />
-                </div>
-
-                <div className={styles.formGroup}>
-                  <label className={styles.label}>Your Message</label>
-                  <textarea
-                    required
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Describe your inquiry or collaboration idea..."
-                    className={styles.textarea}
-                  />
-                </div>
-
                 <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="btn-orange"
-                  style={{ width: "100%" }}
+                  type="button"
+                  onClick={() => copyToClipboard("gaganaushan16@gmail.com", "Email")}
+                  className={styles.copyBtn}
+                  title="Copy Email"
                 >
-                  {isSubmitting ? "Opening Email..." : "Send Message"} <Send size={16} />
+                  <Copy size={13} />
                 </button>
-              </form>
+              </div>
+
+              <div className={styles.infoItem}>
+                <Phone size={18} className={styles.infoIcon} />
+                <div className={styles.infoTexts}>
+                  <span className={styles.infoLabel}>PHONE</span>
+                  <a href="tel:+94773650313" className={styles.infoValue}>
+                    +94 77 365 0313
+                  </a>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => copyToClipboard("+94773650313", "Phone")}
+                  className={styles.copyBtn}
+                  title="Copy Phone"
+                >
+                  <Copy size={13} />
+                </button>
+              </div>
+
+              <div className={styles.infoItem}>
+                <MapPin size={18} className={styles.infoIcon} />
+                <div className={styles.infoTexts}>
+                  <span className={styles.infoLabel}>LOCATION</span>
+                  <span className={styles.infoValue}>Sri Lanka (GMT+5:30)</span>
+                </div>
+              </div>
+
+              <div className={styles.infoItem}>
+                <Clock size={18} className={styles.infoIcon} />
+                <div className={styles.infoTexts}>
+                  <span className={styles.infoLabel}>AVAILABILITY</span>
+                  <span className={styles.infoValue}>Open for opportunities</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -234,7 +175,7 @@ export function Contact() {
             transition={{ type: "spring", stiffness: 500, damping: 30 }}
             className="toast-notification"
           >
-            <CheckCircle2 size={16} color="#f9532d" />
+            <CheckCircle2 size={16} color="#e50914" />
             <span>{toastMessage}</span>
           </motion.div>
         )}

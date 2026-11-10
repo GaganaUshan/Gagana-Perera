@@ -14,9 +14,9 @@ export function PageHeader({ number, title, subtitle, description }: PageHeaderP
     <header className={styles.header}>
       <div className="container">
         <div className={styles.headerContent}>
-          {/* Breadcrumb pill */}
-          <div className={styles.breadcrumbBadge}>
-            <Link href="/" className={styles.breadcrumbLink}>Home</Link>
+          {/* Breadcrumb line */}
+          <div className={styles.breadcrumbBar}>
+            <Link href="/" className={styles.breadcrumbLink}>HOME</Link>
             <span className={styles.sep}>/</span>
             <span className={styles.current}>{number}</span>
           </div>
