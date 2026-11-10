@@ -52,11 +52,11 @@ export function Hero() {
             </div>
 
             <h1 className="headline-huge">
-              Bridging technology, business, and creativity.
+              Gagana Yushan Perera
             </h1>
 
             <p className={styles.bioText}>
-              I&apos;m Gagana Yushan Perera, an Information Technology undergraduate at SLIIT with cross-functional industry experience across project coordination, requirement engineering, and creative problem-solving.
+              Bridging technology, business, and creativity to build meaningful digital solutions. Information Technology undergraduate at SLIIT with cross-functional industry experience across project coordination, requirement engineering, and creative problem-solving.
             </p>
 
             <div className={styles.actionsRow}>
