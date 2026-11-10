@@ -5,11 +5,12 @@ import { ArrowUp, Mail, Phone, MapPin } from "lucide-react";
 import styles from "./Footer.module.css";
 
 const footerLinks = [
-  { href: "/about", label: "ABOUT" },
-  { href: "/experience", label: "EXPERIENCE" },
-  { href: "/works", label: "WORKS" },
-  { href: "/services", label: "SERVICES" },
-  { href: "/contact", label: "CONTACT" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Service" },
+  { href: "/experience", label: "Resume" },
+  { href: "/works", label: "Project" },
+  { href: "/contact", label: "Contact Us" },
 ];
 
 export function Footer() {
@@ -20,52 +21,36 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.footerContainer}`}>
-        <div className={styles.brandRow}>
-          <Link href="/" className={styles.brandName}>
-            GAGANA YUSHAN PERERA
+        <div className={styles.topRow}>
+          <Link href="/" className={styles.brand}>
+            <span className={styles.brandBadge}>G</span>
+            <span className={styles.brandName}>Gagana Yushan</span>
           </Link>
-          <button
-            onClick={scrollToTop}
-            className={styles.scrollTopBtn}
-            aria-label="Back to top"
-            title="Scroll to top"
-          >
-            <span>TOP</span>
-            <ArrowUp size={14} />
-          </button>
-        </div>
 
-        <div className={styles.navRow}>
-          <div className={styles.linksList}>
+          <div className={styles.linksNav}>
             {footerLinks.map((link) => (
               <Link key={link.href} href={link.href} className={styles.navLink}>
                 {link.label}
               </Link>
             ))}
-            <a
-              href="/CV.pdf"
-              download="Gagana_Perera_CV.pdf"
-              className={styles.navLink}
-            >
-              CV (PDF)
-            </a>
           </div>
 
-          <div className={styles.contactSnippets}>
-            <span className={styles.snippet}>gaganaushan16@gmail.com</span>
-            <span className={styles.dot}>•</span>
-            <span className={styles.snippet}>+94 77 365 0313</span>
-            <span className={styles.dot}>•</span>
-            <span className={styles.snippet}>Sri Lanka</span>
-          </div>
+          <button
+            onClick={scrollToTop}
+            className={styles.scrollTopBtn}
+            aria-label="Back to top"
+          >
+            <span>Back to top</span>
+            <ArrowUp size={15} />
+          </button>
         </div>
 
-        <div className={styles.copyrightRow}>
-          <p className={styles.copyrightText}>
-            &copy; {new Date().getFullYear()} GAGANA YUSHAN PERERA. ALL RIGHTS RESERVED.
+        <div className={styles.bottomRow}>
+          <p className={styles.copyright}>
+            &copy; {new Date().getFullYear()} Gagana Yushan Perera. All rights reserved.
           </p>
-          <div className={styles.credits}>
-            <span>PROJECT MANAGEMENT • BUSINESS ANALYSIS • CREATIVE TECH</span>
+          <div className={styles.tagline}>
+            Project Management • Business Analysis • Creative Tech
           </div>
         </div>
       </div>

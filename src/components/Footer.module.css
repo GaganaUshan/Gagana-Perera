@@ -1,7 +1,7 @@
 .footer {
-  background: #050505;
-  border-top: 1px solid var(--border);
-  padding: 4.5rem 0 3rem;
+  background-color: var(--bg-dark);
+  color: #ffffff;
+  padding: 4rem 0 2.5rem;
   margin-top: auto;
 }
 
@@ -11,58 +11,44 @@
   gap: 2.5rem;
 }
 
-.brandRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.brandName {
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #ffffff;
-  transition: opacity 0.2s ease;
-}
-
-.brandName:hover {
-  opacity: 0.8;
-}
-
-.scrollTopBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.8rem;
-  border: 1px solid var(--border-subtle);
-  color: var(--foreground-muted);
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  letter-spacing: 0.15em;
-  transition: all 0.2s ease;
-}
-
-.scrollTopBtn:hover {
-  background: #ffffff;
-  color: #000000;
-  border-color: #ffffff;
-}
-
-.navRow {
+.topRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1.5rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.linksList {
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.brandBadge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--accent-orange);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.brandName {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.linksNav {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -70,35 +56,36 @@
 }
 
 .navLink {
-  font-family: var(--font-display);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--foreground-muted);
+  color: #9ca3af;
+  font-size: 0.9rem;
+  font-weight: 500;
   transition: color 0.2s ease;
 }
 
 .navLink:hover {
-  color: #ffffff;
+  color: var(--accent-orange);
 }
 
-.contactSnippets {
-  display: flex;
+.scrollTopBtn {
+  display: inline-flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  color: var(--foreground-subtle);
+  gap: 0.5rem;
+  padding: 0.5rem 1.15rem;
+  border-radius: var(--radius-pill);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
 }
 
-.dot {
-  color: #333333;
+.scrollTopBtn:hover {
+  background-color: var(--accent-orange);
+  border-color: var(--accent-orange);
 }
 
-.copyrightRow {
+.bottomRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -106,18 +93,13 @@
   gap: 1rem;
 }
 
-.copyrightText {
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--foreground-subtle);
+.copyright {
+  font-size: 0.85rem;
+  color: #6b7280;
 }
 
-.credits {
-  font-family: var(--font-display);
-  font-size: 0.68rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--foreground-subtle);
+.tagline {
+  font-size: 0.82rem;
+  color: #9ca3af;
+  font-weight: 500;
 }

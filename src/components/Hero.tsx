@@ -3,130 +3,117 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, MapPin, Mail, Phone } from "lucide-react";
+import { ArrowUpRight, Star, Sparkles, Quote } from "lucide-react";
 import styles from "./Hero.module.css";
 
 export function Hero() {
   return (
-    <section className={styles.hero} id="hero">
-      {/* Background Subtle Noir Texture/Gradient */}
-      <div className={styles.bgGlow} />
-
+    <section className={styles.heroSection}>
       <div className={`container ${styles.heroContainer}`}>
-        {/* Top Tagline & Status Bar */}
+        {/* Top Greeting Badge */}
         <motion.div
-          className={styles.heroMetaBar}
-          initial={{ opacity: 0, y: -15 }}
+          className={styles.greetingBadgeWrap}
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className={styles.locationBadge}>
-            <MapPin size={13} className={styles.icon} />
-            <span>SRI LANKA</span>
-            <span className={styles.statusDot} title="Available for opportunities" />
-            <span className={styles.availability}>AVAILABLE FOR ROLES</span>
-          </div>
-          <div className={styles.contactQuick}>
-            <a href="mailto:gaganaushan16@gmail.com" className={styles.quickLink}>
-              <Mail size={13} />
-              <span>gaganaushan16@gmail.com</span>
-            </a>
-            <span className={styles.dividerDot}>•</span>
-            <a href="tel:+94773650313" className={styles.quickLink}>
-              <Phone size={13} />
-              <span>+94 77 365 0313</span>
-            </a>
+          <div className={styles.greetingBadge}>
+            <span>Hello!</span>
+            <span className={styles.sparkle}>✨</span>
           </div>
         </motion.div>
 
-        {/* Main Grid: Name on left, Portrait + Quote on Right */}
-        <div className={styles.heroGrid}>
-          <div className={styles.leftColumn}>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <span className={styles.discipline}>
-                PROJECT MANAGEMENT • BUSINESS ANALYSIS • CREATIVE TECH
-              </span>
-              <h1 className={styles.name}>
-                <span className={styles.nameRow}>GAGANA</span>
-                <span className={styles.nameRow}>YUSHAN</span>
-                <span className={styles.nameSubtitle}>PERERA</span>
-              </h1>
-            </motion.div>
+        {/* Hero Title */}
+        <motion.div
+          className={styles.titleWrap}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+        >
+          <h1 className={styles.heroTitle}>
+            I&apos;m <span className={styles.orangeText}>Gagana,</span>
+            <br />
+            Project Manager &amp; BA
+          </h1>
+        </motion.div>
 
-            <motion.p
-              className={styles.roleTagline}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            >
-              Bridging technology, business, and creativity to build meaningful digital solutions.
-            </motion.p>
+        {/* Main Stage Grid: Left Stats, Center Arch Portrait + CTA, Right Stats */}
+        <div className={styles.stageGrid}>
+          {/* Left Column: Testimonial Quote & Metric */}
+          <motion.div
+            className={styles.leftCol}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div className={styles.quoteCard}>
+              <div className={styles.quoteIcon}>“</div>
+              <p className={styles.quoteBody}>
+                Bridging technology, business, and creativity to build meaningful digital solutions.
+              </p>
+              <span className={styles.quoteAuthor}>SLIIT IT Undergrad • 1BillionTech</span>
+            </div>
 
-            <motion.div
-              className={styles.ctaRow}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <Link href="/works" className="btn-primary">
-                SEE MY WORK <ArrowUpRight size={16} />
-              </Link>
-              <Link href="/contact" className="btn-outline">
-                LET&apos;S CONNECT
-              </Link>
-              <a
-                href="/CV.pdf"
-                download="Gagana_Perera_CV.pdf"
-                className="btn-link"
-              >
-                DOWNLOAD CV
-              </a>
-            </motion.div>
-          </div>
+            <div className={styles.statBox}>
+              <span className={styles.statNumber}>4+ Years</span>
+              <span className={styles.statLabel}>Leadership &amp; Delivery</span>
+            </div>
+          </motion.div>
 
-          <div className={styles.rightColumn}>
-            {/* Portrait Container with Noir Editorial Grading */}
-            <motion.div
-              className={styles.portraitWrapper}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <div className={styles.imageBackdrop} />
-              <div className={styles.imageFrame}>
+          {/* Center Column: Orange Arch & Portrait */}
+          <motion.div
+            className={styles.centerCol}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.15 }}
+          >
+            <div className={styles.archWrapper}>
+              <div className={styles.orangeArch} />
+              <div className={styles.portraitContainer}>
                 <Image
                   src="/gagana-hero.png"
                   alt="Gagana Yushan Perera"
-                  width={640}
-                  height={820}
+                  width={460}
+                  height={580}
                   priority
-                  className={styles.portraitImage}
+                  className={styles.portraitImg}
                 />
-                <div className={styles.vignetteOverlay} />
               </div>
-            </motion.div>
 
-            {/* Editorial Statement Box */}
-            <motion.div
-              className={styles.editorialQuote}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <p className={styles.quoteText}>
-                &ldquo;Understanding problems, organizing people and processes, and turning ambitious ideas into functional realities.&rdquo;
-              </p>
-              <div className={styles.quoteMeta}>
-                <span>SLIIT IT UNDERGRADUATE</span>
-                <span className={styles.metaDivider}>/</span>
-                <span>AIESEC ALUMNUS</span>
+              {/* Overlapping Pill Action Buttons at bottom of Arch */}
+              <div className={styles.archActionPills}>
+                <Link href="/works" className="btn-orange">
+                  Portfolio <ArrowUpRight size={16} />
+                </Link>
+                <Link href="/contact" className="btn-white-pill">
+                  Hire Me
+                </Link>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Star Rating & Certifications */}
+          <motion.div
+            className={styles.rightCol}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div className={styles.ratingCard}>
+              <div className={styles.starsRow}>
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={18} className={styles.starIcon} fill="#f9532d" />
+                ))}
+              </div>
+              <span className={styles.ratingNumber}>Certified</span>
+              <span className={styles.ratingLabel}>Google &amp; SAP Accredited</span>
+            </div>
+
+            <div className={styles.statBox}>
+              <span className={styles.statNumber}>6+ Projects</span>
+              <span className={styles.statLabel}>Enterprise &amp; Academic</span>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

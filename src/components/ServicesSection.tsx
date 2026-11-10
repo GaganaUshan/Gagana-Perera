@@ -2,37 +2,51 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowUpRight, CheckCircle2, Award, Briefcase, Sparkles, Terminal } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Layers, Kanban, Compass, Cpu } from "lucide-react";
 import styles from "./ServicesSection.module.css";
 
-const servicesList = [
+const services = [
   {
-    number: "01",
-    title: "PROJECT MANAGEMENT & SPRINT DELIVERY",
-    description:
-      "End-to-end task breakdown, Agile/Kanban workflow coordination, dependency tracking, risk identification, and aligning engineering velocity with strategic business milestones.",
-    deliverables: ["Sprint Planning & Backlog Grooming", "Milestone & Risk Tracking", "Jira & Kanban Board Setup", "Stakeholder Progress Reporting"]
+    id: "pm",
+    title: "Project Management",
+    subtitle: "Sprint Planning & Agile Delivery",
+    isFeatured: false,
+    icon: Kanban,
+    deliverables: [
+      "Jira & Kanban Sprint Workflows",
+      "Milestone & Timeline Tracking",
+      "Cross-Functional Team Coordination",
+      "Risk Mitigation & Blocker Clearance"
+    ],
+    link: "/services"
   },
   {
-    number: "02",
-    title: "BUSINESS ANALYSIS & REQUIREMENT ENGINEERING",
-    description:
-      "Bridging business aspirations with technical execution. Eliciting stakeholder needs, drafting functional specifications, mapping business workflows, and defining user stories.",
-    deliverables: ["Stakeholder Elicitation & Interviews", "Functional & Non-Functional Specs", "Process Flow Diagrams & Wireframes", "Acceptance Criteria Definition"]
+    id: "ba",
+    title: "Business Analysis",
+    subtitle: "Requirements & System Logic",
+    isFeatured: true, // The iconic orange card from the UI inspiration
+    icon: Compass,
+    deliverables: [
+      "Stakeholder Requirements Elicitation",
+      "Functional & Technical Specifications",
+      "Business Process Flow Mapping",
+      "User Stories & Acceptance Criteria"
+    ],
+    link: "/services"
   },
   {
-    number: "03",
-    title: "CREATIVE DIRECTION & UI/UX DESIGN",
-    description:
-      "Crafting intuitive user journeys and high-fidelity digital interfaces. Combining visual storytelling, brand identity, and motion to create memorable digital experiences.",
-    deliverables: ["Figma Wireframes & Prototypes", "Brand Identity & Graphic Assets", "Design System Guidelines", "Motion & Video Content Production"]
-  },
-  {
-    number: "04",
-    title: "TECHNICAL IMPLEMENTATION & CLOUD",
-    description:
-      "Hands-on technical comprehension in modern web technologies, full-stack frameworks (React, Next.js, Node.js, Spring Boot), cloud architectures (AWS), and data workflows.",
-    deliverables: ["Modern React & Next.js Frontends", "RESTful API Integration", "AWS Cloud File & VM Environments", "Data Extraction & Web Scraping"]
+    id: "design",
+    title: "UI/UX & Creative Tech",
+    subtitle: "Wireframes & Brand Experience",
+    isFeatured: false,
+    icon: Cpu,
+    deliverables: [
+      "Figma Prototypes & Design Systems",
+      "User Journey & Interface Architecture",
+      "Adobe Creative Suite Visual Assets",
+      "Modern Web Development (React / Next.js)"
+    ],
+    link: "/services"
   }
 ];
 
@@ -40,110 +54,82 @@ export function ServicesSection() {
   return (
     <section className="section-wrapper" id="services">
       <div className="container">
-        <div className={styles.headerRow}>
-          <div>
-            <span className="section-tag">03 / CAPABILITIES & EXPERTISE</span>
-            <h2 className="section-title">SERVICES</h2>
-          </div>
-          <Link href="/services" className="btn-link">
-            FULL SKILLS & CERTIFICATIONS DIRECTORY <ArrowUpRight size={14} />
-          </Link>
-        </div>
-
-        <div className={styles.contentGrid}>
-          {/* Left Side: Summary & Certifications Highlight Card */}
-          <motion.div
-            className={styles.leftCard}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className={styles.stickyBox}>
-              <span className={styles.boxTag}>SPECIALIZED FOUNDATIONS</span>
-              <h3 className={styles.boxTitle}>
-                CROSS-DISCIPLINARY VALUE
-              </h3>
-              <p className={styles.boxDesc}>
-                Whether coordinating complex cross-functional teams, structuring software requirements, or prototyping intuitive digital interfaces, I bridge the gaps between strategy, design, and code.
-              </p>
-
-              <div className={styles.certList}>
-                <div className={styles.certItem}>
-                  <Award size={16} className={styles.certIcon} />
-                  <div>
-                    <strong>Google</strong>
-                    <p>Foundations of Project Management</p>
-                  </div>
-                </div>
-                <div className={styles.certItem}>
-                  <Award size={16} className={styles.certIcon} />
-                  <div>
-                    <strong>SAP</strong>
-                    <p>SAP Business Analyst (Foundations)</p>
-                  </div>
-                </div>
-                <div className={styles.certItem}>
-                  <Award size={16} className={styles.certIcon} />
-                  <div>
-                    <strong>Google AI</strong>
-                    <p>Google AI Professional</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className={styles.toolsCloud}>
-                <span className={styles.toolsLabel}>PRIMARY TOOLS & STACK:</span>
-                <div className={styles.toolsTags}>
-                  <span>Jira</span>
-                  <span>Figma</span>
-                  <span>React</span>
-                  <span>Next.js</span>
-                  <span>Spring Boot</span>
-                  <span>AWS</span>
-                  <span>Excel</span>
-                  <span>Photoshop</span>
-                </div>
-              </div>
-
-              <Link href="/services" className="btn-primary" style={{ width: "100%", marginTop: "1.5rem" }}>
-                EXPLORE ALL SKILLS <ArrowUpRight size={15} />
-              </Link>
+        {/* Dark Rounded Container matching the UI design */}
+        <div className={styles.darkBlock}>
+          {/* Header Row */}
+          <div className={styles.headerRow}>
+            <div className={styles.titleCol}>
+              <h2 className={styles.sectionTitle}>
+                My <span className={styles.orangeHighlight}>Services</span>
+              </h2>
             </div>
-          </motion.div>
+            <div className={styles.descCol}>
+              <p className={styles.sectionDesc}>
+                Transforming complex challenges into streamlined digital products through structured coordination, analytical problem-solving, and creative execution.
+              </p>
+            </div>
+          </div>
 
-          {/* Right Side: Editorial Numbered List with dividers */}
-          <div className={styles.servicesList}>
-            {servicesList.map((service, index) => (
-              <motion.div
-                key={service.number}
-                className={styles.serviceItem}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className={styles.itemHeader}>
-                  <span className={styles.itemNumber}>{service.number}.</span>
-                  <h3 className={styles.itemTitle}>{service.title}</h3>
-                </div>
-
-                <p className={styles.itemDesc}>{service.description}</p>
-
-                <div className={styles.deliverablesGrid}>
-                  {service.deliverables.map((deliv, i) => (
-                    <div key={i} className={styles.delivItem}>
-                      <span className={styles.delivDot}>•</span>
-                      <span>{deliv}</span>
+          {/* Cards Grid */}
+          <div className={styles.cardsGrid}>
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <motion.div
+                  key={service.id}
+                  className={`${styles.serviceCard} ${service.isFeatured ? styles.cardFeatured : styles.cardDark}`}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                >
+                  <div className={styles.cardTop}>
+                    <div className={styles.iconBox}>
+                      <Icon size={22} />
                     </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+                    <Link
+                      href={service.link}
+                      className={service.isFeatured ? "btn-circle-arrow-white" : "btn-circle-arrow"}
+                      aria-label={`View details for ${service.title}`}
+                    >
+                      <ArrowUpRight size={20} />
+                    </Link>
+                  </div>
+
+                  <div className={styles.cardHeader}>
+                    <h3 className={styles.cardTitle}>{service.title}</h3>
+                    <p className={styles.cardSubtitle}>{service.subtitle}</p>
+                  </div>
+
+                  {/* Folder Tab / Preview graphic mock */}
+                  <div className={styles.folderMock}>
+                    <div className={styles.folderTab}>
+                      <span>Deliverables</span>
+                    </div>
+                    <div className={styles.folderContent}>
+                      <ul className={styles.delivList}>
+                        {service.deliverables.map((item, i) => (
+                          <li key={i}>
+                            <CheckCircle2 size={13} className={styles.checkIcon} />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Bottom Action Row */}
+          <div className={styles.footerRow}>
+            <Link href="/services" className="btn-white-pill">
+              View All Services &amp; Certifications <ArrowUpRight size={16} />
+            </Link>
           </div>
         </div>
       </div>
     </section>
   );
 }
-

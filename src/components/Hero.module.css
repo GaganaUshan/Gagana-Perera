@@ -1,246 +1,267 @@
-.hero {
-  min-height: 100vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding-top: 7rem;
+.heroSection {
+  padding-top: 8rem;
   padding-bottom: 4rem;
+  background-color: var(--bg-primary);
   overflow: hidden;
-  background: #080808;
-  border-bottom: 1px solid var(--border);
-}
-
-.bgGlow {
-  position: absolute;
-  top: 0;
-  right: 10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, rgba(0, 0, 0, 0) 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.heroContainer {
   position: relative;
-  z-index: 1;
-  width: 100%;
-}
-
-.heroMetaBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 2rem;
-  margin-bottom: 2.5rem;
-  border-bottom: 1px solid var(--border-subtle);
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--foreground-muted);
 }
 
 @media (max-width: 768px) {
-  .heroMetaBar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
+  .heroSection {
+    padding-top: 6.5rem;
+    padding-bottom: 2rem;
   }
 }
 
-.locationBadge {
+.heroContainer {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
+  position: relative;
 }
 
-.icon {
-  color: #ffffff;
+/* Greeting Badge */
+.greetingBadgeWrap {
+  margin-bottom: 1.25rem;
 }
 
-.statusDot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #22c55e;
-  box-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
-  display: inline-block;
-}
-
-.availability {
-  color: #a3a3a3;
-  font-size: 0.7rem;
-}
-
-.contactQuick {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.quickLink {
+.greetingBadge {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  color: var(--foreground-muted);
+  padding: 0.35rem 1rem;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
 }
 
-.quickLink:hover {
-  color: #ffffff;
+.sparkle {
+  font-size: 0.95rem;
 }
 
-.dividerDot {
-  color: var(--foreground-subtle);
+/* Hero Title */
+.titleWrap {
+  text-align: center;
+  margin-bottom: 2.5rem;
 }
 
-/* Main Grid */
-.heroGrid {
+.heroTitle {
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.orangeText {
+  color: var(--accent-orange);
+}
+
+/* Main Stage Grid */
+.stageGrid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  align-items: flex-end;
-  gap: 3rem;
+  grid-template-columns: 280px 1fr 280px;
+  align-items: center;
+  width: 100%;
+  max-width: 1100px;
+  position: relative;
+  gap: 1.5rem;
 }
 
-@media (max-width: 992px) {
-  .heroGrid {
+@media (max-width: 960px) {
+  .stageGrid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
 }
 
-.leftColumn {
+/* Left & Right Columns */
+.leftCol,
+.rightCol {
   display: flex;
   flex-direction: column;
+  gap: 2.5rem;
+  z-index: 2;
 }
 
-.discipline {
-  display: inline-block;
-  font-family: var(--font-display);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--foreground-muted);
-  margin-bottom: 1.5rem;
+@media (max-width: 960px) {
+  .leftCol,
+  .rightCol {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+  }
 }
 
-.name {
-  font-family: var(--font-display);
-  font-size: clamp(3.2rem, 8.5vw, 6.8rem);
-  font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
+@media (max-width: 600px) {
+  .leftCol,
+  .rightCol {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-.nameRow {
-  display: block;
-}
-
-.nameSubtitle {
-  font-size: clamp(1.8rem, 4.5vw, 3.8rem);
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  color: var(--foreground-muted);
-  margin-top: 0.5rem;
-}
-
-.roleTagline {
-  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-  line-height: 1.6;
-  color: #d1d1d1;
-  max-width: 540px;
-  margin-top: 2rem;
-  margin-bottom: 2.75rem;
-  font-weight: 300;
-}
-
-.ctaRow {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-/* Right Column: Portrait and Statement */
-.rightColumn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Quote Card */
+.quoteCard {
+  background: var(--bg-white);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
   position: relative;
+  max-width: 270px;
 }
 
-.portraitWrapper {
+.quoteIcon {
+  font-size: 2.2rem;
+  line-height: 1;
+  color: var(--accent-orange);
+  font-family: Georgia, serif;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.quoteBody {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.quoteAuthor {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Stat Box */
+.statBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.5rem 0;
+}
+
+.statNumber {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Right Rating Card */
+.ratingCard {
+  background: var(--bg-white);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-width: 270px;
+}
+
+.starsRow {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.starIcon {
+  color: var(--accent-orange);
+}
+
+.ratingNumber {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.ratingLabel {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Center Arch & Portrait */
+.centerCol {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.archWrapper {
   position: relative;
   width: 100%;
   max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.imageFrame {
+.orangeArch {
+  position: absolute;
+  bottom: 35px;
+  width: 320px;
+  height: 380px;
+  background-color: var(--accent-orange);
+  border-radius: 170px 170px 0 0;
+  z-index: 1;
+  box-shadow: 0 20px 45px rgba(249, 83, 45, 0.35);
+}
+
+@media (max-width: 600px) {
+  .orangeArch {
+    width: 270px;
+    height: 320px;
+  }
+}
+
+.portraitContainer {
   position: relative;
+  z-index: 2;
   width: 100%;
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
+  height: 480px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
 }
 
-.portraitImage {
-  width: 100%;
+@media (max-width: 600px) {
+  .portraitContainer {
+    height: 400px;
+  }
+}
+
+.portraitImg {
+  width: auto;
   height: 100%;
+  max-width: 100%;
   object-fit: contain;
   object-position: bottom center;
-  filter: grayscale(100%) contrast(110%);
-  transition: filter 0.5s ease;
 }
 
-.portraitWrapper:hover .portraitImage {
-  filter: grayscale(40%) contrast(105%);
-}
-
-.vignetteOverlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 45%;
-  background: linear-gradient(to top, #080808 10%, rgba(8, 8, 8, 0) 100%);
-  pointer-events: none;
-}
-
-.editorialQuote {
-  margin-top: 1.5rem;
-  max-width: 440px;
-  width: 100%;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--border);
-}
-
-.quoteText {
-  font-style: italic;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #a0a0a0;
-  margin-bottom: 0.8rem;
-}
-
-.quoteMeta {
+/* Overlapping Action Pills at Arch bottom */
+.archActionPills {
+  position: relative;
+  z-index: 3;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-display);
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--foreground-subtle);
-}
-
-.metaDivider {
-  color: var(--foreground-subtle);
+  gap: 0.75rem;
+  margin-top: -24px;
 }

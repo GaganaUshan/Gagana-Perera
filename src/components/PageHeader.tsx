@@ -13,27 +13,25 @@ export function PageHeader({ number, title, subtitle, description }: PageHeaderP
   return (
     <header className={styles.header}>
       <div className="container">
-        <div className={styles.topRow}>
-          <div className={styles.breadcrumb}>
-            <Link href="/" className={styles.breadcrumbLink}>HOME</Link>
-            <span className={styles.breadcrumbSep}>/</span>
-            <span className={styles.breadcrumbCurrent}>{number}</span>
+        <div className={styles.headerContent}>
+          {/* Breadcrumb pill */}
+          <div className={styles.breadcrumbBadge}>
+            <Link href="/" className={styles.breadcrumbLink}>Home</Link>
+            <span className={styles.sep}>/</span>
+            <span className={styles.current}>{number}</span>
           </div>
-          <span className={styles.categoryBadge}>GAGANA YUSHAN PERERA</span>
-        </div>
 
-        <div className={styles.mainRow}>
           <h1 className={styles.title}>{title}</h1>
-          {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+
+          {subtitle && (
+            <p className={styles.subtitle}>{subtitle}</p>
+          )}
+
+          {description && (
+            <p className={styles.description}>{description}</p>
+          )}
         </div>
-
-        {description && (
-          <p className={styles.description}>{description}</p>
-        )}
-
-        <div className={styles.divider} />
       </div>
     </header>
   );
 }
-

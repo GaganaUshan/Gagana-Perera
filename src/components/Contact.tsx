@@ -33,8 +33,7 @@ export function Contact() {
     }
 
     setIsSubmitting(true);
-    // Create mailto fallback
-    const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`);
+    const subject = encodeURIComponent(`Inquiry from ${formData.name}`);
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || "Not provided"}\n\nMessage:\n${formData.message}`
     );
@@ -48,159 +47,148 @@ export function Contact() {
   };
 
   return (
-    <section className="section-wrapper" id="contact">
+    <section className="section-wrapper" id="contact" style={{ backgroundColor: "var(--bg-white)" }}>
       <div className="container">
-        <div className={styles.headerRow}>
-          <div>
-            <span className="section-tag">05 / GET IN TOUCH</span>
-            <h2 className="section-title">CONTACT</h2>
-          </div>
-          <span className={styles.headerSubtitle}>
-            AVAILABLE FOR PROJECT MANAGEMENT, BUSINESS ANALYSIS & CREATIVE ROLES
+        {/* Section Title */}
+        <div className="section-title-wrap">
+          <span className="badge-pill" style={{ marginBottom: "1rem" }}>
+            Let&apos;s Connect
           </span>
+          <h2 className="section-heading">
+            Get In <span className="highlight">Touch</span>
+          </h2>
+          <p className="section-subtitle">
+            Whether you have an upcoming project, are seeking a PM/BA intern, or want to discuss creative technology, my inbox is open.
+          </p>
         </div>
 
-        <div className={styles.contactGrid}>
-          {/* Left Side: Contact Information & Quick Actions */}
-          <motion.div
-            className={styles.infoCol}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className={styles.metaBlock}>
-              <h3 className={styles.metaHeading}>DIRECT CHANNELS</h3>
-              <p className={styles.metaBio}>
-                I&apos;m always open to discussing new opportunities, project collaborations, product strategy, or technology partnerships.
+        <div className={styles.contactCard}>
+          <div className={styles.contactGrid}>
+            {/* Left Column: Direct Channels & Socials */}
+            <div className={styles.channelsCol}>
+              <h3 className={styles.colTitle}>Direct Contact Channels</h3>
+              <p className={styles.colDesc}>
+                Feel free to reach out via email, phone, or LinkedIn. I typically reply within 24 hours.
               </p>
-            </div>
 
-            <div className={styles.channelList}>
-              <div className={styles.channelItem}>
-                <div className={styles.channelIcon}>
-                  <Mail size={16} />
+              <div className={styles.channelList}>
+                <div className={styles.channelItem}>
+                  <div className={styles.channelIcon}>
+                    <Mail size={18} />
+                  </div>
+                  <div className={styles.channelInfo}>
+                    <span className={styles.channelLabel}>Email Address</span>
+                    <a href="mailto:gaganaushan16@gmail.com" className={styles.channelVal}>
+                      gaganaushan16@gmail.com
+                    </a>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => copyToClipboard("gaganaushan16@gmail.com", "Email")}
+                    className={styles.copyBtn}
+                    title="Copy Email"
+                  >
+                    <Copy size={14} />
+                  </button>
                 </div>
-                <div className={styles.channelContent}>
-                  <span className={styles.channelLabel}>EMAIL</span>
-                  <a href="mailto:gaganaushan16@gmail.com" className={styles.channelLink}>
-                    gaganaushan16@gmail.com
-                  </a>
+
+                <div className={styles.channelItem}>
+                  <div className={styles.channelIcon}>
+                    <Phone size={18} />
+                  </div>
+                  <div className={styles.channelInfo}>
+                    <span className={styles.channelLabel}>Phone &amp; WhatsApp</span>
+                    <a href="tel:+94773650313" className={styles.channelVal}>
+                      +94 77 365 0313
+                    </a>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => copyToClipboard("+94773650313", "Phone number")}
+                    className={styles.copyBtn}
+                    title="Copy Phone"
+                  >
+                    <Copy size={14} />
+                  </button>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => copyToClipboard("gaganaushan16@gmail.com", "Email")}
-                  className={styles.copyBtn}
-                  title="Copy email"
+
+                <div className={styles.channelItem}>
+                  <div className={styles.channelIcon}>
+                    <MapPin size={18} />
+                  </div>
+                  <div className={styles.channelInfo}>
+                    <span className={styles.channelLabel}>Location</span>
+                    <span className={styles.channelVal}>Sri Lanka (GMT+5:30)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.cvDownloadBox}>
+                <a
+                  href="/CV.pdf"
+                  download="Gagana_Perera_CV.pdf"
+                  className="btn-white-pill"
+                  style={{ width: "100%" }}
                 >
-                  <Copy size={13} />
-                </button>
+                  Download Full CV (PDF) <FileDown size={16} />
+                </a>
               </div>
 
-              <div className={styles.channelItem}>
-                <div className={styles.channelIcon}>
-                  <Phone size={16} />
-                </div>
-                <div className={styles.channelContent}>
-                  <span className={styles.channelLabel}>PHONE & WHATSAPP</span>
-                  <a href="tel:+94773650313" className={styles.channelLink}>
-                    +94 77 365 0313
-                  </a>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => copyToClipboard("+94773650313", "Phone number")}
-                  className={styles.copyBtn}
-                  title="Copy phone"
+              <div className={styles.socialsRow}>
+                <a
+                  href="https://www.linkedin.com/in/gagana-yushan-9025982aa/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.socialLink}
                 >
-                  <Copy size={13} />
-                </button>
+                  LinkedIn <ArrowUpRight size={14} />
+                </a>
+                <span className={styles.dot}>•</span>
+                <a
+                  href="https://github.com/GaganaUshan"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.socialLink}
+                >
+                  GitHub <ArrowUpRight size={14} />
+                </a>
               </div>
-
-              <div className={styles.channelItem}>
-                <div className={styles.channelIcon}>
-                  <MapPin size={16} />
-                </div>
-                <div className={styles.channelContent}>
-                  <span className={styles.channelLabel}>LOCATION</span>
-                  <span className={styles.channelLink}>Sri Lanka (GMT+5:30)</span>
-                </div>
-              </div>
             </div>
 
-            <div className={styles.actionsBox}>
-              <a
-                href="/CV.pdf"
-                download="Gagana_Perera_CV.pdf"
-                className="btn-outline"
-                style={{ width: "100%" }}
-              >
-                DOWNLOAD FULL CV (PDF) <FileDown size={15} />
-              </a>
-            </div>
-
-            <div className={styles.socialRow}>
-              <a
-                href="https://www.linkedin.com/in/gagana-yushan-9025982aa/"
-                target="_blank"
-                rel="noreferrer"
-                className={styles.socialLink}
-              >
-                LINKEDIN <ArrowUpRight size={13} />
-              </a>
-              <span className={styles.socialDot}>•</span>
-              <a
-                href="https://github.com/GaganaUshan"
-                target="_blank"
-                rel="noreferrer"
-                className={styles.socialLink}
-              >
-                GITHUB <ArrowUpRight size={13} />
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Right Side: Editorial Minimal Contact Form */}
-          <motion.div
-            className={styles.formCol}
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-          >
-            <div className={styles.formContainer}>
-              <h3 className={styles.formTitle}>LET&apos;S GET STARTED!</h3>
-              <p className={styles.formSubtitle}>
-                Drop a message with your idea, inquiry, or opportunity details.
+            {/* Right Column: Contact Form */}
+            <div className={styles.formCol}>
+              <h3 className={styles.colTitle}>Send a Message</h3>
+              <p className={styles.colDesc}>
+                Fill out the form below to kick off a conversation.
               </p>
 
               <form onSubmit={handleSubmit} className={styles.form}>
-                <div className={styles.inputGroup}>
-                  <label className={styles.label}>YOUR NAME</label>
+                <div className={styles.formGroup}>
+                  <label className={styles.label}>Your Name</label>
                   <input
                     type="text"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="Enter your name"
+                    placeholder="e.g. John Doe"
                     className={styles.input}
                   />
                 </div>
 
-                <div className={styles.inputGroup}>
-                  <label className={styles.label}>YOUR EMAIL</label>
+                <div className={styles.formGroup}>
+                  <label className={styles.label}>Your Email</label>
                   <input
                     type="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="Enter your email address"
+                    placeholder="e.g. john@example.com"
                     className={styles.input}
                   />
                 </div>
 
-                <div className={styles.inputGroup}>
-                  <label className={styles.label}>YOUR PHONE (OPTIONAL)</label>
+                <div className={styles.formGroup}>
+                  <label className={styles.label}>Your Phone (Optional)</label>
                   <input
                     type="tel"
                     value={formData.phone}
@@ -210,14 +198,14 @@ export function Contact() {
                   />
                 </div>
 
-                <div className={styles.inputGroup}>
-                  <label className={styles.label}>YOUR MESSAGE</label>
+                <div className={styles.formGroup}>
+                  <label className={styles.label}>Your Message</label>
                   <textarea
                     required
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Describe your project, role, or collaboration idea..."
+                    placeholder="Describe your inquiry or collaboration idea..."
                     className={styles.textarea}
                   />
                 </div>
@@ -225,14 +213,14 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn-primary"
-                  style={{ width: "100%", padding: "1rem" }}
+                  className="btn-orange"
+                  style={{ width: "100%" }}
                 >
-                  {isSubmitting ? "PREPARING MESSAGE..." : "SUBMIT INQUIRY"} <Send size={14} />
+                  {isSubmitting ? "Opening Email..." : "Send Message"} <Send size={16} />
                 </button>
               </form>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
@@ -246,7 +234,7 @@ export function Contact() {
             transition={{ type: "spring", stiffness: 500, damping: 30 }}
             className="toast-notification"
           >
-            <CheckCircle2 size={16} />
+            <CheckCircle2 size={16} color="#f9532d" />
             <span>{toastMessage}</span>
           </motion.div>
         )}

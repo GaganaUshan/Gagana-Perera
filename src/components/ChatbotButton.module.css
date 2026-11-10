@@ -9,16 +9,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
-  background: var(--foreground);
-  color: var(--background);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background: var(--accent-orange);
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(249, 83, 45, 0.35);
   cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.chatBtn:hover {
+  background: var(--accent-orange-hover);
+  box-shadow: 0 14px 30px rgba(249, 83, 45, 0.45);
 }
 
 .icon {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
 }

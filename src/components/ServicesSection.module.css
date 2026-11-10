@@ -1,219 +1,212 @@
+.darkBlock {
+  background-color: var(--bg-dark);
+  border-radius: var(--radius-xl);
+  padding: 4rem 3.5rem;
+  color: #ffffff;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 768px) {
+  .darkBlock {
+    padding: 2.5rem 1.5rem;
+    border-radius: var(--radius-lg);
+  }
+}
+
 .headerRow {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  gap: 2rem;
   margin-bottom: 3.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border);
 }
 
 @media (max-width: 768px) {
   .headerRow {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.orangeHighlight {
+  color: var(--accent-orange);
+}
+
+.descCol {
+  max-width: 440px;
+}
+
+.sectionDesc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-light-muted);
+}
+
+/* Cards Grid */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 992px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 }
 
-.contentGrid {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 4rem;
-  align-items: flex-start;
-}
-
-@media (max-width: 992px) {
-  .contentGrid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-}
-
-.leftCard {
-  position: relative;
-}
-
-.stickyBox {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  padding: 2.25rem;
-}
-
-.boxTag {
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--foreground-subtle);
-  display: block;
-  margin-bottom: 0.75rem;
-}
-
-.boxTitle {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #ffffff;
-  line-height: 1.25;
-  margin-bottom: 1rem;
-}
-
-.boxDesc {
-  font-size: 0.92rem;
-  line-height: 1.65;
-  color: #b0b0b0;
-  margin-bottom: 1.75rem;
-  font-weight: 300;
-}
-
-.certList {
+.serviceCard {
+  border-radius: var(--radius-lg);
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 1.25rem 0;
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceCard:hover {
+  transform: translateY(-4px);
+}
+
+/* Normal Dark Card */
+.cardDark {
+  background-color: var(--bg-dark-card);
+  border: 1px solid var(--border-dark);
+}
+
+.cardDark:hover {
+  background-color: var(--bg-dark-card-hover);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Featured Orange Card */
+.cardFeatured {
+  background-color: var(--accent-orange);
+  color: #ffffff;
+  box-shadow: 0 20px 45px rgba(249, 83, 45, 0.4);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 1.5rem;
 }
 
-.certItem {
+.iconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
   display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
-.certIcon {
+.cardFeatured .iconBox {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.cardHeader {
+  margin-bottom: 1.75rem;
+}
+
+.cardTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   color: #ffffff;
-  margin-top: 0.2rem;
+  margin-bottom: 0.35rem;
+}
+
+.cardSubtitle {
+  font-size: 0.85rem;
+  color: var(--text-light-muted);
+}
+
+.cardFeatured .cardSubtitle {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Folder Mock */
+.folderMock {
+  margin-top: auto;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cardFeatured .folderMock {
+  background: rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.folderTab {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #d1d5db;
+}
+
+.cardFeatured .folderTab {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.folderContent {
+  padding: 1.25rem;
+}
+
+.delivList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.delivList li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.82rem;
+  color: #e5e7eb;
+}
+
+.cardFeatured .delivList li {
+  color: #ffffff;
+}
+
+.checkIcon {
+  color: var(--accent-orange);
   flex-shrink: 0;
 }
 
-.certItem strong {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.cardFeatured .checkIcon {
   color: #ffffff;
 }
 
-.certItem p {
-  font-size: 0.8rem;
-  color: var(--foreground-muted);
-}
-
-.toolsCloud {
+.footerRow {
   display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+  justify-content: center;
+  padding-top: 1rem;
 }
-
-.toolsLabel {
-  font-family: var(--font-display);
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--foreground-subtle);
-}
-
-.toolsTags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.toolsTags span {
-  font-family: var(--font-display);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.25rem 0.55rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  color: #c0c0c0;
-}
-
-/* Services Numbered List */
-.servicesList {
-  display: flex;
-  flex-direction: column;
-}
-
-.serviceItem {
-  padding: 2.25rem 0;
-  border-bottom: 1px solid var(--border);
-  transition: all 0.25s ease;
-}
-
-.serviceItem:first-child {
-  padding-top: 0;
-}
-
-.itemHeader {
-  display: flex;
-  align-items: baseline;
-  gap: 1.25rem;
-  margin-bottom: 1rem;
-}
-
-.itemNumber {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--foreground-muted);
-}
-
-.itemTitle {
-  font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #ffffff;
-  line-height: 1.2;
-}
-
-.itemDesc {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: #a8a8a8;
-  margin-bottom: 1.5rem;
-  font-weight: 300;
-  padding-left: 2.35rem;
-}
-
-@media (max-width: 600px) {
-  .itemDesc {
-    padding-left: 0;
-  }
-}
-
-.deliverablesGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem 1.5rem;
-  padding-left: 2.35rem;
-}
-
-@media (max-width: 600px) {
-  .deliverablesGrid {
-    grid-template-columns: 1fr;
-    padding-left: 0;
-  }
-}
-
-.delivItem {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  color: #cccccc;
-}
-
-.delivDot {
-  color: var(--foreground-subtle);
-}
-

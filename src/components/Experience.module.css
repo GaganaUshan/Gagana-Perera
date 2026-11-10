@@ -1,128 +1,154 @@
-.headerRow {
+.timelineWrapper {
+  max-width: 980px;
+  margin: 0 auto 3.5rem;
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 3.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border);
+  flex-direction: column;
+}
+
+.timelineRow {
+  display: grid;
+  grid-template-columns: 240px 60px 1fr;
+  align-items: flex-start;
+  position: relative;
+  padding-bottom: 3.5rem;
 }
 
 @media (max-width: 768px) {
-  .headerRow {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-  }
-}
-
-.timelineList {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--border);
-  margin-bottom: 2.5rem;
-}
-
-.experienceRow {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 3rem;
-  padding: 2.5rem 0;
-  border-bottom: 1px solid var(--border-subtle);
-  transition: all 0.25s ease;
-}
-
-@media (max-width: 860px) {
-  .experienceRow {
-    grid-template-columns: 1fr;
+  .timelineRow {
+    grid-template-columns: 36px 1fr;
     gap: 1.25rem;
-    padding: 2rem 0;
+    padding-bottom: 2.75rem;
   }
 }
 
-.periodCol {
+/* Left Column */
+.leftCol {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  padding-right: 1.5rem;
+  text-align: right;
 }
 
-.periodText {
-  font-family: var(--font-display);
-  font-size: 0.82rem;
+@media (max-width: 768px) {
+  .leftCol {
+    grid-column: 2;
+    text-align: left;
+    padding-right: 0;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.companyName {
+  font-size: 1.15rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
-  color: #ffffff;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
 }
 
-.typeBadge {
-  font-family: var(--font-display);
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--foreground-subtle);
+.locationText {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.45rem;
 }
 
-.detailsCol {
+.periodBadge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-orange);
+}
+
+/* Center Node & Line */
+.nodeCol {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 100%;
 }
 
-.roleHeader {
+@media (max-width: 768px) {
+  .nodeCol {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+}
+
+.nodeCircle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-orange);
+  background-color: var(--bg-white);
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 0 0 4px rgba(249, 83, 45, 0.15);
+  margin-top: 3px;
+}
+
+.nodeInnerDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent-orange);
+}
+
+.nodeLine {
+  position: absolute;
+  top: 25px;
+  bottom: -3px;
+  width: 2px;
+  background-color: #e5e7eb;
+  z-index: 1;
+}
+
+/* Right Column */
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .rightCol {
+    grid-column: 2;
+    padding-left: 0;
+  }
 }
 
 .roleTitle {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
 }
 
-.companyMeta {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--foreground-muted);
-}
-
-.summary {
+.descriptionText {
   font-size: 0.95rem;
   line-height: 1.7;
-  color: #b0b0b0;
+  color: var(--text-secondary);
   margin-bottom: 1.25rem;
-  font-weight: 300;
 }
 
-.highlightTags {
+.skillsTags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-.highlightPill {
-  font-family: var(--font-display);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.25rem 0.65rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  color: var(--foreground-muted);
+.skillTag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
 }
 
-.footerRow {
+.actionRow {
   display: flex;
-  justify-content: flex-end;
-  padding-top: 1rem;
+  justify-content: center;
 }

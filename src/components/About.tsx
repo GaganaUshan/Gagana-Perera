@@ -3,99 +3,90 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, GraduationCap, Compass, Sparkles } from "lucide-react";
 import styles from "./About.module.css";
+
+const strengths = [
+  "Requirements Elicitation & Stakeholder Alignment",
+  "Sprint Delivery & Agile Task Breakdown",
+  "UI/UX Prototyping & Visual Communication",
+  "Technical Problem-Solving & Cloud Awareness"
+];
 
 export function About() {
   return (
-    <section className="section-wrapper" id="about">
+    <section className="section-wrapper" id="about" style={{ backgroundColor: "var(--bg-white)" }}>
       <div className="container">
-        <div className={styles.headerRow}>
-          <div>
-            <span className="section-tag">01 / BACKGROUND & VISION</span>
-            <h2 className="section-title">ABOUT</h2>
-          </div>
-          <Link href="/about" className="btn-link">
-            FULL BIOGRAPHY & CREDENTIALS <ArrowUpRight size={14} />
-          </Link>
-        </div>
-
         <div className={styles.aboutGrid}>
-          {/* Left: Framed Photo */}
+          {/* Left Column: Portrait Card with Orange Backdrop Detail */}
           <motion.div
-            className={styles.imageColumn}
-            initial={{ opacity: 0, x: -20 }}
+            className={styles.imageCol}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7 }}
           >
-            <div className={styles.imageCard}>
+            <div className={styles.portraitCard}>
+              <div className={styles.orangeAccentBlob} />
               <div className={styles.imageBox}>
                 <Image
                   src="/gagana-hero.png"
                   alt="Gagana Yushan Perera"
-                  width={400}
-                  height={500}
+                  width={420}
+                  height={520}
                   className={styles.photo}
                 />
               </div>
-              <div className={styles.imageCaption}>
-                <span className={styles.captionTitle}>GAGANA YUSHAN PERERA</span>
-                <span className={styles.captionRole}>IT Undergraduate • SLIIT</span>
+
+              <div className={styles.portraitBadge}>
+                <span className={styles.badgeName}>Gagana Yushan Perera</span>
+                <span className={styles.badgeRole}>SLIIT • IT Undergraduate</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Right: Editorial 2-column description + Bold Callout */}
+          {/* Right Column: Bio Prose & Call to Action */}
           <motion.div
-            className={styles.textColumn}
-            initial={{ opacity: 0, x: 20 }}
+            className={styles.textCol}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, delay: 0.15 }}
           >
-            <div className={styles.paragraphsGrid}>
-              <div className={styles.textBlock}>
-                <p>
-                  I&apos;m Gagana Yushan Perera, an Information Technology undergraduate at the Sri Lanka Institute of Information Technology (SLIIT), with a strong focus on Project Management, Business Analysis, technology, and creative problem-solving.
-                </p>
-                <p>
-                  My journey uniquely intersects technical acumen, structured coordination, business logic, and creative intuition. Having served across project coordination, client-facing creative design, and data production, I understand the lifecycle of digital products from ideation through delivery.
-                </p>
-              </div>
+            <span className="badge-pill" style={{ marginBottom: "1rem" }}>
+              About Me
+            </span>
+            <h2 className={styles.heading}>
+              Bridging Technology, Business, and <span className={styles.orangeText}>Creativity</span>
+            </h2>
 
-              <div className={styles.textBlock}>
-                <p>
-                  Through four years in AIESEC in SLIIT, I developed the capacity to rally cross-functional teams, navigate complex stakeholder environments, align conflicting priorities, and communicate with clarity.
-                </p>
-                <p>
-                  I particularly enjoy dissecting ambiguous problems, identifying strategic growth levers, streamlining workflows, and turning abstract concepts into practical, reliable, high-impact products.
-                </p>
-              </div>
+            <p className={styles.leadPara}>
+              I&apos;m an Information Technology undergraduate at the Sri Lanka Institute of Information Technology (SLIIT), with a focus on Project Management, Business Analysis, technology, and creative problem-solving.
+            </p>
+
+            <p className={styles.bodyPara}>
+              My background brings together technical engineering knowledge, structured project coordination, and creative design experience. Having served across roles in Project Management at 1BillionTech, Production Operations at Innodata Lanka, Creative Design at Avantous Global, and 4 years of leadership in AIESEC in SLIIT, I understand how to turn business ideas into practical, reliable software products.
+            </p>
+
+            {/* Strengths Checklist */}
+            <div className={styles.strengthsList}>
+              {strengths.map((item, i) => (
+                <div key={i} className={styles.strengthItem}>
+                  <div className={styles.checkWrap}>
+                    <CheckCircle2 size={16} className={styles.checkIcon} />
+                  </div>
+                  <span>{item}</span>
+                </div>
+              ))}
             </div>
 
-            {/* Bold Callout Statement mirroring the reference */}
-            <div className={styles.calloutBox}>
-              <h3 className={styles.calloutHeading}>
-                READY TO TURN AMBITIOUS IDEAS INTO PRACTICAL SOLUTIONS? LET&apos;S COLLABORATE.
-              </h3>
-              <div className={styles.calloutActions}>
-                <Link href="/contact" className="btn-primary">
-                  GET IN TOUCH
-                </Link>
-                <Link href="/about" className="btn-outline">
-                  READ FULL PROFILE
-                </Link>
-              </div>
-            </div>
-
-            {/* Quick Pill Highlights */}
-            <div className={styles.highlightPills}>
-              <span className={styles.pill}>SLIIT (2023–2026)</span>
-              <span className={styles.pill}>1BillionTech (PM/BA)</span>
-              <span className={styles.pill}>Innodata (Production)</span>
-              <span className={styles.pill}>Avantous (Design)</span>
-              <span className={styles.pill}>AIESEC (4-Year Leadership)</span>
+            <div className={styles.actionsRow}>
+              <Link href="/about" className="btn-orange">
+                Read Full Biography <ArrowUpRight size={16} />
+              </Link>
+              <Link href="/contact" className="btn-white-pill">
+                Let&apos;s Connect
+              </Link>
             </div>
           </motion.div>
         </div>
