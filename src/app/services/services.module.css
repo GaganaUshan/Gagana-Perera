@@ -9,8 +9,8 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 2.75rem;
-  padding-bottom: 1.25rem;
+  margin-bottom: 3.5rem;
+  padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--border-light);
 }
 
@@ -40,7 +40,7 @@
 
 .pillarCard {
   background-color: var(--bg-card);
-  border-radius: 4px;
+  border-radius: 20px;
   border: 1px solid var(--border-light);
   padding: 3rem;
   transition: all 0.3s ease;
@@ -61,7 +61,7 @@
   align-items: baseline;
   gap: 1.25rem;
   margin-bottom: 1.25rem;
-  padding-bottom: 1.25rem;
+  padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--border-light);
 }
 
@@ -98,7 +98,7 @@
 
 .deliverablesBox {
   background-color: var(--bg-main);
-  border-radius: 2px;
+  border-radius: 16px;
   border: 1px solid var(--border-light);
   padding: 1.75rem;
 }
@@ -153,7 +153,7 @@
 
 .matrixCard {
   background-color: var(--bg-card);
-  border-radius: 4px;
+  border-radius: 20px;
   border: 1px solid var(--border-light);
   padding: 2.5rem;
   display: flex;
@@ -170,7 +170,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding-bottom: 1.25rem;
+  padding-bottom: 1.5rem;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--border-light);
 }
@@ -201,7 +201,7 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 0.4rem 0.85rem;
-  border-radius: 2px;
+  border-radius: 16px;
   background-color: var(--bg-main);
   border: 1px solid var(--border-light);
   color: inherit;
@@ -229,7 +229,7 @@
 
 .certCard {
   background-color: var(--bg-card);
-  border-radius: 4px;
+  border-radius: 20px;
   border: 1px solid var(--border-light);
   padding: 2.25rem 2rem;
   display: flex;
@@ -310,7 +310,7 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 0.25rem 0.6rem;
-  border-radius: 2px;
+  border-radius: 16px;
   background-color: var(--bg-main);
   border: 1px solid var(--border-light);
   color: var(--text-secondary);
@@ -319,7 +319,7 @@
 /* Next Banner */
 .nextBanner {
   background-color: var(--bg-card);
-  border-radius: 4px;
+  border-radius: 20px;
   padding: 3.5rem;
   color: #ffffff;
   display: flex;

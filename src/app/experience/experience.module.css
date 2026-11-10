@@ -10,7 +10,7 @@
   align-items: flex-end;
   justify-content: space-between;
   margin-bottom: 3rem;
-  padding-bottom: 1.25rem;
+  padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--border-light);
 }
 
@@ -55,7 +55,7 @@
 .workCard {
   background-color: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: 4px;
+  border-radius: 20px;
   padding: 3rem;
   transition: all 0.3s ease;
 }
@@ -134,7 +134,7 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 0.25rem 0.65rem;
-  border-radius: 2px;
+  border-radius: 16px;
   background-color: var(--bg-main);
   border: 1px solid var(--border-light);
   color: inherit;
@@ -186,7 +186,7 @@
 
 .keyProjectBox {
   background-color: var(--bg-main);
-  border-radius: 2px;
+  border-radius: 16px;
   border: 1px solid var(--border-light);
   padding: 1.75rem;
 }
@@ -207,7 +207,7 @@
   padding: 0.2rem 0.6rem;
   background-color: var(--text-main);
   color: #ffffff;
-  border-radius: 2px;
+  border-radius: 16px;
 }
 
 .kpTitle {
@@ -239,9 +239,9 @@
 .aiesecIntroCard {
   background-color: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: 4px;
+  border-radius: 20px;
   padding: 2.25rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3.5rem;
 }
 
 .aiesecIntroCard p {
@@ -266,7 +266,7 @@
 .aiesecRoleCard {
   background-color: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: 2px;
+  border-radius: 16px;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -361,7 +361,7 @@
 .eventCard {
   background-color: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: 2px;
+  border-radius: 16px;
   padding: 1.75rem;
 }
 
@@ -411,7 +411,7 @@
 .achieveCard {
   background-color: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: 2px;
+  border-radius: 16px;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -450,7 +450,7 @@
 .nextPageBanner {
   background-color: var(--bg-card);
   color: #ffffff;
-  border-radius: 4px;
+  border-radius: 20px;
   padding: 3.5rem;
   display: flex;
   align-items: center;

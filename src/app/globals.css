@@ -133,16 +133,42 @@ button {
   }
 }
 
-/* Section Wrappers */
+/* Section Wrappers with Generous Whitespace */
 .section {
   padding: 6.5rem 0;
   position: relative;
 }
 
+.section-wrapper {
+  padding: 6rem 0;
+  position: relative;
+  border-bottom: 1px solid var(--border-light);
+}
+
 @media (max-width: 768px) {
-  .section {
-    padding: 4.5rem 0;
+  .section,
+  .section-wrapper {
+    padding: 4rem 0;
   }
+}
+
+/* Sub-page section headings */
+.section-tag {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--text-main);
 }
 
 /* Havenly Pill Badge */

@@ -84,7 +84,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3.5rem;
 }
 
 .prose p {
@@ -110,7 +110,7 @@
 .highlightCard {
   background-color: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: 2px;
+  border-radius: 16px;
   padding: 1.5rem;
 }
 
@@ -136,8 +136,8 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 2.5rem;
-  padding-bottom: 1.25rem;
+  margin-bottom: 3.5rem;
+  padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--border-light);
 }
 
@@ -175,7 +175,7 @@
 .educationCard {
   background-color: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: 4px;
+  border-radius: 20px;
   padding: 3rem;
 }
 
@@ -197,7 +197,7 @@
 .eduIconBox {
   width: 52px;
   height: 52px;
-  border-radius: 2px;
+  border-radius: 16px;
   background-color: var(--tag-bg);
   color: var(--text-main);
   display: flex;
@@ -274,7 +274,7 @@
   padding: 0.75rem 1rem;
   background-color: var(--bg-main);
   border: 1px solid var(--border-light);
-  border-radius: 2px;
+  border-radius: 16px;
 }
 
 .subjectDot {
@@ -304,7 +304,7 @@
 .certCard {
   background-color: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: 2px;
+  border-radius: 16px;
   padding: 2rem 1.75rem;
   display: flex;
   flex-direction: column;
@@ -372,7 +372,7 @@
 .pillarCard {
   background-color: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: 2px;
+  border-radius: 16px;
   padding: 2.25rem 2rem;
   display: flex;
   flex-direction: column;
@@ -412,7 +412,7 @@
 .ambitionBox {
   background-color: var(--bg-card);
   color: #ffffff;
-  border-radius: 4px;
+  border-radius: 20px;
   padding: 4rem 3.5rem;
   display: grid;
   grid-template-columns: 1.35fr 0.65fr;
@@ -464,7 +464,7 @@
   background-color: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: #ffffff;
-  border-radius: 2px;
+  border-radius: 16px;
 }
 
 .ambitionActions {

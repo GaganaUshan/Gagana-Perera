@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight, FileDown, Sparkles } from "lucide-react";
+import { Menu, X, ArrowRight, FileDown } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Navbar.module.css";
 
@@ -35,20 +35,6 @@ export function Navbar() {
 
   return (
     <>
-      {/* Top Havenly-Style Announcement Strip */}
-      <div className={styles.topNotice}>
-        <div className={`container ${styles.topNoticeContainer}`}>
-          <div className={styles.topNoticeText}>
-            <Sparkles size={13} className={styles.noticeIcon} />
-            <span>Undergraduate at SLIIT • Open for Project Management &amp; BA Roles</span>
-          </div>
-          <Link href="/contact" className={styles.topNoticeLink}>
-            <span>Get In Touch</span>
-            <ArrowRight size={12} />
-          </Link>
-        </div>
-      </div>
-
       <header className={`${styles.navbarWrapper} ${scrolled ? styles.navbarScrolled : ""}`}>
         <div className={`container ${styles.navContainer}`}>
           <div className={styles.navPillBar}>
@@ -67,12 +53,6 @@ export function Navbar() {
                 );
               })}
             </nav>
-
-            {/* Center Logo */}
-            <Link href="/" className={styles.logo} aria-label="Gagana Yushan Perera">
-              <span className={styles.logoDot} />
-              <span className={styles.logoText}>gagana</span>
-            </Link>
 
             {/* Right Action: Pill CTA + Theme Toggle */}
             <div className={styles.rightGroup}>
@@ -102,10 +82,7 @@ export function Navbar() {
       <div className={`${styles.mobileDrawer} ${mobileMenuOpen ? styles.mobileDrawerOpen : ""}`}>
         <div className={styles.mobileContent}>
           <div className={styles.mobileTop}>
-            <Link href="/" className={styles.logo} onClick={() => setMobileMenuOpen(false)}>
-              <span className={styles.logoDot} />
-              <span className={styles.logoText}>gagana</span>
-            </Link>
+            <span className={styles.mobileTitle}>Navigation</span>
             <button
               className={styles.closeBtn}
               onClick={() => setMobileMenuOpen(false)}

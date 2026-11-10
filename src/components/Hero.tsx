@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, FileDown, Sparkles, CheckCircle2, Kanban, Layers, ArrowUpRight } from "lucide-react";
+import { ArrowRight, FileDown, Sparkles, CheckCircle2, Kanban, Layers } from "lucide-react";
 import styles from "./Hero.module.css";
 
 const competencyChips = [
@@ -38,7 +38,7 @@ export function Hero() {
     <section className={styles.heroSection} id="home">
       <div className={`container ${styles.heroContainer}`}>
         <div className={styles.heroGrid}>
-          {/* Left Column: Headline, Bio & Dual Pill Buttons */}
+          {/* Left Column: Headline, Bio, Dual Pill Buttons & Focus Chips */}
           <motion.div
             className={styles.leftCol}
             initial={{ opacity: 0, y: 18 }}
@@ -78,9 +78,27 @@ export function Hero() {
                 </span>
               </a>
             </div>
+
+            {/* Core Focus Areas moved to left column - Zero overlap with portrait */}
+            <div className={styles.focusChipsSection}>
+              <div className={styles.focusHeader}>
+                <span className={styles.focusTitle}>Core Focus Areas</span>
+                <span className={styles.statusBadge}>
+                  <span className={styles.statusPulse} />
+                  Available for PM &amp; BA Roles
+                </span>
+              </div>
+              <div className={styles.chipsRow}>
+                {competencyChips.map((chip, idx) => (
+                  <span key={idx} className={styles.chipPill}>
+                    {chip}
+                  </span>
+                ))}
+              </div>
+            </div>
           </motion.div>
 
-          {/* Right Column: Hero Portrait & Havenly Floating Glass Card */}
+          {/* Right Column: Hero Portrait - Clean, Unobstructed with Generous Space */}
           <motion.div
             className={styles.rightCol}
             initial={{ opacity: 0, scale: 0.98 }}
@@ -100,46 +118,16 @@ export function Hero() {
                   className={styles.cutoutImage}
                 />
               </div>
-
-              {/* Floating Glassmorphic Focus Card (Inspired by Havenly) */}
-              <motion.div
-                className={styles.floatingGlassCard}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <div className={styles.glassCardHeader}>
-                  <span className={styles.glassCardTitle}>Core Focus Areas</span>
-                  <span className={styles.glassCardStatus}>
-                    <span className={styles.statusPulse} />
-                    Available
-                  </span>
-                </div>
-
-                <div className={styles.chipsGrid}>
-                  {competencyChips.map((chip, idx) => (
-                    <span key={idx} className={styles.chipPill}>
-                      {chip}
-                    </span>
-                  ))}
-                </div>
-
-                <div className={styles.glassCardFooter}>
-                  <p className={styles.glassQuote}>
-                    &ldquo;Bridging stakeholder vision with engineering precision.&rdquo;
-                  </p>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         </div>
 
-        {/* Bottom Hero 3-Pill Feature Strip (Inspired by Havenly) */}
+        {/* Bottom Hero 3-Pill Feature Strip with Generous Margin */}
         <motion.div
           className={styles.bottomFeatureStrip}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.5, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
         >
           {bottomHighlights.map((item, index) => {
             const Icon = item.icon;

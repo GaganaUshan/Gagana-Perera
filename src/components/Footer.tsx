@@ -17,10 +17,6 @@ export function Footer() {
         <div className={styles.mainGrid}>
           {/* Brand Col */}
           <div className={styles.brandCol}>
-            <Link href="/" className={styles.logo}>
-              <span className={styles.logoDot} />
-              <span className={styles.logoText}>gagana</span>
-            </Link>
             <p className={styles.brandTagline}>
               Bridging technology, business, and creativity to build meaningful digital solutions. Information Technology undergraduate at SLIIT.
             </p>

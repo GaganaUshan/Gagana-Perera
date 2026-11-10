@@ -1,15 +1,15 @@
 .heroSection {
-  min-height: calc(100vh - 120px);
+  min-height: calc(100vh - 100px);
   position: relative;
   display: flex;
   align-items: center;
-  padding: 3.5rem 0 2rem;
+  padding: 4.5rem 0 3.5rem;
   overflow: hidden;
 }
 
 @media (max-width: 960px) {
   .heroSection {
-    padding: 2.5rem 0 2rem;
+    padding: 3rem 0 2.5rem;
     min-height: auto;
   }
 }
@@ -20,15 +20,15 @@
 
 .heroGrid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
-  gap: 3.5rem;
+  gap: 4.5rem;
 }
 
 @media (max-width: 960px) {
   .heroGrid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 3.5rem;
   }
 }
 
@@ -39,7 +39,7 @@
 
 .bioText {
   font-size: 1.05rem;
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--text-secondary);
   max-width: 520px;
   margin-bottom: 2.25rem;
@@ -53,7 +53,77 @@
   margin-bottom: 2.5rem;
 }
 
-/* Right Column: Portrait and Havenly Floating Glass Card */
+/* Core Focus Areas Section (Integrated cleanly into Left Column) */
+.focusChipsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border-light);
+  max-width: 520px;
+}
+
+.focusHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.focusTitle {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-main);
+  background-color: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+}
+
+.statusPulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--text-main);
+  box-shadow: 0 0 6px var(--text-main);
+}
+
+.chipsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.chipPill {
+  font-size: 0.74rem;
+  font-weight: 500;
+  padding: 0.32rem 0.75rem;
+  background-color: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  color: var(--text-secondary);
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.chipPill:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-medium);
+  color: var(--text-main);
+}
+
+/* Right Column: Hero Portrait (Unobstructed & Spacious) */
 .rightCol {
   display: flex;
   justify-content: center;
@@ -64,7 +134,7 @@
 .portraitWrapper {
   position: relative;
   width: 100%;
-  max-width: 520px;
+  max-width: 480px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,11 +143,11 @@
 .radialGlow {
   position: absolute;
   top: 15%;
-  left: 20%;
-  width: 380px;
-  height: 380px;
+  left: 15%;
+  width: 360px;
+  height: 360px;
   background: var(--hero-glow);
-  filter: blur(50px);
+  filter: blur(55px);
   z-index: 1;
   pointer-events: none;
 }
@@ -104,7 +174,7 @@
   height: auto;
   object-fit: contain;
   object-position: bottom center;
-  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.12));
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -112,127 +182,33 @@
   transform: scale(1.02);
 }
 
-/* Floating Glassmorphic Focus Card (from Havenly Reference) */
-.floatingGlassCard {
-  position: absolute;
-  bottom: -15px;
-  right: -20px;
-  z-index: 4;
-  width: 310px;
-  background-color: var(--bg-glass);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid var(--border-light);
-  border-radius: 18px;
-  padding: 1.25rem;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
-}
-
-@media (max-width: 1100px) {
-  .floatingGlassCard {
-    right: 0;
-    bottom: 0;
-    width: 280px;
-  }
-}
-
-@media (max-width: 600px) {
-  .floatingGlassCard {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    width: 100%;
-    margin-top: 1.5rem;
-  }
-}
-
-.glassCardHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.85rem;
-}
-
-.glassCardTitle {
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-main);
-}
-
-.glassCardStatus {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-
-.statusPulse {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--text-main);
-  box-shadow: 0 0 6px var(--text-main);
-}
-
-.chipsGrid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  margin-bottom: 0.95rem;
-}
-
-.chipPill {
-  font-size: 0.72rem;
-  font-weight: 500;
-  padding: 0.28rem 0.6rem;
-  background-color: var(--tag-bg);
-  border: 1px solid var(--tag-border);
-  color: var(--tag-text);
-  border-radius: 9999px;
-}
-
-.glassCardFooter {
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--border-light);
-}
-
-.glassQuote {
-  font-size: 0.74rem;
-  font-style: italic;
-  line-height: 1.5;
-  color: var(--text-muted);
-}
-
-/* Bottom 3-Card Feature Strip (from Havenly Reference) */
+/* Bottom 3-Card Feature Strip (Generous Spacing) */
 .bottomFeatureStrip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  margin-top: 4.5rem;
-  padding-top: 2rem;
+  margin-top: 5rem;
+  padding-top: 3rem;
   border-top: 1px solid var(--border-light);
 }
 
 @media (max-width: 860px) {
   .bottomFeatureStrip {
     grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-top: 3rem;
+    gap: 1.25rem;
+    margin-top: 3.5rem;
+    padding-top: 2rem;
   }
 }
 
 .featureCard {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
-  padding: 1.15rem 1.35rem;
+  gap: 1.15rem;
+  padding: 1.35rem 1.5rem;
   background-color: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: 16px;
+  border-radius: 18px;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -246,8 +222,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background-color: var(--tag-bg);
   border: 1px solid var(--tag-border);
@@ -261,7 +237,7 @@
 }
 
 .featureTitle {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-main);
   margin-bottom: 0.25rem;
@@ -269,7 +245,7 @@
 }
 
 .featureDesc {
-  font-size: 0.8rem;
-  line-height: 1.5;
+  font-size: 0.82rem;
+  line-height: 1.55;
   color: var(--text-muted);
 }

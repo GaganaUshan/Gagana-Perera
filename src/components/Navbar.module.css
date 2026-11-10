@@ -1,53 +1,3 @@
-/* Top Havenly-Style Announcement Strip */
-.topNotice {
-  background-color: var(--bg-subtle);
-  border-bottom: 1px solid var(--border-light);
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-  padding: 0.45rem 0;
-  position: relative;
-  z-index: 1000;
-}
-
-.topNoticeContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.topNoticeText {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 500;
-}
-
-.noticeIcon {
-  color: var(--text-main);
-  opacity: 0.8;
-}
-
-.topNoticeLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-weight: 600;
-  color: var(--text-main);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: opacity 0.2s ease;
-}
-
-.topNoticeLink:hover {
-  opacity: 0.7;
-}
-
-@media (max-width: 640px) {
-  .topNotice {
-    display: none;
-  }
-}
-
 /* Navbar Wrapper */
 .navbarWrapper {
   position: sticky;
@@ -55,13 +5,13 @@
   left: 0;
   right: 0;
   z-index: 999;
-  padding: 1.25rem 0;
-  background-color: transparent;
+  padding: 1.5rem 0;
+  background-color: var(--bg-main);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .navbarScrolled {
-  padding: 0.75rem 0;
+  padding: 1rem 0;
   background-color: var(--bg-glass);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -85,8 +35,7 @@
 .desktopNav {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  flex: 1;
+  gap: 2.25rem;
 }
 
 @media (max-width: 960px) {
@@ -96,7 +45,7 @@
 }
 
 .navLink {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-secondary);
   transition: color 0.2s ease;
@@ -112,56 +61,31 @@
   font-weight: 600;
 }
 
-/* Center Logo */
-.logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  cursor: pointer;
-}
-
-.logoDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--text-main);
-}
-
-.logoText {
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--text-main);
-  text-transform: lowercase;
-}
-
 /* Right Group */
 .rightGroup {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 1rem;
-  flex: 1;
 }
 
 .talkPillBtn {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  padding: 0.38rem 0.45rem 0.38rem 1.15rem;
+  padding: 0.42rem 0.5rem 0.42rem 1.25rem;
   background-color: var(--pill-primary-bg);
   color: var(--pill-primary-text);
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 600;
   border-radius: 9999px;
   border: 1px solid var(--pill-primary-bg);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
 .talkPillBtn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
 }
 
 .arrowCap {
@@ -240,6 +164,13 @@
   justify-content: space-between;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--border-light);
+}
+
+.mobileTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
 }
 
 .closeBtn {
