@@ -1,7 +1,7 @@
 .page {
   min-height: 100vh;
-  background-color: var(--section-light-bg);
-  color: var(--section-light-text);
+  background-color: var(--bg-main);
+  color: var(--text-main);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -11,7 +11,7 @@
   justify-content: space-between;
   margin-bottom: 2.75rem;
   padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--section-light-border);
+  border-bottom: 1px solid var(--border-light);
 }
 
 @media (max-width: 768px) {
@@ -28,7 +28,7 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent-red);
+  color: var(--text-main);
 }
 
 /* Service Pillars List */
@@ -39,9 +39,9 @@
 }
 
 .pillarCard {
-  background-color: var(--section-light-card);
+  background-color: var(--bg-card);
   border-radius: 4px;
-  border: 1px solid var(--section-light-border);
+  border: 1px solid var(--border-light);
   padding: 3rem;
   transition: all 0.3s ease;
 }
@@ -53,7 +53,7 @@
 }
 
 .pillarCard:hover {
-  border-color: var(--accent-red);
+  border-color: var(--text-main);
 }
 
 .pillarHeader {
@@ -62,14 +62,14 @@
   gap: 1.25rem;
   margin-bottom: 1.25rem;
   padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--section-light-border);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .pillarNumBox {
   font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 700;
-  color: var(--accent-red);
+  color: var(--text-main);
 }
 
 .pillarTitle {
@@ -84,7 +84,7 @@
 
 .pillarSub {
   font-size: 0.95rem;
-  color: var(--section-light-muted);
+  color: var(--text-secondary);
   font-weight: 500;
   margin-top: 0.25rem;
 }
@@ -92,14 +92,14 @@
 .pillarDesc {
   font-size: 1rem;
   line-height: 1.75;
-  color: var(--section-light-muted);
+  color: var(--text-secondary);
   margin-bottom: 1.75rem;
 }
 
 .deliverablesBox {
-  background-color: var(--section-light-bg);
+  background-color: var(--bg-main);
   border-radius: 2px;
-  border: 1px solid var(--section-light-border);
+  border: 1px solid var(--border-light);
   padding: 1.75rem;
 }
 
@@ -130,11 +130,11 @@
   align-items: center;
   gap: 0.6rem;
   font-size: 0.92rem;
-  color: var(--section-light-muted);
+  color: var(--text-secondary);
 }
 
 .checkIcon {
-  color: var(--accent-red);
+  color: var(--text-main);
   flex-shrink: 0;
 }
 
@@ -152,9 +152,9 @@
 }
 
 .matrixCard {
-  background-color: var(--section-light-card);
+  background-color: var(--bg-card);
   border-radius: 4px;
-  border: 1px solid var(--section-light-border);
+  border: 1px solid var(--border-light);
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
@@ -172,11 +172,11 @@
   gap: 0.75rem;
   padding-bottom: 1.25rem;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid var(--section-light-border);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .matrixIcon {
-  color: var(--accent-red);
+  color: var(--text-main);
 }
 
 .matrixTitle {
@@ -202,15 +202,15 @@
   text-transform: uppercase;
   padding: 0.4rem 0.85rem;
   border-radius: 2px;
-  background-color: var(--section-light-bg);
-  border: 1px solid var(--section-light-border);
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-light);
   color: inherit;
   transition: all 0.2s ease;
 }
 
 .matrixPill:hover {
-  background-color: var(--accent-red);
-  border-color: var(--accent-red);
+  background-color: var(--text-main);
+  border-color: var(--text-main);
   color: #ffffff;
 }
 
@@ -228,9 +228,9 @@
 }
 
 .certCard {
-  background-color: var(--section-light-card);
+  background-color: var(--bg-card);
   border-radius: 4px;
-  border: 1px solid var(--section-light-border);
+  border: 1px solid var(--border-light);
   padding: 2.25rem 2rem;
   display: flex;
   flex-direction: column;
@@ -238,7 +238,7 @@
 }
 
 .certCard:hover {
-  border-color: var(--accent-red);
+  border-color: var(--text-main);
   transform: translateY(-4px);
 }
 
@@ -250,14 +250,14 @@
 }
 
 .awardIcon {
-  color: var(--accent-red);
+  color: var(--text-main);
 }
 
 .certIssuer {
   font-family: var(--font-display);
   font-size: 0.78rem;
   font-weight: 700;
-  color: var(--accent-red);
+  color: var(--text-main);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -276,14 +276,14 @@
 .certDescription {
   font-size: 0.92rem;
   line-height: 1.65;
-  color: var(--section-light-muted);
+  color: var(--text-secondary);
   margin-bottom: 1.5rem;
 }
 
 .skillsGainedBox {
   margin-top: auto;
   padding-top: 1.25rem;
-  border-top: 1px solid var(--section-light-border);
+  border-top: 1px solid var(--border-light);
 }
 
 .gainedLabel {
@@ -292,7 +292,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--section-light-muted);
+  color: var(--text-secondary);
   display: block;
   margin-bottom: 0.5rem;
 }
@@ -311,14 +311,14 @@
   text-transform: uppercase;
   padding: 0.25rem 0.6rem;
   border-radius: 2px;
-  background-color: var(--section-light-bg);
-  border: 1px solid var(--section-light-border);
-  color: var(--section-light-muted);
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
 }
 
 /* Next Banner */
 .nextBanner {
-  background-color: #0c0c0c;
+  background-color: var(--bg-card);
   border-radius: 4px;
   padding: 3.5rem;
   color: #ffffff;

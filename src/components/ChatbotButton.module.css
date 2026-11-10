@@ -9,25 +9,24 @@
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  padding: 0.55rem 1rem;
-  background-color: rgba(18, 18, 18, 0.88);
+  padding: 0.5rem 1rem;
+  background-color: var(--bg-glass);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  color: #f0f0f0;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-main);
+  border: 1px solid var(--border-medium);
   border-radius: 9999px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
 }
 
 .chatLink:hover {
-  background-color: rgba(26, 26, 26, 0.95);
-  border-color: rgba(255, 255, 255, 0.28);
-  color: #ffffff;
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-strong);
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
 }
 
 .chatLink:active {
@@ -38,13 +37,13 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #22c55e;
-  box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+  background-color: var(--text-main);
+  box-shadow: 0 0 6px var(--text-main);
   flex-shrink: 0;
 }
 
 .icon {
-  color: #e50914;
+  color: var(--text-main);
   flex-shrink: 0;
 }
 
@@ -52,6 +51,6 @@
   font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  color: #f0f0f0;
+  letter-spacing: 0.02em;
+  color: var(--text-main);
 }

@@ -3,134 +3,84 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, FileDown, Mail } from "lucide-react";
-import { LinkedInIcon, GitHubIcon } from "./SocialIcons";
+import { ArrowRight, FileDown, Sparkles, CheckCircle2, Kanban, Layers, ArrowUpRight } from "lucide-react";
 import styles from "./Hero.module.css";
+
+const competencyChips = [
+  "+ Agile & Scrum",
+  "+ Business Analysis",
+  "+ Jira & Confluence",
+  "+ Requirement Elicitation",
+  "+ UI/UX Prototyping",
+  "+ System Architecture"
+];
+
+const bottomHighlights = [
+  {
+    icon: CheckCircle2,
+    title: "Stakeholder Alignment",
+    desc: "Translating business needs into actionable developer tasks"
+  },
+  {
+    icon: Kanban,
+    title: "Agile Delivery Management",
+    desc: "Coordinating sprints, milestone priorities & blocker resolution"
+  },
+  {
+    icon: Layers,
+    title: "Tech & Creative Intuition",
+    desc: "Bridging full-stack IT logic with human-centered UX design"
+  }
+];
 
 export function Hero() {
   return (
     <section className={styles.heroSection} id="home">
-      {/* Left Vertical Indicator - Displayed on wide screens for editorial balance */}
-      <div className={styles.sidebarLeft}>
-        <span className={styles.sectionNumber}>01</span>
-        <div className={styles.scrollDownWrap}>
-          <span className={styles.scrollText}>SCROLL DOWN</span>
-          <span className={styles.scrollArrow}>&mdash;&gt;</span>
-        </div>
-      </div>
-
-      {/* Right Vertical Socials - Positioned safely on wide screens */}
-      <div className={styles.sidebarRight}>
-        <a
-          href="https://www.linkedin.com/in/gagana-yushan-9025982aa/"
-          target="_blank"
-          rel="noreferrer"
-          className={styles.socialIcon}
-          title="LinkedIn"
-        >
-          <LinkedInIcon size={15} />
-        </a>
-        <a
-          href="https://github.com/GaganaUshan"
-          target="_blank"
-          rel="noreferrer"
-          className={styles.socialIcon}
-          title="GitHub"
-        >
-          <GitHubIcon size={15} />
-        </a>
-        <a
-          href="mailto:gaganaushan16@gmail.com"
-          className={styles.socialIcon}
-          title="Email"
-        >
-          <Mail size={15} />
-        </a>
-      </div>
-
       <div className={`container ${styles.heroContainer}`}>
         <div className={styles.heroGrid}>
-          {/* Left Column: Big Condensed Typography & Actions */}
+          {/* Left Column: Headline, Bio & Dual Pill Buttons */}
           <motion.div
             className={styles.leftCol}
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className={styles.metaRow}>
-              <span className={styles.metaNumber}>01</span>
-              <span className={styles.metaDivider}>/</span>
-              <span className={styles.greeting}>HELLO, I&apos;M</span>
+            {/* Pill Badge */}
+            <div className="pill-badge">
+              <Sparkles className="pill-badge-icon" />
+              <span>Project Management &amp; Business Analysis</span>
             </div>
 
-            <h1 className={styles.heroName}>
-              <span className={styles.nameLine}>GAGANA</span>
-              <span className={styles.nameLine}>
-                PERERA<span className={styles.redDot}>.</span>
-              </span>
+            <h1 className="headline-huge">
+              Bridging technology, business, and creativity.
             </h1>
 
-            <div className={styles.roleBar}>
-              <span className={styles.roleText}>
-                PROJECT MANAGEMENT &amp; BUSINESS ANALYSIS
-              </span>
-            </div>
-
-            <p className={styles.bioExcerpt}>
-              Bridging technology, business, and creativity to build meaningful digital solutions. Information Technology undergraduate at SLIIT with cross-functional industry experience.
+            <p className={styles.bioText}>
+              I&apos;m Gagana Yushan Perera, an Information Technology undergraduate at SLIIT with cross-functional industry experience across project coordination, requirement engineering, and creative problem-solving.
             </p>
 
             <div className={styles.actionsRow}>
-              <Link href="/works" className="btn-red">
-                <span>VIEW MY WORK</span>
-                <ArrowRight size={14} />
+              <Link href="/works" className="btn-pill-primary">
+                <span>View Selected Work</span>
+                <span className="btn-pill-icon-cap">
+                  <ArrowRight size={14} />
+                </span>
               </Link>
+
               <a
                 href="/CV.pdf"
                 download="Gagana_Perera_CV.pdf"
-                className="btn-outline-white"
+                className="btn-pill-secondary"
               >
-                <span>DOWNLOAD CV</span>
-                <FileDown size={14} />
-              </a>
-            </div>
-
-            {/* Quick Social Links visible across all viewports */}
-            <div className={styles.socialQuickRow}>
-              <a
-                href="https://www.linkedin.com/in/gagana-yushan-9025982aa/"
-                target="_blank"
-                rel="noreferrer"
-                className={styles.socialQuickLink}
-                title="LinkedIn"
-              >
-                <LinkedInIcon size={15} />
-                <span>LinkedIn</span>
-              </a>
-              <span className={styles.socialDivider}>•</span>
-              <a
-                href="https://github.com/GaganaUshan"
-                target="_blank"
-                rel="noreferrer"
-                className={styles.socialQuickLink}
-                title="GitHub"
-              >
-                <GitHubIcon size={15} />
-                <span>GitHub</span>
-              </a>
-              <span className={styles.socialDivider}>•</span>
-              <a
-                href="mailto:gaganaushan16@gmail.com"
-                className={styles.socialQuickLink}
-                title="Email"
-              >
-                <Mail size={15} />
-                <span>Email</span>
+                <span>Download CV</span>
+                <span className="btn-pill-secondary-icon">
+                  <FileDown size={14} />
+                </span>
               </a>
             </div>
           </motion.div>
 
-          {/* Right Column: Hero Portrait with Proper Fades */}
+          {/* Right Column: Hero Portrait & Havenly Floating Glass Card */}
           <motion.div
             className={styles.rightCol}
             initial={{ opacity: 0, scale: 0.98 }}
@@ -138,25 +88,74 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className={styles.portraitWrapper}>
-              <div className={styles.glowBackdrop} />
-              <div className={styles.portraitFrame}>
+              <div className={styles.radialGlow} />
+
+              <div className={styles.imageBox}>
                 <Image
-                  src="/gagana-portrait.jpg"
+                  src="/gagana-cutout.png"
                   alt="Gagana Yushan Perera"
-                  width={808}
-                  height={808}
+                  width={900}
+                  height={900}
                   priority
-                  className={styles.portraitImage}
+                  className={styles.cutoutImage}
                 />
-                {/* Multi-directional fades to blend photo seamlessly into dark canvas */}
-                <div className={styles.fadeBottom} />
-                <div className={styles.fadeLeft} />
-                <div className={styles.fadeTop} />
-                <div className={styles.fadeRight} />
               </div>
+
+              {/* Floating Glassmorphic Focus Card (Inspired by Havenly) */}
+              <motion.div
+                className={styles.floatingGlassCard}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <div className={styles.glassCardHeader}>
+                  <span className={styles.glassCardTitle}>Core Focus Areas</span>
+                  <span className={styles.glassCardStatus}>
+                    <span className={styles.statusPulse} />
+                    Available
+                  </span>
+                </div>
+
+                <div className={styles.chipsGrid}>
+                  {competencyChips.map((chip, idx) => (
+                    <span key={idx} className={styles.chipPill}>
+                      {chip}
+                    </span>
+                  ))}
+                </div>
+
+                <div className={styles.glassCardFooter}>
+                  <p className={styles.glassQuote}>
+                    &ldquo;Bridging stakeholder vision with engineering precision.&rdquo;
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
+
+        {/* Bottom Hero 3-Pill Feature Strip (Inspired by Havenly) */}
+        <motion.div
+          className={styles.bottomFeatureStrip}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {bottomHighlights.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <div key={index} className={styles.featureCard}>
+                <div className={styles.featureIconWrap}>
+                  <Icon size={18} />
+                </div>
+                <div className={styles.featureTexts}>
+                  <h3 className={styles.featureTitle}>{item.title}</h3>
+                  <p className={styles.featureDesc}>{item.desc}</p>
+                </div>
+              </div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );

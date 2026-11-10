@@ -1,43 +1,44 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Sparkles, Terminal } from "lucide-react";
 import styles from "./SkillsSection.module.css";
 
 const skillBars = [
-  { name: "Project Management", level: 95 },
-  { name: "Business Analysis", level: 90 },
-  { name: "Agile & Scrum", level: 92 },
-  { name: "UI/UX Design", level: 88 },
-  { name: "Technical Architecture", level: 82 },
+  { name: "Project Management & Agile Sprints", level: 95 },
+  { name: "Business Analysis & Requirement Engineering", level: 90 },
+  { name: "Agile, Scrum & Kanban Methodologies", level: 92 },
+  { name: "UI/UX Prototyping & Design Systems", level: 88 },
+  { name: "Technical Systems Architecture", level: 82 },
 ];
 
 const tools = [
   { name: "Jira", category: "Agile PM" },
   { name: "Figma", category: "UI/UX" },
-  { name: "React", category: "Frontend" },
+  { name: "React.js", category: "Frontend" },
   { name: "Next.js", category: "Full-Stack" },
   { name: "Spring Boot", category: "Backend" },
   { name: "AWS", category: "Cloud" },
-  { name: "Python", category: "AI / Data" },
-  { name: "Notion", category: "Workspace" },
-  { name: "Excel", category: "Data Analysis" },
+  { name: "Python", category: "Data / AI" },
+  { name: "Confluence", category: "Documentation" },
+  { name: "Microsoft Excel", category: "Analysis" },
 ];
 
 export function SkillsSection() {
   return (
-    <section className="section-light" id="skills">
+    <section className="section" id="skills">
       <div className="container">
-        {/* Section Meta */}
-        <div className="section-meta-top">
-          <span className="section-num">04</span>
-          <span className="section-category">SKILLS &amp; TOOLS</span>
+        {/* Pill Badge */}
+        <div className="pill-badge">
+          <Sparkles className="pill-badge-icon" />
+          <span>Skills &amp; Methodologies</span>
         </div>
 
-        <h2 className="section-headline" style={{ marginBottom: "3rem" }}>
-          The skills behind the work
+        <h2 className="headline-section" style={{ marginBottom: "3rem" }}>
+          The expertise and tools behind the execution
         </h2>
 
-        {/* Top: 5 Skill Progress Bars */}
+        {/* 5 Minimalist Skill Progress Bars */}
         <div className={styles.skillBarsGrid}>
           {skillBars.map((skill, index) => (
             <div key={index} className={styles.skillItem}>
@@ -58,8 +59,12 @@ export function SkillsSection() {
           ))}
         </div>
 
-        {/* Bottom: Tool Badges Strip in Bordered Box */}
+        {/* Bottom Tools Grid */}
         <div className={styles.toolsContainer}>
+          <div className={styles.toolsHeader}>
+            <Terminal size={16} />
+            <span>Core Tooling &amp; Technical Stack</span>
+          </div>
           <div className={styles.toolsGrid}>
             {tools.map((tool, idx) => (
               <div key={idx} className={styles.toolItem}>
@@ -73,4 +78,3 @@ export function SkillsSection() {
     </section>
   );
 }
-

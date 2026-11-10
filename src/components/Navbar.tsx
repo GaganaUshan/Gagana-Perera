@@ -3,17 +3,17 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight, FileDown } from "lucide-react";
+import { Menu, X, ArrowRight, FileDown, Sparkles } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Navbar.module.css";
 
 const navLinks = [
-  { href: "/", label: "HOME" },
-  { href: "/about", label: "ABOUT" },
-  { href: "/services", label: "SERVICES" },
-  { href: "/works", label: "WORK" },
-  { href: "/experience", label: "EXPERIENCE" },
-  { href: "/contact", label: "CONTACT" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/works", label: "Work" },
+  { href: "/experience", label: "Experience" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {
@@ -35,47 +35,65 @@ export function Navbar() {
 
   return (
     <>
-      <header className={`${styles.navbar} ${scrolled ? styles.navbarScrolled : ""}`}>
-        <div className={`container ${styles.navContainer}`}>
-          {/* Brand Logo */}
-          <Link href="/" className={styles.logo} aria-label="Gagana Yushan Perera">
-            <span className={styles.logoText}>GP</span>
-            <span className={styles.logoDot}>.</span>
+      {/* Top Havenly-Style Announcement Strip */}
+      <div className={styles.topNotice}>
+        <div className={`container ${styles.topNoticeContainer}`}>
+          <div className={styles.topNoticeText}>
+            <Sparkles size={13} className={styles.noticeIcon} />
+            <span>Undergraduate at SLIIT • Open for Project Management &amp; BA Roles</span>
+          </div>
+          <Link href="/contact" className={styles.topNoticeLink}>
+            <span>Get In Touch</span>
+            <ArrowRight size={12} />
           </Link>
+        </div>
+      </div>
 
-          {/* Desktop Navigation Links */}
-          <nav className={styles.desktopNav} aria-label="Main Navigation">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
+      <header className={`${styles.navbarWrapper} ${scrolled ? styles.navbarScrolled : ""}`}>
+        <div className={`container ${styles.navContainer}`}>
+          <div className={styles.navPillBar}>
+            {/* Desktop Navigation Links */}
+            <nav className={styles.desktopNav} aria-label="Main Navigation">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+            </nav>
 
-          {/* Right Action: Theme Toggle + "LET'S TALK ->" Button */}
-          <div className={styles.rightGroup}>
-            <ThemeToggle />
-
-            <Link href="/contact" className={styles.talkBtn}>
-              <span>LET&apos;S TALK</span>
-              <ArrowRight size={14} className={styles.arrowIcon} />
+            {/* Center Logo */}
+            <Link href="/" className={styles.logo} aria-label="Gagana Yushan Perera">
+              <span className={styles.logoDot} />
+              <span className={styles.logoText}>gagana</span>
             </Link>
 
-            <button
-              className={styles.mobileToggle}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle navigation menu"
-              aria-expanded={mobileMenuOpen}
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Right Action: Pill CTA + Theme Toggle */}
+            <div className={styles.rightGroup}>
+              <ThemeToggle />
+
+              <Link href="/contact" className={styles.talkPillBtn}>
+                <span>Get in Touch</span>
+                <span className={styles.arrowCap}>
+                  <ArrowRight size={13} />
+                </span>
+              </Link>
+
+              <button
+                className={styles.mobileToggle}
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Toggle navigation menu"
+                aria-expanded={mobileMenuOpen}
+              >
+                {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -85,20 +103,20 @@ export function Navbar() {
         <div className={styles.mobileContent}>
           <div className={styles.mobileTop}>
             <Link href="/" className={styles.logo} onClick={() => setMobileMenuOpen(false)}>
-              <span className={styles.logoText}>GP</span>
-              <span className={styles.logoDot}>.</span>
+              <span className={styles.logoDot} />
+              <span className={styles.logoText}>gagana</span>
             </Link>
             <button
               className={styles.closeBtn}
               onClick={() => setMobileMenuOpen(false)}
               aria-label="Close menu"
             >
-              <X size={24} />
+              <X size={22} />
             </button>
           </div>
 
           <div className={styles.mobileNavLinks}>
-            {navLinks.map((link, idx) => {
+            {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
@@ -107,8 +125,8 @@ export function Navbar() {
                   className={`${styles.mobileNavLink} ${isActive ? styles.mobileActive : ""}`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <span className={styles.mobileNum}>0{idx + 1}</span>
                   <span>{link.label}</span>
+                  <ArrowRight size={15} />
                 </Link>
               );
             })}
@@ -119,10 +137,13 @@ export function Navbar() {
             <a
               href="/CV.pdf"
               download="Gagana_Perera_CV.pdf"
-              className="btn-red"
-              style={{ width: "100%", textAlign: "center" }}
+              className="btn-pill-primary"
+              style={{ width: "100%", justifyContent: "center" }}
             >
-              DOWNLOAD CV <FileDown size={15} />
+              <span>Download CV</span>
+              <span className="btn-pill-icon-cap">
+                <FileDown size={14} />
+              </span>
             </a>
           </div>
         </div>

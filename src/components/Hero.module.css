@@ -1,107 +1,28 @@
 .heroSection {
-  min-height: 92vh;
-  background-color: #0c0c0c;
+  min-height: calc(100vh - 120px);
+  position: relative;
   display: flex;
   align-items: center;
-  position: relative;
-  padding-top: 8rem;
-  padding-bottom: 5rem;
-  border-bottom: 1px solid var(--border-dark);
+  padding: 3.5rem 0 2rem;
   overflow: hidden;
 }
 
 @media (max-width: 960px) {
   .heroSection {
-    padding-top: 6.5rem;
-    padding-bottom: 4rem;
+    padding: 2.5rem 0 2rem;
     min-height: auto;
   }
 }
 
-/* Sidebars - Positioned safely on very wide monitors (1440px+) so they never crowd content */
-.sidebarLeft {
-  position: absolute;
-  left: 3rem;
-  top: 8rem;
-  bottom: 5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  z-index: 5;
-  pointer-events: none;
-}
-
-@media (max-width: 1440px) {
-  .sidebarLeft {
-    display: none;
-  }
-}
-
-.sectionNumber {
-  font-family: var(--font-display);
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--text-dark-muted);
-  letter-spacing: 0.1em;
-}
-
-.scrollDownWrap {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  letter-spacing: 0.22em;
-  color: #666666;
-}
-
-.scrollArrow {
-  color: var(--accent-red);
-}
-
-.sidebarRight {
-  position: absolute;
-  right: 3rem;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  z-index: 5;
-}
-
-@media (max-width: 1440px) {
-  .sidebarRight {
-    display: none;
-  }
-}
-
-.socialIcon {
-  color: #777777;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.socialIcon:hover {
-  color: #ffffff;
-  transform: translateY(-1px);
-}
-
 .heroContainer {
-  position: relative;
-  z-index: 2;
   width: 100%;
 }
 
 .heroGrid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1.05fr 0.95fr;
   align-items: center;
-  gap: 4rem;
+  gap: 3.5rem;
 }
 
 @media (max-width: 960px) {
@@ -116,121 +37,23 @@
   flex-direction: column;
 }
 
-.metaRow {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
-}
-
-.metaNumber {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--accent-red);
-  letter-spacing: 0.08em;
-}
-
-.metaDivider {
-  color: #555555;
-  font-size: 0.85rem;
-}
-
-.greeting {
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  color: #888888;
-  text-transform: uppercase;
-}
-
-.heroName {
-  font-family: var(--font-display);
-  font-size: clamp(3.2rem, 7vw, 6.2rem);
-  font-weight: 700;
-  line-height: 0.94;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1.5rem;
-}
-
-.nameLine {
-  display: block;
-}
-
-.redDot {
-  color: var(--accent-red);
-}
-
-.roleBar {
-  display: inline-block;
-  margin-bottom: 1.25rem;
-}
-
-.roleText {
-  font-family: var(--font-display);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #b0b0b0;
-}
-
-.bioExcerpt {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: #949494;
-  max-width: 480px;
-  margin-bottom: 2rem;
-  font-weight: 400;
+.bioText {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin-bottom: 2.25rem;
 }
 
 .actionsRow {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 2.25rem;
+  gap: 1.15rem;
+  margin-bottom: 2.5rem;
 }
 
-.socialQuickRow {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  width: fit-content;
-}
-
-.socialQuickLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.8rem;
-  color: #777777;
-  transition: all 0.2s ease;
-}
-
-.socialQuickLink span {
-  font-size: 0.76rem;
-  letter-spacing: 0.04em;
-  font-weight: 500;
-}
-
-.socialQuickLink:hover {
-  color: #ffffff;
-}
-
-.socialDivider {
-  color: #444444;
-  font-size: 0.7rem;
-}
-
-/* Right Column: Hero Portrait with Proper Fades */
+/* Right Column: Portrait and Havenly Floating Glass Card */
 .rightCol {
   display: flex;
   justify-content: center;
@@ -241,105 +64,212 @@
 .portraitWrapper {
   position: relative;
   width: 100%;
-  max-width: 460px;
+  max-width: 520px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.glowBackdrop {
+.radialGlow {
   position: absolute;
   top: 15%;
-  right: 15%;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(229, 9, 20, 0.12) 0%, rgba(12, 12, 12, 0) 70%);
+  left: 20%;
+  width: 380px;
+  height: 380px;
+  background: var(--hero-glow);
   filter: blur(50px);
   z-index: 1;
   pointer-events: none;
 }
 
-.portraitFrame {
+.imageBox {
   position: relative;
   z-index: 2;
   width: 100%;
   max-width: 440px;
   aspect-ratio: 1 / 1;
-  border-radius: 12px;
-  overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  background-color: #0c0c0c;
-  /* Dual-layer mask for seamless edge blending into #0c0c0c */
-  -webkit-mask-image: radial-gradient(ellipse 92% 88% at 50% 48%, black 45%, rgba(0, 0, 0, 0.7) 72%, transparent 100%),
-                      linear-gradient(to bottom, black 65%, transparent 98%);
-  mask-image: radial-gradient(ellipse 92% 88% at 50% 48%, black 45%, rgba(0, 0, 0, 0.7) 72%, transparent 100%),
-              linear-gradient(to bottom, black 65%, transparent 98%);
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
 }
 
 @media (max-width: 768px) {
-  .portraitFrame {
-    max-width: 340px;
+  .imageBox {
+    max-width: 320px;
   }
 }
 
-.portraitImage {
+.cutoutImage {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 20%;
-  filter: contrast(106%) brightness(98%);
+  height: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.15));
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.portraitFrame:hover .portraitImage {
-  transform: scale(1.03);
+.portraitWrapper:hover .cutoutImage {
+  transform: scale(1.02);
 }
 
-/* Gradient Fade Overlays - guarantee smooth melt into background */
-.fadeBottom {
+/* Floating Glassmorphic Focus Card (from Havenly Reference) */
+.floatingGlassCard {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 42%;
-  background: linear-gradient(to bottom, rgba(12, 12, 12, 0) 0%, rgba(12, 12, 12, 0.6) 50%, #0c0c0c 100%);
-  pointer-events: none;
-  z-index: 3;
+  bottom: -15px;
+  right: -20px;
+  z-index: 4;
+  width: 310px;
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--border-light);
+  border-radius: 18px;
+  padding: 1.25rem;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
 }
 
-.fadeLeft {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 32%;
-  background: linear-gradient(to right, #0c0c0c 0%, rgba(12, 12, 12, 0.6) 50%, rgba(12, 12, 12, 0) 100%);
-  pointer-events: none;
-  z-index: 3;
+@media (max-width: 1100px) {
+  .floatingGlassCard {
+    right: 0;
+    bottom: 0;
+    width: 280px;
+  }
 }
 
-.fadeTop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 22%;
-  background: linear-gradient(to bottom, #0c0c0c 0%, rgba(12, 12, 12, 0.5) 45%, rgba(12, 12, 12, 0) 100%);
-  pointer-events: none;
-  z-index: 3;
+@media (max-width: 600px) {
+  .floatingGlassCard {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: 1.5rem;
+  }
 }
 
-.fadeRight {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 25%;
-  background: linear-gradient(to left, #0c0c0c 0%, rgba(12, 12, 12, 0.5) 45%, rgba(12, 12, 12, 0) 100%);
-  pointer-events: none;
-  z-index: 3;
+.glassCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.glassCardTitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+}
+
+.glassCardStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.statusPulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--text-main);
+  box-shadow: 0 0 6px var(--text-main);
+}
+
+.chipsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.95rem;
+}
+
+.chipPill {
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.28rem 0.6rem;
+  background-color: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  color: var(--tag-text);
+  border-radius: 9999px;
+}
+
+.glassCardFooter {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.glassQuote {
+  font-size: 0.74rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* Bottom 3-Card Feature Strip (from Havenly Reference) */
+.bottomFeatureStrip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 4.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-light);
+}
+
+@media (max-width: 860px) {
+  .bottomFeatureStrip {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+}
+
+.featureCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.15rem 1.35rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.featureCard:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-medium);
+  transform: translateY(-2px);
+}
+
+.featureIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  color: var(--text-main);
+  flex-shrink: 0;
+}
+
+.featureTexts {
+  display: flex;
+  flex-direction: column;
+}
+
+.featureTitle {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+.featureDesc {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-muted);
 }

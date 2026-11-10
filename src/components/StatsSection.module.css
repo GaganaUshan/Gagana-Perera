@@ -40,7 +40,7 @@
 }
 
 .statCard:hover .iconWrap {
-  color: var(--accent-red);
+  color: var(--text-main);
 }
 
 .statNumber {

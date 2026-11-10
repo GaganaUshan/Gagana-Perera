@@ -1,7 +1,7 @@
 .page {
   min-height: 100vh;
-  background-color: var(--section-light-bg);
-  color: var(--section-light-text);
+  background-color: var(--bg-main);
+  color: var(--text-main);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -13,7 +13,7 @@
   gap: 1.5rem;
   padding-bottom: 2rem;
   margin-bottom: 3rem;
-  border-bottom: 1px solid var(--section-light-border);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .filterGroup {
@@ -31,9 +31,9 @@
   text-transform: uppercase;
   padding: 0.5rem 1.25rem;
   border-radius: 2px;
-  border: 1px solid var(--section-light-border);
-  background-color: var(--section-light-card);
-  color: var(--section-light-muted);
+  border: 1px solid var(--border-light);
+  background-color: var(--bg-card);
+  color: var(--text-secondary);
   transition: all 0.2s ease;
 }
 
@@ -43,16 +43,16 @@
 }
 
 .filterActive {
-  background-color: var(--accent-red) !important;
+  background-color: var(--text-main) !important;
   color: #ffffff !important;
-  border-color: var(--accent-red) !important;
+  border-color: var(--text-main) !important;
 }
 
 .resultCount {
   font-family: var(--font-display);
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--section-light-muted);
+  color: var(--text-secondary);
   letter-spacing: 0.08em;
 }
 
@@ -64,9 +64,9 @@
 }
 
 .projectCard {
-  background-color: var(--section-light-card);
+  background-color: var(--bg-card);
   border-radius: 4px;
-  border: 1px solid var(--section-light-border);
+  border: 1px solid var(--border-light);
   padding: 3.25rem;
   transition: all 0.3s ease;
 }
@@ -78,7 +78,7 @@
 }
 
 .projectCard:hover {
-  border-color: var(--accent-red);
+  border-color: var(--text-main);
 }
 
 .cardHeader {
@@ -87,7 +87,7 @@
   justify-content: space-between;
   padding-bottom: 1.5rem;
   margin-bottom: 1.75rem;
-  border-bottom: 1px solid var(--section-light-border);
+  border-bottom: 1px solid var(--border-light);
 }
 
 @media (max-width: 600px) {
@@ -108,7 +108,7 @@
   font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 700;
-  color: var(--accent-red);
+  color: var(--text-main);
 }
 
 .projTag {
@@ -118,8 +118,8 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 0.25rem 0.65rem;
-  background-color: var(--accent-red-subtle);
-  color: var(--accent-red);
+  background-color: var(--tag-bg);
+  color: var(--text-main);
   border-radius: 2px;
 }
 
@@ -129,7 +129,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--section-light-muted);
+  color: var(--text-secondary);
 }
 
 .cardContent {
@@ -154,7 +154,7 @@
 
 .projSubtitle {
   font-size: 1.05rem;
-  color: var(--section-light-muted);
+  color: var(--text-secondary);
   font-weight: 500;
   margin-bottom: 0.75rem;
 }
@@ -164,7 +164,7 @@
   align-items: center;
   gap: 0.4rem;
   font-size: 0.85rem;
-  color: var(--section-light-muted);
+  color: var(--text-secondary);
 }
 
 .roleBadge strong {
@@ -175,14 +175,14 @@
 .projOverview {
   font-size: 1rem;
   line-height: 1.75;
-  color: var(--section-light-muted);
+  color: var(--text-secondary);
   margin-bottom: 2rem;
 }
 
 .contributionsBlock {
-  background-color: var(--section-light-bg);
+  background-color: var(--bg-main);
   border-radius: 2px;
-  border: 1px solid var(--section-light-border);
+  border: 1px solid var(--border-light);
   padding: 1.75rem;
   margin-bottom: 2rem;
 }
@@ -209,14 +209,14 @@
   padding-left: 1.5rem;
   font-size: 0.92rem;
   line-height: 1.6;
-  color: var(--section-light-muted);
+  color: var(--text-secondary);
 }
 
 .contribList li::before {
   content: '—';
   position: absolute;
   left: 0;
-  color: var(--accent-red);
+  color: var(--text-main);
   font-weight: 700;
 }
 
@@ -227,7 +227,7 @@
   flex-wrap: wrap;
   gap: 1.5rem;
   padding-top: 1.75rem;
-  border-top: 1px solid var(--section-light-border);
+  border-top: 1px solid var(--border-light);
 }
 
 @media (max-width: 768px) {
@@ -252,7 +252,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--section-light-muted);
+  color: var(--text-secondary);
 }
 
 .stackPills {
@@ -269,8 +269,8 @@
   text-transform: uppercase;
   padding: 0.3rem 0.75rem;
   border-radius: 2px;
-  background-color: var(--section-light-bg);
-  border: 1px solid var(--section-light-border);
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-light);
   color: inherit;
 }
 
@@ -293,7 +293,7 @@
 
 /* Next Banner */
 .nextBanner {
-  background-color: #0c0c0c;
+  background-color: var(--bg-card);
   border-radius: 4px;
   padding: 3.5rem;
   color: #ffffff;

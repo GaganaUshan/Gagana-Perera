@@ -79,7 +79,7 @@ export default function AboutPage() {
             <div className={styles.portraitBox}>
               <div className={styles.imageWrapper}>
                 <Image
-                  src="/gagana-portrait.jpg"
+                  src="/gagana-cutout.png"
                   alt="Gagana Yushan Perera"
                   width={500}
                   height={500}
@@ -248,11 +248,17 @@ export default function AboutPage() {
             </div>
 
             <div className={styles.ambitionActions}>
-              <Link href="/experience" className="btn-primary" style={{ width: "100%" }}>
-                EXPLORE PROFESSIONAL EXPERIENCE <ArrowRight size={16} />
+              <Link href="/experience" className="btn-pill-primary" style={{ width: "100%", justifyContent: "center" }}>
+                <span>Explore Professional Experience</span>
+                <span className="btn-pill-icon-cap">
+                  <ArrowRight size={14} />
+                </span>
               </Link>
-              <Link href="/contact" className="btn-outline" style={{ width: "100%" }}>
-                GET IN TOUCH FOR OPPORTUNITIES
+              <Link href="/contact" className="btn-pill-secondary" style={{ width: "100%", justifyContent: "center" }}>
+                <span>Get in Touch for Opportunities</span>
+                <span className="btn-pill-secondary-icon">
+                  <ArrowRight size={14} />
+                </span>
               </Link>
             </div>
           </div>

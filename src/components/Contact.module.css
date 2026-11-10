@@ -1,6 +1,6 @@
 .contactGrid {
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr;
+  grid-template-columns: 1.35fr 0.85fr;
   gap: 4.5rem;
   align-items: flex-start;
 }
@@ -15,6 +15,14 @@
 .leftCol {
   display: flex;
   flex-direction: column;
+}
+
+.formDesc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 2.25rem;
+  max-width: 560px;
 }
 
 .form {
@@ -38,26 +46,26 @@
 .input,
 .textarea {
   width: 100%;
-  padding: 0.8rem 1rem;
-  background-color: var(--section-light-card);
-  border: 1px solid var(--section-light-border);
-  border-radius: 6px;
+  padding: 0.95rem 1.25rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
   font-family: inherit;
-  font-size: 0.88rem;
-  color: inherit;
+  font-size: 0.9rem;
+  color: var(--text-main);
   outline: none;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .input:focus,
 .textarea:focus {
-  border-color: rgba(229, 9, 20, 0.6);
-  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.08);
+  border-color: var(--border-strong);
+  box-shadow: 0 0 0 3px var(--tag-border);
 }
 
 .textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 130px;
 }
 
 /* Right Info List */
@@ -67,23 +75,32 @@
 }
 
 .infoCard {
-  background-color: var(--section-light-card);
-  border: 1px solid var(--section-light-border);
-  border-radius: 8px;
-  padding: 2rem 1.75rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 2.25rem 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
 
 .infoItem {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.15rem;
 }
 
-.infoIcon {
-  color: var(--accent-red);
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  color: var(--text-main);
   flex-shrink: 0;
 }
 
@@ -94,39 +111,40 @@
 }
 
 .infoLabel {
-  font-family: var(--font-display);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--section-light-muted);
+  color: var(--text-muted);
 }
 
 .infoValue {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  color: inherit;
+  color: var(--text-main);
   transition: color 0.2s ease;
 }
 
 .infoValue:hover {
-  color: var(--accent-red);
+  text-decoration: underline;
 }
 
 .copyBtn {
   width: 32px;
   height: 32px;
-  border: 1px solid var(--section-light-border);
-  border-radius: 6px;
+  border: 1px solid var(--border-light);
+  border-radius: 50%;
+  background-color: var(--tag-bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--section-light-muted);
+  color: var(--text-muted);
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .copyBtn:hover {
-  background-color: var(--section-light-text);
-  color: var(--section-light-bg);
-  border-color: var(--section-light-text);
+  background-color: var(--pill-primary-bg);
+  color: var(--pill-primary-text);
+  border-color: var(--pill-primary-bg);
 }

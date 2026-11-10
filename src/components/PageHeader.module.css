@@ -1,14 +1,14 @@
 .header {
-  padding-top: 8.5rem;
-  padding-bottom: 4rem;
-  background-color: #0c0c0c;
-  border-bottom: 1px solid var(--border-dark);
+  padding-top: 5rem;
+  padding-bottom: 3.5rem;
+  background-color: var(--bg-subtle);
+  border-bottom: 1px solid var(--border-light);
   position: relative;
 }
 
 @media (max-width: 768px) {
   .header {
-    padding-top: 7rem;
+    padding-top: 3.5rem;
     padding-bottom: 2.5rem;
   }
 }
@@ -22,56 +22,56 @@
 .breadcrumbBar {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  font-family: var(--font-display);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-bottom: 1.25rem;
 }
 
 .breadcrumbLink {
-  color: #888888;
+  color: var(--text-muted);
   transition: color 0.2s ease;
 }
 
 .breadcrumbLink:hover {
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .sep {
-  color: #444444;
+  color: var(--border-medium);
 }
 
 .current {
-  color: var(--accent-red);
+  color: var(--text-main);
+  background-color: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
 }
 
 .title {
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 6vw, 4.5rem);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-  color: #ffffff;
-  line-height: 1.05;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+  line-height: 1.1;
   margin-bottom: 0.75rem;
 }
 
 .subtitle {
-  font-family: var(--font-display);
-  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+  font-size: 0.95rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--accent-red);
+  color: var(--text-muted);
   margin-bottom: 1rem;
 }
 
 .description {
-  font-size: 1.02rem;
+  font-size: 1.05rem;
   line-height: 1.7;
-  color: #999999;
-  font-weight: 300;
+  color: var(--text-secondary);
 }

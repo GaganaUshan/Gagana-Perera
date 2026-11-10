@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Building2, Quote } from "lucide-react";
+import { ArrowRight, Briefcase, Quote } from "lucide-react";
 import styles from "./Experience.module.css";
 
 const experiences = [
@@ -34,34 +34,44 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section className="section-dark" id="experience">
+    <section className="section" id="experience">
       <div className="container">
-        {/* Section Meta */}
-        <div className="section-meta-top">
-          <span className="section-num">07</span>
-          <span className="section-category">EXPERIENCE &amp; IMPACT</span>
+        {/* Pill Badge */}
+        <div className="pill-badge">
+          <Briefcase className="pill-badge-icon" />
+          <span>Experience &amp; Leadership</span>
         </div>
 
         <div className={styles.headerRow}>
-          <h2 className="section-headline">Industry experience &amp; impact</h2>
-          <Link href="/experience" className={styles.viewResumeLink}>
-            <span>VIEW FULL RESUME &amp; AIESEC LEADERSHIP</span>
-            <ArrowRight size={14} />
+          <div>
+            <h2 className="headline-section">Industry experience &amp; impact</h2>
+            <p className={styles.headerDesc}>
+              A track record of coordinating projects, clarifying requirements, and driving creative output.
+            </p>
+          </div>
+
+          <Link href="/experience" className="btn-pill-secondary">
+            <span>View Full Journey &amp; AIESEC</span>
+            <span className="btn-pill-secondary-icon">
+              <ArrowRight size={14} />
+            </span>
           </Link>
         </div>
 
-        {/* 3 Experience Cards with Red Quotes */}
+        {/* 3 Experience Cards */}
         <div className={styles.cardsGrid}>
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
               className={styles.expCard}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.45, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className={styles.quoteIcon}>“</div>
+              <div className={styles.quoteIconWrap}>
+                <Quote size={20} />
+              </div>
 
               <p className={styles.expQuote}>{exp.quote}</p>
 

@@ -1,0 +1,258 @@
+/* Curved Arch / Dial Line (from Havenly Reference) */
+.arcContainer {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.arcDialLine {
+  width: 100%;
+  height: 60px;
+  border-top: 1px dashed var(--border-medium);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  opacity: 0.6;
+}
+
+/* Carousel Section */
+.carouselWrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 5rem;
+  padding: 0 1rem;
+}
+
+.controlsRow {
+  max-width: 1220px;
+  margin: 0 auto 1.25rem;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.carouselHint {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.navButtons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navArrowBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  color: var(--text-main);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.navArrowBtn:hover {
+  background-color: var(--pill-primary-bg);
+  color: var(--pill-primary-text);
+  border-color: var(--pill-primary-bg);
+  transform: translateY(-1px);
+}
+
+/* Continuous Marquee Track */
+.carouselTrack {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0.5rem 0 1rem;
+}
+
+.carouselTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.paused {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}
+
+/* Individual Carousel Card */
+.cardItem {
+  width: 320px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cardItem:hover {
+  border-color: var(--border-medium);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.09);
+}
+
+.cardVisualBox {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: var(--bg-subtle);
+}
+
+.cardImage {
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: contrast(105%) grayscale(25%);
+}
+
+.cardItem:hover .cardImage {
+  transform: scale(1.05);
+  filter: contrast(108%) grayscale(0%);
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cardTag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.65rem;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.cardInfo {
+  padding: 1.25rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.cardTitle {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.cardSub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Center Content Block (Havenly Style) */
+.centerContentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centerBlock {
+  max-width: 680px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.centerDescription {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+/* 4-Stat Metrics Row (Havenly Style) */
+.metricsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  width: 100%;
+  padding-top: 3.5rem;
+  border-top: 1px solid var(--border-light);
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .metricsRow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .metricsRow {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.metricItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.metricNumber {
+  font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.metricLabel {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+.metricSub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}

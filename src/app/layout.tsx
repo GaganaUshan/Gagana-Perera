@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ChatbotButton } from '@/components/ChatbotButton';
+import { CustomCursor } from '@/components/CustomCursor';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://gagana-perera.vercel.app'),
@@ -36,9 +37,9 @@ export const metadata: Metadata = {
     siteName: 'Gagana Yushan Perera Portfolio',
     images: [
       {
-        url: '/gagana-portrait.jpg',
-        width: 808,
-        height: 808,
+        url: '/gagana-cutout.png',
+        width: 1024,
+        height: 1024,
         alt: 'Gagana Yushan Perera',
       },
     ],
@@ -65,6 +66,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ThemeProvider>
+          <CustomCursor />
           <Navbar />
           {children}
           <Footer />

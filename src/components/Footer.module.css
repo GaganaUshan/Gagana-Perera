@@ -1,8 +1,7 @@
 .footer {
-  background-color: #080808;
-  color: #ffffff;
+  background-color: var(--bg-subtle);
+  border-top: 1px solid var(--border-light);
   padding: 5rem 0 2.5rem;
-  border-top: 1px solid var(--border-dark);
 }
 
 .footerContainer {
@@ -37,40 +36,57 @@
 }
 
 .logo {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 700;
-  color: #ffffff;
   display: inline-flex;
-  align-items: baseline;
+  align-items: center;
+  gap: 0.45rem;
   margin-bottom: 1.25rem;
 }
 
 .logoDot {
-  color: var(--accent-red);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--text-main);
+}
+
+.logoText {
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
 }
 
 .brandTagline {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   line-height: 1.7;
-  color: #888888;
+  color: var(--text-secondary);
   margin-bottom: 1.75rem;
-  max-width: 340px;
+  max-width: 320px;
 }
 
 .socialsRow {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 0.85rem;
 }
 
 .socialLink {
-  color: #999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  color: var(--text-main);
   transition: all 0.2s ease;
 }
 
 .socialLink:hover {
-  color: var(--accent-red);
+  background-color: var(--pill-primary-bg);
+  color: var(--pill-primary-text);
+  border-color: var(--pill-primary-bg);
   transform: translateY(-2px);
 }
 
@@ -80,29 +96,28 @@
 }
 
 .colHeading {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #ffffff;
-  margin-bottom: 1.5rem;
+  color: var(--text-main);
+  margin-bottom: 1.25rem;
 }
 
 .linksList {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 0.75rem;
 }
 
 .linksList a {
   font-size: 0.88rem;
-  color: #888888;
+  color: var(--text-secondary);
   transition: color 0.2s ease;
 }
 
 .linksList a:hover {
-  color: var(--accent-red);
+  color: var(--text-main);
 }
 
 .bottomBar {
@@ -110,29 +125,38 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 2rem;
-  border-top: 1px solid var(--border-dark);
+  border-top: 1px solid var(--border-light);
   flex-wrap: wrap;
   gap: 1rem;
 }
 
 .copyright {
   font-size: 0.82rem;
-  color: #666666;
+  color: var(--text-muted);
 }
 
 .topBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #888888;
-  transition: color 0.2s ease;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  background-color: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  color: var(--text-main);
+  font-size: 0.76rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .topBtn:hover {
-  color: var(--accent-red);
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-medium);
+}
+
+.topBtnArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

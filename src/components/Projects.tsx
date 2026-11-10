@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Layers, GitBranch } from "lucide-react";
+import { ArrowRight, FolderGit2, ExternalLink } from "lucide-react";
 import styles from "./Projects.module.css";
 
 const projectsData = [
@@ -12,20 +12,20 @@ const projectsData = [
     title: "MillionSpaces",
     subtitle: "Enterprise Property Tech Platform",
     category: "PROFESSIONAL",
-    categoryLabel: "Property Technology",
+    categoryLabel: "Property Tech • Enterprise",
     role: "Project Coordinator & BA Intern",
-    desc: "Digital property booking platform where I contribute to requirement clarification, sprint tasks, and stakeholder delivery.",
+    desc: "Digital commercial property platform where I coordinate sprint tasks, clarify stakeholder requirements, and support delivery.",
     stack: ["Java Spring Boot", "React.js", "AWS", "Jira"],
     link: "/works"
   },
   {
     id: "study-bridge",
     title: "Study Bridge",
-    subtitle: "Student Migration & University System",
+    subtitle: "Student Migration & University Platform",
     category: "ACADEMIC",
-    categoryLabel: "Academic Project • Team Lead",
+    categoryLabel: "Academic • Team Lead",
     role: "Team Lead & Full-Stack Developer",
-    desc: "Student migration management platform connecting students with global universities, featuring an Examination Management System.",
+    desc: "Web platform connecting students with global universities, featuring an Examination Management System.",
     stack: ["MongoDB", "Express.js", "React.js", "Node.js"],
     link: "/works"
   },
@@ -36,8 +36,8 @@ const projectsData = [
     category: "ACADEMIC",
     categoryLabel: "AI & Productivity",
     role: "Project Manager & Frontend Developer",
-    desc: "Intelligent email application engineered to categorize, summarize, and prioritize inbox correspondence using modern AI.",
-    stack: ["Next.js", "ShadCN UI", "MongoDB", "Stripe"],
+    desc: "Intelligent email application engineered to summarize, categorize, and prioritize inbox correspondence using modern AI.",
+    stack: ["Next.js", "Tailwind CSS", "MongoDB", "Stripe"],
     link: "/works"
   },
   {
@@ -45,19 +45,19 @@ const projectsData = [
     title: "Smart CV Analyzer",
     subtitle: "AI Career Diagnostics Tool",
     category: "PERSONAL",
-    categoryLabel: "AI & Career Technology",
+    categoryLabel: "AI & Career Tech",
     role: "Creator & Developer",
-    desc: "Automated career application evaluating CVs against industry requirements, calculating match scores and pinpointing skill gaps.",
-    stack: ["React", "Python", "NLP / AI", "REST API"],
+    desc: "Web tool evaluating CVs against target industries, calculating match scores and pinpointing skill gaps.",
+    stack: ["React.js", "Python", "NLP / AI", "REST API"],
     link: "/works"
   }
 ];
 
 const filterTabs = [
-  { key: "ALL", label: "ALL" },
-  { key: "PROFESSIONAL", label: "PROFESSIONAL" },
-  { key: "ACADEMIC", label: "ACADEMIC & AI" },
-  { key: "PERSONAL", label: "PERSONAL" },
+  { key: "ALL", label: "All Projects" },
+  { key: "PROFESSIONAL", label: "Professional" },
+  { key: "ACADEMIC", label: "Academic & AI" },
+  { key: "PERSONAL", label: "Personal" },
 ];
 
 export function Projects() {
@@ -69,34 +69,41 @@ export function Projects() {
   });
 
   return (
-    <section className="section-dark" id="work">
+    <section className="section" id="work">
       <div className="container">
-        {/* Section Meta */}
-        <div className="section-meta-top">
-          <span className="section-num">05</span>
-          <span className="section-category">SELECTED WORK</span>
+        {/* Pill Badge */}
+        <div className="pill-badge">
+          <FolderGit2 className="pill-badge-icon" />
+          <span>Selected Work</span>
         </div>
 
-        {/* Header & Filter Row */}
+        {/* Top Header & Filter Pill Row */}
         <div className={styles.topRow}>
-          <h2 className="section-headline">Featured Projects</h2>
+          <div>
+            <h2 className="headline-section">Featured digital solutions</h2>
+            <p className={styles.topDesc}>
+              A selection of enterprise, academic, and AI products I&apos;ve coordinated and built.
+            </p>
+          </div>
 
           <div className={styles.filterAndLink}>
-            <div className={styles.tabsRow}>
+            <div className={styles.tabsPillGroup}>
               {filterTabs.map((tab) => (
                 <button
                   key={tab.key}
                   onClick={() => setActiveTab(tab.key)}
-                  className={`${styles.tabBtn} ${activeTab === tab.key ? styles.tabActive : ""}`}
+                  className={`${styles.tabPill} ${activeTab === tab.key ? styles.tabActive : ""}`}
                 >
                   {tab.label}
                 </button>
               ))}
             </div>
 
-            <Link href="/works" className={styles.viewAllBtn}>
-              <span>VIEW ALL PROJECTS</span>
-              <ArrowRight size={14} />
+            <Link href="/works" className="btn-pill-secondary">
+              <span>View All Projects</span>
+              <span className="btn-pill-secondary-icon">
+                <ArrowRight size={14} />
+              </span>
             </Link>
           </div>
         </div>
@@ -107,9 +114,9 @@ export function Projects() {
             <motion.div
               key={project.id}
               className={styles.projectCard}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.45, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className={styles.cardVisual}>
@@ -120,22 +127,27 @@ export function Projects() {
               </div>
 
               <div className={styles.cardInfo}>
-                <div>
+                <div className={styles.infoTop}>
                   <h3 className={styles.cardTitle}>{project.title}</h3>
-                  <span className={styles.cardCategory}>{project.categoryLabel}</span>
+                  <span className={styles.cardRole}>{project.role}</span>
                 </div>
 
-                <Link href={project.link} className={styles.cardArrow} aria-label={`View ${project.title}`}>
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
+                <p className={styles.cardDesc}>{project.desc}</p>
 
-              <div className={styles.stackRow}>
-                {project.stack.map((tech) => (
-                  <span key={tech} className={styles.stackTag}>
-                    {tech}
+                <div className={styles.stackRow}>
+                  {project.stack.map((tech) => (
+                    <span key={tech} className={styles.stackTag}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <Link href={project.link} className={styles.cardLink}>
+                  <span>Explore Project</span>
+                  <span className={styles.linkArrow}>
+                    <ArrowRight size={13} />
                   </span>
-                ))}
+                </Link>
               </div>
             </motion.div>
           ))}

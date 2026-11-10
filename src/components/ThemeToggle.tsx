@@ -12,20 +12,12 @@ export function ThemeToggle() {
       onClick={toggleTheme}
       className={styles.toggleBtn}
       aria-label="Toggle theme mode"
-      title={theme === "hybrid" ? "Switch to Full Dark Mode" : "Switch to Editorial Theme"}
+      title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
     >
-      {theme === "hybrid" ? (
-        <span className={styles.btnContent}>
-          <Moon size={15} />
-          <span className={styles.btnText}>Dark</span>
-        </span>
-      ) : (
-        <span className={styles.btnContent}>
-          <Sun size={15} />
-          <span className={styles.btnText}>Light</span>
-        </span>
-      )}
+      <div className={styles.iconWrap}>
+        {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
+      </div>
+      <span className={styles.btnText}>{theme === "dark" ? "Light" : "Dark"}</span>
     </button>
   );
 }
-
