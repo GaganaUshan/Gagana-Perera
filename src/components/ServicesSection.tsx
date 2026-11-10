@@ -58,20 +58,20 @@ export function ServicesSection() {
               <motion.div
                 key={index}
                 className={styles.serviceCol}
-                initial={{ opacity: 0, y: 25 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.45, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
               >
                 <div className={styles.iconWrap}>
-                  <Icon size={28} className={styles.icon} />
+                  <Icon size={24} className={styles.icon} strokeWidth={1.75} />
                 </div>
 
                 <h3 className={styles.serviceTitle}>{item.title}</h3>
                 <p className={styles.serviceDesc}>{item.desc}</p>
 
                 <Link href={item.link} className={styles.serviceArrow} aria-label={`Read more about ${item.title}`}>
-                  <ArrowRight size={18} />
+                  <ArrowRight size={16} />
                 </Link>
               </motion.div>
             );

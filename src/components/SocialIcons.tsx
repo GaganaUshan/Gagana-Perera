@@ -38,3 +38,4 @@ export function GitHubIcon({ size = 18, className = "" }: { size?: number; class
     </svg>
   );
 }
+

@@ -53,13 +53,13 @@ export function StatsSection() {
               <motion.div
                 key={index}
                 className={styles.statCard}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.45, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
               >
                 <div className={styles.iconWrap}>
-                  <Icon size={28} />
+                  <Icon size={24} strokeWidth={1.75} />
                 </div>
                 <span className={styles.statNumber}>{stat.number}</span>
                 <span className={styles.statLabel}>{stat.label}</span>
@@ -72,3 +72,4 @@ export function StatsSection() {
     </section>
   );
 }
+

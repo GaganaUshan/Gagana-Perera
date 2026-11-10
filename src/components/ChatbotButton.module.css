@@ -1,30 +1,57 @@
 .chatWrapper {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 50;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: 99;
 }
 
-.chatBtn {
-  display: flex;
+.chatLink {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  background: var(--accent-red);
-  color: #ffffff;
-  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.4);
+  gap: 0.55rem;
+  padding: 0.55rem 1rem;
+  background-color: rgba(18, 18, 18, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #f0f0f0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
 }
 
-.chatBtn:hover {
-  background: var(--accent-red-hover);
-  box-shadow: 0 14px 30px rgba(229, 9, 20, 0.55);
+.chatLink:hover {
+  background-color: rgba(26, 26, 26, 0.95);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+.chatLink:active {
+  transform: translateY(0);
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+  flex-shrink: 0;
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
+  color: #e50914;
+  flex-shrink: 0;
+}
+
+.chatLabel {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #f0f0f0;
 }

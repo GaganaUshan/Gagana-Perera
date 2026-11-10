@@ -79,10 +79,10 @@ export default function AboutPage() {
             <div className={styles.portraitBox}>
               <div className={styles.imageWrapper}>
                 <Image
-                  src="/gagana-hero.png"
+                  src="/gagana-portrait.jpg"
                   alt="Gagana Yushan Perera"
                   width={500}
-                  height={650}
+                  height={500}
                   className={styles.portrait}
                   priority
                 />

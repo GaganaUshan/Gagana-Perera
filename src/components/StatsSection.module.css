@@ -20,18 +20,18 @@
 .statCard {
   background-color: var(--section-light-card);
   border: 1px solid var(--section-light-border);
-  border-radius: 4px;
-  padding: 2.5rem 1.75rem;
+  border-radius: 8px;
+  padding: 2.25rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: all 0.25s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .statCard:hover {
-  border-color: var(--accent-red);
-  transform: translateY(-4px);
+  border-color: rgba(229, 9, 20, 0.4);
+  transform: translateY(-2px);
 }
 
 .iconWrap {
@@ -64,3 +64,4 @@
   font-size: 0.78rem;
   color: var(--section-light-muted);
 }
+

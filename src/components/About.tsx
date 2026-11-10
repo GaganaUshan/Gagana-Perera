@@ -21,10 +21,10 @@ export function About() {
           {/* Left: Punchy Headline */}
           <motion.div
             className={styles.headlineCol}
-            initial={{ opacity: 0, x: -25 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
           >
             <h2 className={styles.mainTitle}>
               Crafting ideas into meaningful, practical solutions.
@@ -39,18 +39,18 @@ export function About() {
           {/* Center: Framed Portrait */}
           <motion.div
             className={styles.photoCol}
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.45, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className={styles.photoCard}>
               <div className={styles.photoBox}>
                 <Image
-                  src="/gagana-hero.png"
+                  src="/gagana-portrait.jpg"
                   alt="Gagana Yushan Perera"
-                  width={340}
-                  height={420}
+                  width={400}
+                  height={400}
                   className={styles.photo}
                 />
               </div>
@@ -60,10 +60,10 @@ export function About() {
           {/* Right: Bio Prose & Signature & CTA */}
           <motion.div
             className={styles.proseCol}
-            initial={{ opacity: 0, x: 25 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.45, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
           >
             <p className={styles.bioText}>
               I&apos;m Gagana Yushan Perera, an Information Technology undergraduate at the Sri Lanka Institute of Information Technology (SLIIT). My journey uniquely intersects technical knowledge, project coordination, business analysis, and creative design experience.

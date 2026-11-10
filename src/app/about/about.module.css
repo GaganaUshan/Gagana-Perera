@@ -21,18 +21,20 @@
 
 .portraitBox {
   background-color: #0c0c0c;
-  padding: 1rem;
-  border-radius: 4px;
+  padding: 0.85rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
 .imageWrapper {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
+  border-radius: 6px;
   background-color: #1a1a1a;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
 }
 
@@ -40,7 +42,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;
+  object-position: center 20%;
 }
 
 .portraitMeta {

@@ -86,22 +86,22 @@
 .projectCard {
   background-color: var(--bg-dark-card);
   border: 1px solid var(--border-dark);
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .projectCard:hover {
-  border-color: var(--accent-red);
-  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-2px);
 }
 
 .cardVisual {
   width: 100%;
   aspect-ratio: 16 / 11;
-  background: linear-gradient(135deg, #222222 0%, #111111 100%);
+  background: linear-gradient(135deg, #181818 0%, #0e0e0e 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -136,49 +136,50 @@
 }
 
 .cardInfo {
-  padding: 1.5rem;
+  padding: 1.25rem 1.25rem 0.75rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .cardTitle {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
 .cardCategory {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: #888888;
 }
 
 .cardArrow {
-  color: var(--accent-red);
+  color: #777777;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .projectCard:hover .cardArrow {
-  transform: translateX(4px);
+  color: var(--accent-red);
+  transform: translateX(3px);
 }
 
 .stackRow {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  padding: 0 1.5rem 1.5rem;
+  gap: 0.35rem;
+  padding: 0 1.25rem 1.25rem;
 }
 
 .stackTag {
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 0.25rem 0.6rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #bbbbbb;
-  border-radius: 2px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: #a8a8a8;
+  border-radius: 4px;
 }

@@ -2,23 +2,28 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.45rem 0.85rem;
-  border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  font-size: 0.78rem;
-  font-weight: 700;
+  padding: 0.42rem 0.8rem;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #c0c0c0;
+  font-size: 0.76rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  transition: all 0.25s ease;
+  letter-spacing: 0.04em;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 
 .toggleBtn:hover {
-  background-color: var(--accent-red);
-  border-color: var(--accent-red);
+  background-color: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.28);
   color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.toggleBtn:active {
+  transform: translateY(0);
 }
 
 .btnContent {

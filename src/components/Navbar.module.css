@@ -77,23 +77,25 @@
 .talkBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1.15rem;
-  font-family: var(--font-display);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  gap: 0.45rem;
+  padding: 0.46rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 2px;
-  transition: all 0.25s ease;
+  color: #ededed;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .talkBtn:hover {
-  border-color: var(--accent-red);
-  background-color: var(--accent-red);
+  border-color: rgba(255, 255, 255, 0.38);
+  background-color: rgba(255, 255, 255, 0.09);
   color: #ffffff;
+  transform: translateY(-1px);
 }
 
 .arrowIcon {
@@ -101,7 +103,7 @@
 }
 
 .talkBtn:hover .arrowIcon {
-  transform: translateX(3px);
+  transform: translateX(2px);
 }
 
 @media (max-width: 600px) {

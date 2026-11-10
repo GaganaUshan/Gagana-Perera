@@ -36,9 +36,9 @@ export const metadata: Metadata = {
     siteName: 'Gagana Yushan Perera Portfolio',
     images: [
       {
-        url: '/gagana-hero.png',
-        width: 1200,
-        height: 630,
+        url: '/gagana-portrait.jpg',
+        width: 808,
+        height: 808,
         alt: 'Gagana Yushan Perera',
       },
     ],
